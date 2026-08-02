@@ -1,0 +1,161 @@
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" font-family="Segoe UI, system-ui, sans-serif">
+  <rect width="1280" height="800" fill="#1e2320"/>
+
+  <!-- top bar -->
+  <text x="32" y="40" fill="#e6e4dc" font-size="20" font-weight="600">Carbon Market Intelligence</text>
+  <text x="300" y="40" fill="#98a29a" font-size="13">Demand analytics · voluntary &amp; compliance</text>
+  <text x="900" y="40" fill="#98a29a" font-size="12">OffsetsDB · Verra · Gold Standard · ACR · ART · CER</text>
+
+  <!-- nav row -->
+  <g font-size="13">
+    <text x="32" y="86" fill="#98a29a">Prospects</text>
+    <text x="120" y="86" fill="#98a29a">Projects</text>
+    <text x="196" y="86" fill="#98a29a">Database</text>
+    <text x="286" y="86" fill="#e6e4dc" font-weight="600">Analytics</text>
+    <rect x="286" y="94" width="62" height="2" fill="#8a9c28"/>
+    <text x="368" y="86" fill="#98a29a">Intelligence</text>
+  </g>
+
+  <!-- KPI tiles -->
+  <g>
+    <rect x="32" y="120" width="292" height="100" rx="12" fill="#242a26" stroke="#2c332e"/>
+    <text x="56" y="152" fill="#98a29a" font-size="12" letter-spacing="1">CREDITS RETIRED (2025)</text>
+    <text x="56" y="190" fill="#e6e4dc" font-size="30" font-weight="600">168 <tspan font-size="15" fill="#98a29a">Mt CO₂e</tspan></text>
+    <text x="56" y="210" fill="#98a29a" font-size="12">▼ 2.3% vs 2024</text>
+
+    <rect x="340" y="120" width="292" height="100" rx="12" fill="#242a26" stroke="#2c332e"/>
+    <text x="364" y="152" fill="#98a29a" font-size="12" letter-spacing="1">PROJECTS TRACKED</text>
+    <text x="364" y="190" fill="#e6e4dc" font-size="30" font-weight="600">11,659</text>
+    <text x="364" y="210" fill="#98a29a" font-size="12">across 5 registries</text>
+
+    <rect x="648" y="120" width="292" height="100" rx="12" fill="#242a26" stroke="#2c332e"/>
+    <text x="672" y="152" fill="#98a29a" font-size="12" letter-spacing="1">BUYERS PROFILED</text>
+    <text x="672" y="190" fill="#e6e4dc" font-size="30" font-weight="600">8,900+</text>
+    <text x="672" y="210" fill="#98a29a" font-size="12">with retirement signals</text>
+
+    <rect x="956" y="120" width="292" height="100" rx="12" fill="#242a26" stroke="#2c332e"/>
+    <text x="980" y="152" fill="#98a29a" font-size="12" letter-spacing="1">ACCU SURRENDERS (AU)</text>
+    <text x="980" y="190" fill="#e6e4dc" font-size="30" font-weight="600">8.9 <tspan font-size="15" fill="#98a29a">Mt</tspan></text>
+    <text x="980" y="210" fill="#98a29a" font-size="12">Safeguard 2024–25</text>
+  </g>
+
+  <!-- demand by project type -->
+  <rect x="32" y="244" width="608" height="296" rx="12" fill="#242a26" stroke="#2c332e"/>
+  <text x="56" y="278" fill="#e6e4dc" font-size="14" font-weight="600">Demand by project type <tspan fill="#98a29a" font-weight="400">· Mt CO₂e retired</tspan></text>
+  <g font-size="12">
+    <text x="56" y="320" fill="#e6e4dc">Renewable energy</text>
+    <text x="56" y="356" fill="#e6e4dc">Forestry &amp; land use</text>
+    <text x="56" y="392" fill="#98a29a">Cookstoves</text>
+    <text x="56" y="428" fill="#98a29a">REDD+</text>
+    <text x="56" y="464" fill="#98a29a">Landfill gas</text>
+    <text x="56" y="500" fill="#98a29a">Biochar</text>
+  </g>
+  <g>
+    <path d="M200,309 L596,309 Q600,309 600,313 L600,319 Q600,323 596,323 L200,323 Z" fill="#8a9c28"/>
+    <path d="M200,345 L550,345 Q554,345 554,349 L554,355 Q554,359 550,359 L200,359 Z" fill="#8a9c28"/>
+    <path d="M200,381 L388,381 Q392,381 392,385 L392,391 Q392,395 388,395 L200,395 Z" fill="#4a544e"/>
+    <path d="M200,417 L361,417 Q365,417 365,421 L365,427 Q365,431 361,431 L200,431 Z" fill="#4a544e"/>
+    <path d="M200,453 L268,453 Q272,453 272,457 L272,463 Q272,467 268,467 L200,467 Z" fill="#4a544e"/>
+    <path d="M200,489 L237,489 Q241,489 241,493 L241,499 Q241,503 237,503 L200,503 Z" fill="#4a544e"/>
+  </g>
+  <g font-size="11" fill="#98a29a">
+    <text x="610" y="320" fill="#e6e4dc" font-weight="600">42.8</text>
+    <text x="564" y="356" fill="#e6e4dc" font-weight="600">38.1</text>
+    <text x="402" y="392">21.6</text>
+    <text x="375" y="428">18.9</text>
+    <text x="282" y="464">9.4</text>
+    <text x="251" y="500">4.2</text>
+  </g>
+
+  <!-- retirements by year (stacked) -->
+  <rect x="656" y="244" width="592" height="296" rx="12" fill="#242a26" stroke="#2c332e"/>
+  <text x="680" y="278" fill="#e6e4dc" font-size="14" font-weight="600">Retirements by year <tspan fill="#98a29a" font-weight="400">· Mt CO₂e</tspan></text>
+  <g font-size="11">
+    <circle cx="1074" cy="274" r="4" fill="#8a9c28"/><text x="1084" y="278" fill="#e6e4dc">Removals</text>
+    <circle cx="1160" cy="274" r="4" fill="#3a86c8"/><text x="1170" y="278" fill="#e6e4dc">Avoidance</text>
+  </g>
+  <g stroke="#e6e4dc" stroke-opacity="0.07">
+    <line x1="710" y1="500" x2="1216" y2="500"/>
+    <line x1="710" y1="452" x2="1216" y2="452"/>
+    <line x1="710" y1="404" x2="1216" y2="404"/>
+    <line x1="710" y1="357" x2="1216" y2="357"/>
+  </g>
+  <g fill="#98a29a" font-size="10" text-anchor="end">
+    <text x="704" y="504">0</text>
+    <text x="704" y="456">50</text>
+    <text x="704" y="408">100</text>
+    <text x="704" y="361">150</text>
+  </g>
+  <g>
+    <!-- 2020 -->
+    <rect x="716" y="421" width="52" height="79" fill="#3a86c8"/>
+    <path d="M716,419 L716,412 Q716,408 720,408 L764,408 Q768,408 768,412 L768,419 Z" fill="#8a9c28"/>
+    <!-- 2021 -->
+    <rect x="802" y="373" width="52" height="127" fill="#3a86c8"/>
+    <path d="M802,371 L802,354 Q802,350 806,350 L850,350 Q854,350 854,354 L854,371 Z" fill="#8a9c28"/>
+    <!-- 2022 -->
+    <rect x="888" y="360" width="52" height="140" fill="#3a86c8"/>
+    <path d="M888,358 L888,332 Q888,328 892,328 L936,328 Q940,328 940,332 L940,358 Z" fill="#8a9c28"/>
+    <!-- 2023 -->
+    <rect x="974" y="380" width="52" height="120" fill="#3a86c8"/>
+    <path d="M974,378 L974,346 Q974,342 978,342 L1022,342 Q1026,342 1026,346 L1026,378 Z" fill="#8a9c28"/>
+    <!-- 2024 -->
+    <rect x="1060" y="382" width="52" height="118" fill="#3a86c8"/>
+    <path d="M1060,380 L1060,338 Q1060,334 1064,334 L1108,334 Q1112,334 1112,338 L1112,380 Z" fill="#8a9c28"/>
+    <!-- 2025 -->
+    <rect x="1146" y="393" width="52" height="107" fill="#3a86c8"/>
+    <path d="M1146,391 L1146,342 Q1146,338 1150,338 L1194,338 Q1198,338 1198,342 L1198,391 Z" fill="#8a9c28"/>
+  </g>
+  <g fill="#e6e4dc" font-size="11" text-anchor="middle" font-weight="600">
+    <text x="742" y="398">95</text>
+    <text x="828" y="340">155</text>
+    <text x="914" y="318">178</text>
+    <text x="1000" y="332">164</text>
+    <text x="1086" y="324">172</text>
+    <text x="1172" y="328">168</text>
+  </g>
+  <g fill="#98a29a" font-size="11" text-anchor="middle">
+    <text x="742" y="520">2020</text>
+    <text x="828" y="520">2021</text>
+    <text x="914" y="520">2022</text>
+    <text x="1000" y="520">2023</text>
+    <text x="1086" y="520">2024</text>
+    <text x="1172" y="520">2025</text>
+  </g>
+
+  <!-- removals vs avoidance donut -->
+  <rect x="32" y="564" width="380" height="204" rx="12" fill="#242a26" stroke="#2c332e"/>
+  <text x="56" y="598" fill="#e6e4dc" font-size="14" font-weight="600">Removals vs avoidance</text>
+  <g transform="rotate(-90 128 684)">
+    <circle cx="128" cy="684" r="56" fill="none" stroke="#8a9c28" stroke-width="24" stroke-dasharray="116 236"/>
+    <circle cx="128" cy="684" r="56" fill="none" stroke="#3a86c8" stroke-width="24" stroke-dasharray="232 120" stroke-dashoffset="-120"/>
+  </g>
+  <text x="128" y="682" fill="#e6e4dc" font-size="19" font-weight="600" text-anchor="middle">168 Mt</text>
+  <text x="128" y="698" fill="#98a29a" font-size="10" text-anchor="middle">retired 2025</text>
+  <g font-size="12">
+    <circle cx="228" cy="662" r="5" fill="#8a9c28"/><text x="240" y="666" fill="#e6e4dc">Removals</text><text x="240" y="682" fill="#98a29a">33% · rising</text>
+    <circle cx="228" cy="714" r="5" fill="#3a86c8"/><text x="240" y="718" fill="#e6e4dc">Avoidance</text><text x="240" y="734" fill="#98a29a">67%</text>
+  </g>
+
+  <!-- demand by source country -->
+  <rect x="428" y="564" width="820" height="204" rx="12" fill="#242a26" stroke="#2c332e"/>
+  <text x="452" y="598" fill="#e6e4dc" font-size="14" font-weight="600">Demand by source country <tspan fill="#98a29a" font-weight="400">· Mt CO₂e</tspan></text>
+  <g font-size="12" fill="#e6e4dc">
+    <text x="452" y="637">India</text>
+    <text x="452" y="672">Brazil</text>
+    <text x="452" y="707">United States</text>
+    <text x="452" y="742">Indonesia</text>
+  </g>
+  <g>
+    <path d="M600,626 L1126,626 Q1130,626 1130,630 L1130,636 Q1130,640 1126,640 L600,640 Z" fill="#8a9c28"/>
+    <path d="M600,661 L1027,661 Q1031,661 1031,665 L1031,671 Q1031,675 1027,675 L600,675 Z" fill="#8a9c28"/>
+    <path d="M600,696 L929,696 Q933,696 933,700 L933,706 Q933,710 929,710 L600,710 Z" fill="#8a9c28"/>
+    <path d="M600,731 L832,731 Q836,731 836,735 L836,741 Q836,745 832,745 L600,745 Z" fill="#8a9c28"/>
+  </g>
+  <g font-size="11" fill="#98a29a">
+    <text x="1140" y="637">31.2</text>
+    <text x="1041" y="672">24.8</text>
+    <text x="943" y="707">18.4</text>
+    <text x="846" y="742">12.1</text>
+  </g>
+</svg>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,50&family=Schibsted+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark}
+*{margin:0;padding:0;box-sizing:border-box}
+body{width:1200px;height:630px;background:#0c110e;color:#f2efe7;
+     font-family:"Schibsted Grotesk",sans-serif;position:relative;overflow:hidden;
+     display:flex;flex-direction:column;justify-content:center;padding:0 80px;
+     -webkit-print-color-adjust:exact}
+.glow{position:absolute;width:760px;height:760px;border-radius:50%;right:-220px;top:-260px;
+      background:radial-gradient(circle,rgba(216,243,78,.16),transparent 65%)}
+.rings{position:absolute;right:-60px;top:50%;transform:translateY(-50%);width:560px;height:560px}
+.rings circle{fill:none;stroke:#d8f34e}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:19px;letter-spacing:.2em;
+         text-transform:uppercase;color:#d8f34e;font-weight:600;position:relative;z-index:2}
+.eyebrow::before{content:"";width:52px;height:2px;background:#d8f34e}
+h1{font-family:"Fraunces",serif;font-size:112px;font-weight:400;line-height:1;margin:28px 0 26px;
+   letter-spacing:-.02em;position:relative;z-index:2}
+h1 i{color:#d8f34e;font-style:italic}
+p{font-size:25px;color:#b8b5ab;max-width:20ch;line-height:1.45;position:relative;z-index:2}
+</style></head><body>
+<div class="glow"></div>
+<svg class="rings" viewBox="0 0 560 560">
+  <circle cx="280" cy="280" r="255" stroke-opacity=".16" stroke-width="1.5"/>
+  <circle cx="280" cy="280" r="205" stroke-opacity=".3" stroke-width="4" stroke-dasharray="230 120"/>
+  <circle cx="280" cy="280" r="160" stroke-opacity=".14" stroke-width="1.5" stroke-dasharray="5 9"/>
+  <circle cx="280" cy="280" r="115" stroke-opacity=".42" stroke-width="6" stroke-dasharray="150 210"/>
+  <circle cx="280" cy="280" r="70" stroke-opacity=".2" stroke-width="2" stroke-dasharray="60 40"/>
+  <circle cx="280" cy="25" r="7" fill="#d8f34e" stroke="none"/>
+  <circle cx="440" cy="390" r="5" fill="#d8f34e" stroke="none" fill-opacity=".8"/>
+  <circle cx="150" cy="180" r="4" fill="#d8f34e" stroke="none" fill-opacity=".6"/>
+</svg>
+<p class="eyebrow">Data · Systems · AI</p>
+<h1>Angus Harman<i>.</i></h1>
+<p>Associate Director &amp; Chartered Accountant — live tools, dashboards and the track record behind them.</p>
+</body></html>

@@ -1,0 +1,20 @@
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" font-family="Georgia, serif">
+  <rect width="1280" height="800" fill="#131a16"/>
+  <!-- wave motif -->
+  <g fill="none" stroke="#3a86c8" stroke-width="2">
+    <path d="M0,560 C160,530 320,590 480,560 C640,530 800,590 960,560 C1120,530 1280,590 1440,560" stroke-opacity=".5"/>
+    <path d="M0,610 C160,580 320,640 480,610 C640,580 800,640 960,610 C1120,580 1280,640 1440,610" stroke-opacity=".35"/>
+    <path d="M0,660 C160,630 320,690 480,660 C640,630 800,690 960,660 C1120,630 1280,690 1440,660" stroke-opacity=".22"/>
+    <path d="M0,710 C160,680 320,740 480,710 C640,680 800,740 960,710 C1120,680 1280,740 1440,710" stroke-opacity=".12"/>
+  </g>
+  <!-- mangrove sprigs -->
+  <g stroke="#8a9c28" stroke-width="2" fill="none" stroke-opacity=".8">
+    <path d="M1050,560 L1050,470 M1050,510 L1020,485 M1050,500 L1082,472 M1050,540 L1014,520"/>
+    <path d="M1130,560 L1130,495 M1130,525 L1105,505 M1130,515 L1155,494"/>
+  </g>
+  <circle cx="1050" cy="462" r="4" fill="#d8f34e"/>
+  <text x="90" y="330" fill="#f2efe7" font-size="58">Blue Carbon</text>
+  <text x="90" y="400" fill="#f2efe7" font-size="58">Dashboard</text>
+  <text x="90" y="460" fill="#b8b5ab" font-size="22" font-family="Helvetica, Arial, sans-serif">VM0033 project tracker · Verra registry data</text>
+  <text x="90" y="510" fill="#8a9c28" font-size="18" font-family="Helvetica, Arial, sans-serif" letter-spacing="3">DEMO ON REQUEST</text>
+</svg>

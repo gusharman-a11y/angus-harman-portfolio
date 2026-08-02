@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Keep this page out of Google — only people with the link (recruiters) find it -->
+<meta name="robots" content="noindex, nofollow">
+<title>Angus Harman (CA) — Data, Systems & AI</title>
+<meta name="description" content="Angus Harman (CA) — data, systems & AI leadership. Live tools, dashboards and the track record behind them.">
+<meta name="theme-color" content="#0c110e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c110e'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d8f34e' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23d8f34e'/%3E%3C/svg%3E">
+<!-- link preview when the URL is shared in email, Slack or Teams -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Angus Harman (CA) — Data, Systems &amp; AI">
+<meta property="og:description" content="Associate Director & Chartered Accountant. Live tools, dashboards and the track record behind them.">
+<meta property="og:image" content="img/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,50;9..144,300..700,100&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0c110e;
+    --ink-2:#131a16;
+    --ink-3:#1b241f;
+    --bone:#f2efe7;
+    --bone-dim:#b8b5ab;
+    --pollen:#d8f34e;
+    --pollen-deep:#a8c22c;
+    --line:rgba(242,239,231,.12);
+    --radius:20px;
+    --ease:cubic-bezier(.16,1,.3,1);
+    --font-display:"Fraunces", serif;
+    --font-body:"Schibsted Grotesk", system-ui, sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--bone);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--pollen);color:var(--ink)}
+
+  /* ---------- utilities ---------- */
+  .wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--pollen);font-weight:600;
+  }
+  .eyebrow::before{content:"";width:2.2em;height:1px;background:var(--pollen)}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;letter-spacing:-.01em}
+  h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:.5em 0 .4em}
+  .dim{color:var(--bone-dim)}
+  .italic{font-style:italic;color:var(--pollen)}
+
+  /* scroll reveal — only hides content when JS is running (html.js), so no-JS browsers still see everything */
+  html.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  html.js .rv.in{opacity:1;transform:none}
+  .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}.rv-d4{transition-delay:.32s}
+
+  /* word-split heading reveal (Trionn-style): each word rises out of its own mask */
+  h2 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
+  h2 .w>span{display:inline-block;transition:transform .9s var(--ease);transition-delay:calc(var(--wi)*70ms)}
+  html.js .rv h2 .w>span{transform:translateY(115%)}
+  html.js .rv.in h2 .w>span{transform:none}
+
+  /* ---------- preloader ---------- */
+  #loader{
+    position:fixed;inset:0;z-index:100;background:var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform 1s var(--ease);
+  }
+  #loader.done{transform:translateY(-101%)}
+  html:not(.js) #loader{display:none}
+  #loader .lc{position:absolute;color:var(--bone-dim);font-size:1.3rem;font-weight:300}
+  .lc-tl{top:1.6rem;left:1.8rem}.lc-tr{top:1.6rem;right:1.8rem}
+  .lc-bl{bottom:1.4rem;left:1.8rem}.lc-br{bottom:1.4rem;right:1.8rem}
+  .loader-mid{text-align:center}
+  .loader-name{font-family:var(--font-display);font-size:clamp(1.6rem,4vw,2.6rem);margin-bottom:1.2rem}
+  .loader-name em{color:var(--pollen);font-style:italic}
+  .loader-bar{width:min(320px,60vw);height:1px;background:var(--line);margin:0 auto 1rem;position:relative;overflow:hidden}
+  .loader-bar i{position:absolute;inset:0;background:var(--pollen);transform-origin:left;transform:scaleX(0)}
+  .loader-count{font-size:.78rem;letter-spacing:.3em;color:var(--bone-dim)}
+
+  /* ---------- custom cursor + letter-flip (fine pointers only) ---------- */
+  @media (hover:hover) and (pointer:fine){
+    html.js body, html.js a, html.js button{cursor:none}
+    .cur-dot,.cur-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:210;transform:translate(-50%,-50%)}
+    .cur-dot{width:7px;height:7px;border-radius:50%;background:var(--pollen)}
+    .cur-ring{
+      width:38px;height:38px;border-radius:50%;
+      border:1px solid rgba(216,243,78,.55);
+      display:flex;align-items:center;justify-content:center;
+      transition:width .35s var(--ease),height .35s var(--ease),background-color .35s,border-color .35s;
+    }
+    .cur-label{
+      font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--ink);opacity:0;transition:opacity .2s;white-space:nowrap;
+    }
+    .cur-ring.hov{width:58px;height:58px;background:rgba(216,243,78,.95);border-color:transparent}
+    .cur-ring.hov .cur-label{opacity:1}
+    .cur-ring.hov:not(.labeled){width:52px;height:52px;background:rgba(216,243,78,.18);border-color:rgba(216,243,78,.7)}
+  }
+  .cur-dot,.cur-ring{display:none}
+  html.js.fine .cur-dot,html.js.fine .cur-ring{display:flex}
+
+  /* letter-flip rollover (Trionn-style doubled text) */
+  .lf{position:relative;overflow:hidden}
+  .lf .lf-w{display:inline-flex;white-space:pre}
+  .lf .lf-w span{display:inline-block;transition:transform .55s var(--ease);transition-delay:calc(var(--i)*22ms)}
+  .lf .lf-bot{position:absolute;left:0;top:0;width:100%;height:100%;justify-content:center}
+  .lf .lf-bot span{transform:translateY(108%)}
+  .lf:hover .lf-top span{transform:translateY(-108%)}
+  .lf:hover .lf-bot span{transform:translateY(0)}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:1.1rem 4vw;
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+    background:rgba(12,17,14,.55);
+    border-bottom:1px solid transparent;
+    transition:border-color .4s;
+  }
+  nav.scrolled{border-bottom-color:var(--line)}
+  .logo{font-family:var(--font-display);font-size:1.15rem;text-decoration:none;color:var(--bone)}
+  .logo em{color:var(--pollen);font-style:normal}
+  .nav-links{display:flex;gap:2rem;align-items:center}
+  .nav-links a{color:var(--bone-dim);text-decoration:none;font-size:.86rem;font-weight:500;letter-spacing:.04em;transition:color .3s}
+  .nav-links a:hover{color:var(--bone)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55em;
+    background:var(--pollen);color:var(--ink)!important;
+    padding:.7em 1.5em;border-radius:99px;
+    font-weight:700;font-size:.86rem;text-decoration:none;
+    transition:transform .3s var(--ease),box-shadow .3s;
+    will-change:transform;
+  }
+  .btn:hover{box-shadow:0 12px 32px rgba(216,243,78,.25)}
+  .btn.ghost{background:transparent;color:var(--bone)!important;border:1px solid var(--line)}
+  .btn.ghost:hover{border-color:var(--pollen);box-shadow:none}
+  @media(max-width:760px){.nav-links a:not(.btn){display:none}}
+
+  /* ---------- hero ---------- */
+  header{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;padding-top:5rem;
+  }
+  #pollen-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .hero-glow{
+    position:absolute;width:60vw;height:60vw;border-radius:50%;
+    background:radial-gradient(circle,rgba(216,243,78,.10),transparent 65%);
+    top:-18vw;right:-14vw;pointer-events:none;
+  }
+  .hero-inner{position:relative;z-index:2}
+  h1{font-size:clamp(2.9rem,8.2vw,7rem);margin:.35em 0 .3em;max-width:14ch}
+  h1 .line{display:block;overflow:hidden}
+  h1 .line span{display:inline-block}
+  html.js h1 .line span{transform:translateY(110%)}
+  html.loaded h1 .line span{animation:rise 1.1s var(--ease) forwards}
+  html.loaded h1 .line:nth-child(2) span{animation-delay:.12s}
+  html.loaded h1 .line:nth-child(3) span{animation-delay:.24s}
+  @keyframes rise{to{transform:none}}
+  .hero-sub{max-width:52ch;color:var(--bone-dim);font-size:clamp(1rem,1.4vw,1.2rem)}
+  html.js .hero-sub{opacity:0}
+  html.loaded .hero-sub{animation:fade 1s .55s forwards}
+  .hero-cta{display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
+  html.js .hero-cta{opacity:0}
+  html.loaded .hero-cta{animation:fade 1s .75s forwards}
+  @keyframes fade{to{opacity:1}}
+  .scroll-hint{
+    position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;color:var(--bone-dim);
+    animation:bob 2.4s ease-in-out infinite;
+  }
+  @keyframes bob{50%{transform:translate(-50%,8px)}}
+
+  /* generative "data ring" — rotating rings of ticks, arcs and glowing dots */
+  .data-ring{
+    position:absolute;top:50%;right:-8vw;transform:translateY(-50%);
+    width:min(48vw,680px);aspect-ratio:1;z-index:1;pointer-events:none;
+  }
+  @media(max-width:900px){
+    .data-ring{right:50%;transform:translate(50%,-50%);width:min(96vw,520px);opacity:.35}
+  }
+
+  /* ---------- marquee ---------- */
+  .marquee{
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    overflow:hidden;white-space:nowrap;padding:1.05rem 0;
+    background:var(--ink-2);
+  }
+  .marquee-track{display:inline-block;animation:scrollx 30s linear infinite}
+  .marquee span{
+    font-family:var(--font-display);font-size:1.05rem;color:var(--bone-dim);
+    margin:0 1.6rem;
+  }
+  .marquee span::after{content:"✦";color:var(--pollen);margin-left:3.2rem;font-size:.8em}
+  @keyframes scrollx{to{transform:translateX(-50%)}}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(5rem,11vw,9rem) 0}
+  .section-head{max-width:760px;margin-bottom:3.5rem}
+
+  /* role-fit pillars */
+  .pillars{display:grid;gap:1rem}
+  .pillar{
+    display:grid;grid-template-columns:auto 1fr;gap:1.6rem;align-items:start;
+    border:1px solid var(--line);border-radius:var(--radius);
+    padding:1.8rem 2rem;background:var(--ink-2);
+    transition:border-color .4s,background .4s,transform .4s var(--ease);
+  }
+  .pillar:hover{border-color:rgba(216,243,78,.45);background:var(--ink-3);transform:translateX(6px)}
+  .pillar-num{font-family:var(--font-display);font-size:1.6rem;color:var(--pollen);line-height:1.3}
+  .pillar h3{font-size:1.35rem;margin-bottom:.45em}
+  .pillar p{color:var(--bone-dim);font-size:.98rem;max-width:64ch}
+  .pillar .tag{display:inline-block;margin:.9em .45em 0 0;padding:.32em .85em;border:1px solid var(--line);border-radius:99px;font-size:.74rem;letter-spacing:.05em;color:var(--bone)}
+
+  /* work grid */
+  .work-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.4rem}
+  .card{
+    position:relative;border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--ink-2);overflow:hidden;
+    display:flex;flex-direction:column;
+    transition:transform .5s var(--ease),border-color .4s;
+    will-change:transform;
+  }
+  .card:hover{transform:translateY(-8px);border-color:rgba(216,243,78,.4)}
+  .card-media{
+    aspect-ratio:16/10;background:linear-gradient(135deg,var(--ink-3),#22301f);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);color:var(--bone-dim);font-size:.9rem;font-style:italic;
+    border-bottom:1px solid var(--line);overflow:hidden;
+  }
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+  .card:hover .card-media img{transform:scale(1.06)}
+  .card-body{padding:1.6rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+  .card-kind{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--pollen);font-weight:600}
+  .card h3{font-size:1.4rem}
+  .card p{color:var(--bone-dim);font-size:.95rem;flex:1}
+  .card-link{
+    color:var(--bone);text-decoration:none;font-weight:600;font-size:.9rem;
+    display:inline-flex;align-items:center;gap:.5em;margin-top:.4rem;
+  }
+  .card-link::after{content:"→";transition:transform .3s}
+  .card-link:hover::after{transform:translateX(5px)}
+
+  /* side builds list */
+  .mini-list{margin-top:3.5rem;border-bottom:1px solid var(--line)}
+  .mini{
+    display:grid;grid-template-columns:minmax(140px,1fr) 2fr auto;gap:1.5rem;align-items:center;
+    border-top:1px solid var(--line);padding:1.3rem .4rem;
+    text-decoration:none;color:inherit;
+    transition:background .3s,padding-left .4s var(--ease);
+  }
+  .mini:hover{background:var(--ink-3);padding-left:1.2rem}
+  .mini h3{font-size:1.15rem}
+  .mini p{color:var(--bone-dim);font-size:.9rem}
+  .mini .go{color:var(--pollen);font-weight:600;font-size:.85rem;white-space:nowrap}
+  @media(max-width:700px){.mini{grid-template-columns:1fr;gap:.3rem}}
+
+  /* stats band */
+  .stats{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  }
+  .stat{background:var(--ink-2);padding:2.4rem 2rem;text-align:center}
+  .stat b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:300;color:var(--pollen)}
+  .stat span{color:var(--bone-dim);font-size:.85rem;letter-spacing:.05em}
+
+  /* CV / timeline */
+  .timeline{border-left:1px solid var(--line);margin-left:.5rem;padding-left:2.4rem;display:grid;gap:2.6rem}
+  .tl-item{position:relative}
+  .tl-item::before{
+    content:"";position:absolute;left:calc(-2.4rem - 5px);top:.5em;
+    width:9px;height:9px;border-radius:50%;background:var(--pollen);
+    box-shadow:0 0 0 5px rgba(216,243,78,.12);
+  }
+  .tl-item .when{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pollen)}
+  .tl-item h3{font-size:1.3rem;margin:.3em 0 .2em}
+  .tl-item .where{color:var(--bone-dim);font-size:.92rem;margin-bottom:.5em}
+  .tl-item p{color:var(--bone-dim);font-size:.96rem;max-width:62ch}
+
+  /* values strip */
+  .values{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:1.6rem}
+  .values span{
+    padding:.55em 1.2em;border:1px solid var(--line);border-radius:99px;
+    font-family:var(--font-display);font-style:italic;font-size:.95rem;color:var(--bone-dim);
+    transition:all .3s;
+  }
+  .values span:hover{border-color:var(--pollen);color:var(--pollen)}
+
+  /* contact */
+  .contact{
+    text-align:center;padding:clamp(6rem,14vw,11rem) 6vw;
+    background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(216,243,78,.12),transparent);
+  }
+  .contact h2{font-size:clamp(2.6rem,6.5vw,5rem)}
+  .contact .btn{font-size:1rem;padding:.95em 2.2em}
+  .contact-links{display:flex;justify-content:center;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
+
+  /* employer wordmark marquee */
+  .logos{border-top:1px solid var(--line);padding:2.6rem 0 2.8rem;background:var(--ink)}
+  .logos .eyebrow{margin:0 0 1.6rem 6vw}
+  .logos-marquee{overflow:hidden;white-space:nowrap}
+  .logos-track{display:inline-block;animation:scrollx 38s linear infinite reverse}
+  .logos-track span{
+    display:inline-block;margin:0 3.4rem;color:var(--bone-dim);
+    font-size:1.7rem;opacity:.75;transition:color .3s,opacity .3s;vertical-align:middle;
+  }
+  .logos-track span:hover{color:var(--bone);opacity:1}
+  .lg-pollination{font-family:var(--font-display);letter-spacing:.01em}
+  .lg-accenture{font-family:var(--font-body);font-weight:700;text-transform:lowercase}
+  .lg-accenture i{color:var(--pollen);font-style:normal}
+  .lg-ey{font-family:var(--font-body);font-weight:700;letter-spacing:.05em}
+  .lg-metlifecare{font-family:var(--font-body);font-weight:500}
+  .lg-pareto{font-family:var(--font-body);font-weight:600;letter-spacing:.18em;text-transform:uppercase;font-size:1.25rem!important}
+  .lg-benefaction{font-family:var(--font-display);font-style:italic}
+
+  footer{
+    border-top:1px solid var(--line);padding:2rem 4vw;
+    display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+    color:var(--bone-dim);font-size:.8rem;
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation-duration:.01s!important;transition-duration:.01s!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<div id="loader" aria-hidden="true">
+  <span class="lc lc-tl">+</span><span class="lc lc-tr">+</span>
+  <span class="lc lc-bl">+</span><span class="lc lc-br">+</span>
+  <div class="loader-mid">
+    <div class="loader-name">Angus <em>Harman</em></div>
+    <div class="loader-bar"><i id="loader-fill"></i></div>
+    <div class="loader-count" id="loader-count">00</div>
+  </div>
+</div>
+
+<div class="cur-dot" id="cur-dot"></div>
+<div class="cur-ring" id="cur-ring"><span class="cur-label" id="cur-label">View</span></div>
+
+<nav id="nav">
+  <a class="logo" href="#top" data-magnetic>Angus<em>&nbsp;Harman</em></a>
+  <div class="nav-links">
+    <a href="#work" data-flip>Work</a>
+    <a href="#powerbi" data-flip>Power BI</a>
+    <a href="#cv" data-flip>CV</a>
+    <a href="#contact" class="btn" data-magnetic data-flip>Get in touch</a>
+  </div>
+</nav>
+
+<header id="top">
+  <canvas id="pollen-canvas"></canvas>
+  <div class="hero-glow"></div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Associate Director · Chartered Accountant (CA) · Sydney</p>
+    <h1>
+      <span class="line"><span>Angus</span></span>
+      <span class="line"><span>Harman<i class="italic">.</i></span></span>
+    </h1>
+    <p class="hero-sub">
+      Associate Director and Chartered Accountant with 10+ years' experience across climate
+      advisory, finance, consulting and business transformation. My experience bridges the gap
+      between client delivery and the finance, data and systems infrastructure required to
+      support and scale it. I translate business needs into practical systems, reporting and
+      AI-enabled solutions that improve efficiency, commercial performance and decision-making.
+    </p>
+    <div class="hero-cta">
+      <a class="btn" href="#work" data-magnetic data-flip>See the work</a>
+      <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download CV (PDF)</a>
+    </div>
+  </div>
+  <canvas class="data-ring" id="ring-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee-track">
+    <span>Power BI</span><span>Data Architecture</span><span>AI &amp; Automation</span><span>CRM Systems</span><span>Carbon Analytics</span><span>Dashboards</span><span>Supabase &amp; Postgres</span><span>Claude &amp; LLM Tooling</span><span>Data Governance</span><span>FP&amp;A Reporting</span>
+  </div>
+</div>
+
+<!-- ============ WORK ============ -->
+<section id="work" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow">Portfolio</p>
+      <h2 data-words>Selected <span class="italic">work.</span></h2>
+      <p class="dim">Live tools, dashboards and systems — click through to try them.</p>
+    </div>
+    <div class="work-grid">
+      <div class="card rv" data-cursor="View">
+        <div class="card-media"><img src="img/shot-carbonintel.jpg" alt="Carbon Projects Intelligence — public showcase page" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">AI · Carbon Markets</span>
+          <h3>Carbon Projects Intelligence</h3>
+          <p>Market-intelligence platform over the voluntary carbon market: an internal prospect
+             CRM covering 1,000+ companies with segmentation, fit scoring and outreach logging,
+             a database of 11,659 carbon projects across five registries, demand analytics, and
+             a weekly AI-generated market digest — fed by automated pipelines from OffsetsDB and
+             the Australian Clean Energy Regulator. Built for and used on project work by
+             origination and investment teams.</p>
+          <a class="card-link" href="https://pollination-carbon-intel.vercel.app" target="_blank" rel="noopener">Open live tool (password-gated)</a>
+        </div>
+      </div>
+      <div class="card rv rv-d2" data-cursor="View">
+        <div class="card-media"><img src="img/shot-sbti.jpg" alt="SBTi Pathway Model — eligibility screening wizard" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">AI · Net Zero</span>
+          <h3>SBTi Pathway Model</h3>
+          <p>Guided wizard that screens which SBTi criteria apply to an organisation, then models
+             its science-based decarbonisation pathway from its emissions data.</p>
+          <a class="card-link" href="https://sb-ti-modelling.vercel.app" target="_blank" rel="noopener">Open live tool</a>
+        </div>
+      </div>
+      <div class="card rv" data-cursor="View">
+        <div class="card-media"><img src="img/carbon-market-dashboard.svg" alt="Carbon market demand analytics dashboard: credits retired, demand by project type and source country, retirements by year split into removals and avoidance" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">Analytics · Carbon Markets</span>
+          <h3>Carbon Market Dashboard</h3>
+          <p>The demand-analytics layer of the intelligence platform: where the voluntary market
+             is actually retiring credits — by project type, source country, buyer and year,
+             split into removals versus avoidance — alongside the Australian Safeguard compliance
+             market. Fed by automated pipelines from OffsetsDB and the Clean Energy Regulator.</p>
+          <a class="card-link" href="https://pollination-carbon-intel.vercel.app" target="_blank" rel="noopener">Open live tool (password-gated)</a>
+        </div>
+      </div>
+      <div class="card rv rv-d1" data-cursor="View">
+        <div class="card-media"><img src="img/cover-bluecarbon.svg" alt="Blue Carbon Dashboard — demo on request" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">Carbon · MRV</span>
+          <h3>Blue Carbon Dashboard</h3>
+          <p>Project tracker for blue-carbon (VM0033) projects built on Verra registry data —
+             monitoring project pipeline and issuance.</p>
+          <a class="card-link" href="#contact">Demo on request</a>
+        </div>
+      </div>
+      <div class="card rv rv-d2" data-cursor="View">
+        <div class="card-media"><img src="img/shot-esrs.jpg" alt="ESRS Cheat Sheet — 328 datapoints across all 12 standards" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">Reporting · ESRS</span>
+          <h3>ESRS Cheat Sheet</h3>
+          <p>Interactive reference covering all 12 EU sustainability reporting standards —
+             328 datapoints, filterable by standard, data type and TNFD alignment.</p>
+          <a class="card-link" href="https://esrs-cheatsheet.vercel.app" target="_blank" rel="noopener">Open live tool</a>
+        </div>
+      </div>
+      <div class="card rv" data-cursor="View">
+        <div class="card-media"><img src="img/shot-nearme.jpg" alt="nearme — gear that's local, peer-to-peer rental marketplace" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">Web · Marketplace</span>
+          <h3>nearme</h3>
+          <p>Peer-to-peer gear rental marketplace for Greater Sydney — cameras, tools, tents and
+             boards from people on your street. A full product built end to end: search, listings
+             and bookings.</p>
+          <a class="card-link" href="https://nearmoi-drab.vercel.app" target="_blank" rel="noopener">Open live site</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POWER BI ============ -->
+<section id="powerbi">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow">Business intelligence</p>
+      <h2 data-words>Power BI.</h2>
+      <p class="dim">Power BI is how I turn messy operational data into decisions: supplier, activity
+         and finance data consolidated from multiple client systems into single report models,
+         including bulk uploads of multinational procurement data cleansed, mapped and validated
+         on load. That analysis identified 80% of emissions hotspots across £500m+ supply-chain
+         programmes and drove a 24% reduction in Scope 3 exposure. The dashboards below are
+         representative rebuilds; client data stays confidential.</p>
+    </div>
+    <div class="work-grid">
+      <div class="card rv" data-cursor="View">
+        <div class="card-media"><img src="img/powerbi-emissions.svg" alt="Power BI style emissions dashboard: KPI tiles, emissions by category with energy and food procurement highlighted, monthly trend by brand, scope breakdown"></div>
+        <div class="card-body">
+          <span class="card-kind">Emissions analytics</span>
+          <h3>Group emissions — national leisure &amp; hospitality groups</h3>
+          <p>Emissions reporting across two national leisure and hotel groups, unifying site-level
+             energy data with procurement records — surfacing energy use and food procurement as
+             the two dominant emission areas and giving each business a clear reduction focus.</p>
+        </div>
+      </div>
+      <div class="card rv rv-d1" data-cursor="View">
+        <div class="card-media"><img src="img/powerbi-spend.svg" alt="Power BI style spend dashboard: KPI tiles, spend by area with care staffing and catering highlighted, monthly spend vs budget, quarterly breakdown"></div>
+        <div class="card-body">
+          <span class="card-kind">Spend analytics</span>
+          <h3>Business spend — retirement-home operator</h3>
+          <p>Spend analysis across the operating areas of a retirement-homes business — where the
+             money goes, by category and site, so leadership could see cost concentrations and
+             act on them.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CV ============ -->
+<section id="cv" style="background:var(--ink-2)">
+  <div class="wrap">
+    <div class="section-head rv">
+      <p class="eyebrow">Curriculum vitae</p>
+      <h2 data-words>My <span class="italic">CV.</span></h2>
+      <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download full CV (PDF)</a>
+    </div>
+    <div class="timeline">
+      <div class="tl-item rv">
+        <span class="when">Sept 2025 — Present</span>
+        <h3>Associate Director, Climate Advisory &amp; Investment</h3>
+        <div class="where">Pollination · Sydney</div>
+        <p>Built carbon market insights dashboards, hosted on Vercel and used on project work,
+           integrating multiple registry and market data sources into a single view of project
+           pipeline and status, credit issuance volumes and pricing, and project economics —
+           significantly reducing manual research time. Built an internal prospect CRM covering
+           1,000+ companies with segmentation, fit scoring and outreach logging. Deployed
+           internal AI tools and automations replacing manual research, market intelligence and
+           document production with repeatable processes, and designed and delivered an internal
+           AI session teaching colleagues to build their own reusable Claude skills ahead of the
+           firm's move to Claude Enterprise. Advises ASX-listed corporates and government on
+           climate strategy and disclosure under AASB S2 and IFRS S2, including executive
+           scenario modelling using NGFS and Oxford Economics datasets.</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">Oct 2022 — Sept 2025</span>
+        <h3>Senior Sustainability Management Consultant</h3>
+        <div class="where">Accenture · London</div>
+        <p>Advised global real estate and food sector clients on carbon accounting platform
+           selection, project managing the tender and data integration process. Led £500m+
+           supply-chain transformation programmes — identifying 80% of emissions hotspots
+           through Power BI analysis and delivering a 24% reduction in Scope 3 exposure. Owned
+           the ecoinvent emissions-factor database licence end to end, from negotiation with
+           procurement through to allocation and utilisation across the team. Defined data
+           standards, boundaries, calculation methods and source ownership across client
+           reporting under the GHG Protocol, SBTi, CSRD and TCFD; managed sales pipeline in
+           Workday; and developed the strategy roadmap, operating model, KPI framework and
+           governance design for NEOM's US$500B+ smart-city programme.</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">Aug 2021 — Jul 2022</span>
+        <h3>Strategic Sourcing &amp; Sustainability Partner</h3>
+        <div class="where">Metlifecare · Auckland</div>
+        <p>Built a new procurement function from scratch as a team of two — process, systems,
+           data, supplier evaluation criteria and reporting across $220m of spend — delivering
+           $8m of savings in year one. Owned FP&amp;A for the function, building the budget,
+           forecasts and monthly management reporting pack presented to the executive team.
+           Cleansed and classified supplier and spend data into a single reliable view, and built
+           the full Scope 1–3 emissions data model behind a 42% reduction target written into the
+           terms of a Sustainability-Linked Loan. Acted as Interim Head of Sustainability.</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">Mar 2020 — Aug 2021</span>
+        <h3>Sustainable Supply Chain Specialist</h3>
+        <div class="where">Pareto Toolbox · Auckland</div>
+        <p>Developed single-source-of-truth Power BI spend cubes for client procurement data,
+           consolidating and cleansing large volumes of inconsistent transactional data from
+           multiple source systems into common category taxonomies and supplier master data,
+           with clear ownership and refresh rules. Used Power BI analysis to identify savings
+           opportunities across categories, delivering 17% average cost savings. Led
+           transformation programmes for KiwiRail ($1.2B capex), Auckland Airport ($500M
+           infrastructure) and Metlifecare ($100M portfolio).</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">May 2018 — Aug 2020</span>
+        <h3>Co-founder</h3>
+        <div class="where">Benefaction · Christchurch</div>
+        <p>Co-founded and ran a sustainability consultancy — built the operating processes,
+           systems and reporting the business ran on, with monthly investor reporting. Built NGO
+           and corporate partnerships delivering measurable community outcomes; featured on TVNZ
+           One News and national radio.</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">Sept 2017 — Mar 2020</span>
+        <h3>Consultant, Private Client Advisory Services</h3>
+        <div class="where">EY · Christchurch</div>
+        <p>Qualified as a Chartered Accountant (CA ANZ), delivering financial advisory, tax
+           planning and reporting to SMEs, companies and investors. Built financial models,
+           cash-flow forecasts and scenario analysis underpinning client investment and
+           operating decisions.</p>
+      </div>
+      <div class="tl-item rv">
+        <span class="when">Education</span>
+        <h3>Double Major — Accounting &amp; Supply Chain Management</h3>
+        <div class="where">Lincoln University (2012–2015) · Cambridge University — Sustainable Supply Chain Management (2022) · Chartered Accountants ANZ</div>
+        <p>Chartered Accountants ANZ Excellence Award · Lincoln University Cricket and Academic
+           Sports Scholarships.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <p class="eyebrow rv" style="justify-content:center">Let's talk</p>
+  <h2 class="rv" data-words>Ready to build<br>your <span class="italic">data engine.</span></h2>
+  <div class="contact-links rv">
+    <a class="btn" href="mailto:gusharman@gmail.com" data-magnetic data-flip>gusharman@gmail.com</a>
+    <a class="btn ghost" href="https://www.linkedin.com/in/angus-harman-ca-68a418bb/" target="_blank" rel="noopener" data-magnetic data-flip>LinkedIn</a>
+    <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>CV (PDF)</a>
+  </div>
+</section>
+
+<div class="logos" aria-label="Companies I've worked for">
+  <p class="eyebrow">Where I've worked</p>
+  <div class="logos-marquee">
+    <div class="logos-track" id="logos-track">
+      <span class="lg-pollination">Pollination</span>
+      <span class="lg-accenture">accenture <i>&gt;</i></span>
+      <span class="lg-ey">EY</span>
+      <span class="lg-metlifecare">Metlifecare</span>
+      <span class="lg-pareto">Pareto Toolbox</span>
+      <span class="lg-benefaction">Benefaction</span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>© 2026 Angus Harman</span>
+  <span>Built by hand — HTML, CSS &amp; JS. No template.</span>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const FINE = matchMedia('(hover:hover) and (pointer:fine)').matches;
+const NO_MOTION = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (FINE) document.documentElement.classList.add('fine');
+
+/* ================= preloader ================= */
+(function(){
+  const loader=document.getElementById('loader');
+  const fill=document.getElementById('loader-fill');
+  const count=document.getElementById('loader-count');
+  function finish(){
+    loader.classList.add('done');
+    document.documentElement.classList.add('loaded');
+    setTimeout(()=>loader.remove(),1100);
+  }
+  if(NO_MOTION){finish();return;}
+  const t0=performance.now(),DUR=1150;
+  (function step(t){
+    const p=Math.min(1,(t-t0)/DUR);
+    const e=1-Math.pow(1-p,3); // ease-out
+    const n=Math.round(e*100);
+    fill.style.transform=`scaleX(${e})`;
+    count.textContent=String(n).padStart(2,'0');
+    if(p<1)requestAnimationFrame(step);else setTimeout(finish,150);
+  })(t0);
+})();
+
+/* ================= nav border on scroll ================= */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passive:true});
+
+/* ================= marquees: duplicate for seamless loop ================= */
+document.querySelectorAll('.marquee-track, .logos-track').forEach(t=>{t.innerHTML+=t.innerHTML;});
+
+/* ================= generative data ring (hero) ================= */
+(function(){
+  const ring=document.getElementById('ring-canvas');
+  if(!ring)return;
+  const rctx=ring.getContext('2d');
+  let RW,RH,RR;
+  function ringSize(){RW=ring.width=ring.offsetWidth*devicePixelRatio;RH=ring.height=ring.offsetHeight*devicePixelRatio;RR=RW/2;}
+  ringSize();addEventListener('resize',ringSize);
+  const POLLEN='216,243,78',BONE='242,239,231';
+  const RND=(a,b)=>a+Math.random()*(b-a);
+  const rings=[];
+  // arc rings — broken glowing segments at varying weights
+  [.34,.46,.60,.74,.92].forEach((fr,i)=>{
+    const arcs=[];const n=2+Math.floor(Math.random()*3);
+    for(let k=0;k<n;k++)arcs.push({a0:RND(0,6.28),len:RND(.3,1.6),w:RND(1.5,5),col:Math.random()<.65?POLLEN:BONE,alpha:RND(.25,.75)});
+    rings.push({fr,arcs,speed:RND(.05,.14)*(i%2?-1:1),type:'arc'});
+  });
+  // tick rings — dashed measurement marks with random gaps
+  [.40,.68,.84].forEach((fr,i)=>{
+    const ticks=[];const n=70+Math.floor(Math.random()*50);
+    for(let k=0;k<n;k++)if(Math.random()<.6)ticks.push({a:k/n*6.283,len:RND(.02,.055),alpha:RND(.12,.5)});
+    rings.push({fr,ticks,speed:RND(.02,.06)*(i%2?1:-1),type:'tick'});
+  });
+  // glowing dots, some tethered to the core by faint lines
+  const dots=[];for(let k=0;k<48;k++)dots.push({a:RND(0,6.283),fr:RND(.3,1),r:RND(1.2,3.2),alpha:RND(.3,.95),tw:RND(0,6.28),conn:Math.random()<.28});
+  // faint drifting digits
+  const digits=[];for(let k=0;k<24;k++)digits.push({a:RND(0,6.283),fr:RND(.32,.95),ch:String(Math.floor(Math.random()*100)).padStart(2,'0'),alpha:RND(.05,.14)});
+  let scrollRot=0;
+  addEventListener('scroll',()=>{scrollRot=scrollY*.0012;},{passive:true});
+  function drawRing(t){
+    const T=t*.001,dpr=devicePixelRatio;
+    rctx.clearRect(0,0,RW,RH);
+    rctx.save();rctx.translate(RR,RH/2);
+    const g=rctx.createRadialGradient(0,0,0,0,0,RR*.95);
+    g.addColorStop(0,'rgba(216,243,78,.08)');g.addColorStop(.6,'rgba(216,243,78,.02)');g.addColorStop(1,'rgba(216,243,78,0)');
+    rctx.fillStyle=g;rctx.beginPath();rctx.arc(0,0,RR*.98,0,7);rctx.fill();
+    for(const r of rings){
+      const rot=T*r.speed+scrollRot,rad=r.fr*RR*.96;
+      if(r.type==='arc'){
+        for(const a of r.arcs){
+          rctx.beginPath();rctx.arc(0,0,rad,a.a0+rot,a.a0+rot+a.len);
+          rctx.strokeStyle=`rgba(${a.col},${a.alpha})`;rctx.lineWidth=a.w*dpr;rctx.stroke();
+        }
+      }else{
+        rctx.lineWidth=1*dpr;
+        for(const tk of r.ticks){
+          const a=tk.a+rot;
+          rctx.beginPath();
+          rctx.moveTo(Math.cos(a)*rad,Math.sin(a)*rad);
+          rctx.lineTo(Math.cos(a)*rad*(1+tk.len),Math.sin(a)*rad*(1+tk.len));
+          rctx.strokeStyle=`rgba(${BONE},${tk.alpha})`;rctx.stroke();
+        }
+      }
+    }
+    for(const d of dots){
+      const a=d.a+T*.05+scrollRot,rad=d.fr*RR*.96;
+      const x=Math.cos(a)*rad,y=Math.sin(a)*rad;
+      const tw=.55+.45*Math.sin(T*2+d.tw);
+      if(d.conn){
+        rctx.beginPath();rctx.moveTo(x*.55,y*.55);rctx.lineTo(x,y);
+        rctx.strokeStyle=`rgba(${POLLEN},${.14*tw})`;rctx.lineWidth=1*dpr;rctx.stroke();
+      }
+      rctx.beginPath();rctx.arc(x,y,d.r*dpr,0,7);
+      rctx.shadowColor=`rgba(${POLLEN},.9)`;rctx.shadowBlur=9*dpr*tw;
+      rctx.fillStyle=`rgba(${POLLEN},${d.alpha*tw})`;
+      rctx.fill();rctx.shadowBlur=0;
+    }
+    rctx.font=`${10*dpr}px ui-monospace, monospace`;
+    for(const dg of digits){
+      const a=dg.a+T*.02+scrollRot,rad=dg.fr*RR*.9;
+      rctx.fillStyle=`rgba(${BONE},${dg.alpha})`;
+      rctx.fillText(dg.ch,Math.cos(a)*rad,Math.sin(a)*rad);
+    }
+    rctx.restore();
+    if(!NO_MOTION)requestAnimationFrame(drawRing);
+  }
+  drawRing(0);
+})();
+
+/* ================= word-split headings (Trionn-style masked word rise) ================= */
+document.querySelectorAll('[data-words]').forEach(h=>{
+  let wi=0;
+  (function split(node){
+    [...node.childNodes].forEach(child=>{
+      if(child.nodeType===3){ // text node → wrap each word
+        const frag=document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach(part=>{
+          if(!part)return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '));return;}
+          const w=document.createElement('span');w.className='w';
+          const inner=document.createElement('span');inner.textContent=part;
+          inner.style.setProperty('--wi',wi);w.appendChild(inner);
+          frag.appendChild(w);wi++;
+        });
+        node.replaceChild(frag,child);
+      } else if(child.nodeType===1&&child.tagName!=='BR'){split(child);}
+    });
+  })(h);
+});
+
+/* ================= scroll reveals ================= */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ================= letter-flip rollovers (doubled text, per-letter stagger) ================= */
+document.querySelectorAll('[data-flip]').forEach(el=>{
+  const txt=el.textContent.trim();
+  if(!txt||el.children.length>0&&!el.matches('.btn'))
+    ; // still fine — we rebuild from textContent
+  const mk=cls=>{
+    const wrap=document.createElement('span');wrap.className='lf-w '+cls;
+    [...txt].forEach((ch,i)=>{
+      const s=document.createElement('span');
+      s.textContent=ch===' '?' ':ch;
+      s.style.setProperty('--i',i);
+      wrap.appendChild(s);
+    });
+    return wrap;
+  };
+  el.textContent='';
+  el.classList.add('lf');
+  el.appendChild(mk('lf-top'));
+  el.appendChild(mk('lf-bot'));
+});
+
+/* ================= custom cursor (dot + lagging ring with labels) ================= */
+if(FINE){
+  const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'),label=document.getElementById('cur-label');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;
+    dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+  (function follow(){
+    rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(follow);
+  })();
+  document.addEventListener('mouseover',e=>{
+    const lab=e.target.closest('[data-cursor]');
+    const act=e.target.closest('a,button,.card');
+    if(lab){label.textContent=lab.dataset.cursor;ring.classList.add('hov','labeled');}
+    else if(act){ring.classList.add('hov');ring.classList.remove('labeled');}
+    else{ring.classList.remove('hov','labeled');}
+  });
+}
+
+/* ================= magnetic buttons ================= */
+if(FINE&&!NO_MOTION){
+  document.querySelectorAll('[data-magnetic]').forEach(el=>{
+    const strength=.32;
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+      el.style.transform=`translate(${dx*strength}px,${dy*strength}px)`;
+      el.style.transition='transform .1s';
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+      el.style.transform='';
+    });
+  });
+}
+
+/* ================= inertia smooth scrolling + velocity skew ================= */
+if(FINE&&!NO_MOTION){
+  document.documentElement.style.scrollBehavior='auto';
+  const skews=document.querySelectorAll('.card');
+  let target=scrollY,cur=scrollY,animating=false;
+  const max=()=>document.documentElement.scrollHeight-innerHeight;
+  addEventListener('wheel',e=>{
+    if(e.ctrlKey)return;           // keep pinch-zoom native
+    e.preventDefault();
+    target=Math.max(0,Math.min(max(),target+e.deltaY));
+    kick();
+  },{passive:false});
+  addEventListener('scroll',()=>{if(!animating){target=cur=scrollY;}},{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length<2)return;
+      const el=document.querySelector(id);
+      if(!el)return;
+      e.preventDefault();
+      target=Math.max(0,Math.min(max(),el.getBoundingClientRect().top+cur-(id==='#top'?0:70)));
+      kick();
+    });
+  });
+  function kick(){if(!animating){animating=true;requestAnimationFrame(loop);}}
+  function loop(){
+    const d=target-cur;
+    cur+=d*.09;
+    const v=Math.max(-24,Math.min(24,d*.09));
+    skews.forEach(el=>{el.style.transform=`skewY(${(v*.01).toFixed(3)}deg)`;});
+    if(Math.abs(d)<.5){
+      cur=target;animating=false;
+      skews.forEach(el=>{el.style.transform='';});
+    }
+    window.scrollTo(0,cur);
+    if(animating)requestAnimationFrame(loop);
+  }
+}
+
+/* ================= stat count-up (activates once data-count holds a number) ================= */
+const statIO=new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting)return;
+  const b=en.target,n=parseInt(b.dataset.count,10);
+  statIO.unobserve(b);
+  if(isNaN(n))return;
+  const suf=b.dataset.suffix||'',t0=performance.now(),DUR=1300;
+  (function step(t){
+    const p=Math.min(1,(t-t0)/DUR),e=1-Math.pow(1-p,3);
+    b.textContent=Math.round(e*n)+suf;
+    if(p<1)requestAnimationFrame(step);
+  })(t0);
+}),{threshold:.5});
+document.querySelectorAll('.stat b').forEach(b=>statIO.observe(b));
+
+/* ================= floating pollen particles ================= */
+const cv=document.getElementById('pollen-canvas'),ctx=cv.getContext('2d');
+let W,H,parts=[];
+function resize(){W=cv.width=cv.offsetWidth*devicePixelRatio;H=cv.height=cv.offsetHeight*devicePixelRatio;}
+resize();addEventListener('resize',resize);
+const N=innerWidth<760?26:55;
+for(let i=0;i<N;i++)parts.push({
+  x:Math.random(),y:Math.random(),
+  r:(Math.random()*1.6+.5)*devicePixelRatio,
+  vx:(Math.random()-.5)*.00022,vy:(Math.random()-.5)*.00016,
+  a:Math.random()*.5+.12,ph:Math.random()*Math.PI*2
+});
+let pmx=.5,pmy=.5;
+addEventListener('pointermove',e=>{pmx=e.clientX/innerWidth;pmy=e.clientY/innerHeight;});
+(function tick(t){
+  ctx.clearRect(0,0,W,H);
+  for(const p of parts){
+    p.x+=p.vx+(pmx-.5)*.0004;p.y+=p.vy+(pmy-.5)*.0003;
+    if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0;
+    const tw=.6+.4*Math.sin(t*.001+p.ph);
+    ctx.beginPath();
+    ctx.arc(p.x*W,p.y*H,p.r,0,7);
+    ctx.fillStyle=`rgba(216,243,78,${p.a*tw})`;
+    ctx.fill();
+  }
+  requestAnimationFrame(tick);
+})(0);
+</script>
+</body>
+</html>
