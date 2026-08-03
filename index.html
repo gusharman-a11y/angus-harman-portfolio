@@ -157,6 +157,7 @@
     min-height:100svh;display:flex;flex-direction:column;justify-content:center;
     position:relative;overflow:hidden;padding-top:5rem;
   }
+  #pollen-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
   .hero-glow{
     position:absolute;width:60vw;height:60vw;border-radius:50%;
     background:radial-gradient(circle,rgba(216,243,78,.10),transparent 65%);
@@ -185,19 +186,13 @@
   }
   @keyframes bob{50%{transform:translate(-50%,8px)}}
 
-  /* hero canvas — data particles spiral inward and are captured into orbit.
-     Masked so nothing crosses the headline and summary on the left. */
+  /* generative "data ring" — rotating rings of ticks, arcs and glowing dots */
   .data-ring{
-    position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;
-    -webkit-mask-image:linear-gradient(to right,transparent 24%,rgba(0,0,0,.55) 42%,#000 60%);
-    mask-image:linear-gradient(to right,transparent 24%,rgba(0,0,0,.55) 42%,#000 60%);
+    position:absolute;top:50%;right:-8vw;transform:translateY(-50%);
+    width:min(48vw,680px);aspect-ratio:1;z-index:1;pointer-events:none;
   }
   @media(max-width:900px){
-    .data-ring{
-      opacity:.4;
-      -webkit-mask-image:radial-gradient(ellipse 70% 45% at 50% 50%,#000 40%,transparent 78%);
-      mask-image:radial-gradient(ellipse 70% 45% at 50% 50%,#000 40%,transparent 78%);
-    }
+    .data-ring{right:50%;transform:translate(50%,-50%);width:min(96vw,520px);opacity:.35}
   }
 
   /* ---------- marquee ---------- */
@@ -370,6 +365,7 @@
 </nav>
 
 <header id="top">
+  <canvas id="pollen-canvas"></canvas>
   <div class="hero-glow"></div>
   <div class="wrap hero-inner">
     <p class="eyebrow">Associate Director · Chartered Accountant (CA) · Sydney</p>
@@ -678,168 +674,208 @@ addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40),{passi
 /* ================= marquees: duplicate for seamless loop ================= */
 document.querySelectorAll('.marquee-track, .logos-track').forEach(t=>{t.innerHTML+=t.innerHTML;});
 
-/* ================= hero: data capture ring =================
-   Particles stream in from beyond the viewport, spiral inward as they
-   accelerate, and are captured into orbit on one of the rings — scattered
-   data resolving into a single structured system. One canvas, one rAF loop. */
+/* ================= generative data ring (hero) ================= */
 (function(){
-  const cv=document.getElementById('ring-canvas');
-  if(!cv)return;
-  const c=cv.getContext('2d');
-  const POLLEN='216,243,78', BONE='242,239,231', TAU=Math.PI*2;
+  const ring=document.getElementById('ring-canvas');
+  if(!ring)return;
+  const rctx=ring.getContext('2d');
+  let RW,RH,RR;
+  function ringSize(){RW=ring.width=ring.offsetWidth*devicePixelRatio;RH=ring.height=ring.offsetHeight*devicePixelRatio;RR=RW/2;}
+  ringSize();addEventListener('resize',ringSize);
+  const POLLEN='216,243,78',BONE='242,239,231';
   const RND=(a,b)=>a+Math.random()*(b-a);
-  let W,H,CX,CY,R,DPR,narrow;
-
-  function size(){
-    DPR=Math.min(devicePixelRatio||1,2);
-    const prevR=R;
-    W=cv.width=cv.offsetWidth*DPR;
-    H=cv.height=cv.offsetHeight*DPR;
-    narrow=cv.offsetWidth<900;
-    CX=narrow?W*0.5:W*0.75;
-    CY=H*0.5;
-    R=Math.min(W,H)*(narrow?0.38:0.36);
-    // rescale live particles so a resize doesn't strand them off their rings
-    if(prevR&&R&&parts){const k=R/prevR;for(const p of parts){p.r*=k;p.rt=R*FR[p.ri];p.trail.length=0;}}
-  }
-  size();addEventListener('resize',size);
-  // a canvas that first lays out at zero width (background tab, hidden pane) must recover
-
-  /* ---- ring scaffold: the structure particles get captured onto ---- */
-  const FR=[0.40,0.55,0.70,0.85,1.00];               // orbit radii, as fractions of R
-  const rings=FR.map((fr,i)=>{
-    const arcs=[];
-    for(let k=0,n=2+((i*7)%3);k<n;k++)
-      arcs.push({a0:RND(0,TAU),len:RND(.35,1.5),w:RND(1.2,3.4),col:Math.random()<.6?POLLEN:BONE,al:RND(.18,.5)});
-    const ticks=[];
-    const tn=60+i*14;
-    for(let k=0;k<tn;k++) if(Math.random()<.55) ticks.push({a:k/tn*TAU,len:RND(.015,.04),al:RND(.08,.32)});
-    return {fr,arcs,ticks,spin:RND(.05,.13)*(i%2?-1:1),pulse:0};
+  const rings=[];
+  // arc rings — broken glowing segments at varying weights
+  [.34,.46,.60,.74,.92].forEach((fr,i)=>{
+    const arcs=[];const n=2+Math.floor(Math.random()*3);
+    for(let k=0;k<n;k++)arcs.push({a0:RND(0,6.28),len:RND(.3,1.6),w:RND(1.5,5),col:Math.random()<.65?POLLEN:BONE,alpha:RND(.25,.75)});
+    rings.push({fr,arcs,speed:RND(.05,.14)*(i%2?-1:1),type:'arc'});
   });
-  const orbitW=i=>rings[i].spin*0.55;                 // captured particles ride their ring
-
-  /* ---- particles ---- */
-  const N=narrow?42:88;
-  const parts=[];
-  function spawn(p,firstRun){
-    p.ri=Math.floor(Math.random()*FR.length);
-    p.rt=R*FR[p.ri];
-    p.r=firstRun?RND(p.rt,R*2.4):RND(R*1.9,R*2.7);   // start beyond the ring, inside the frame
-    p.a=Math.random()*TAU;
-    p.vin=RND(.0016,.0042);                           // inward rate
-    p.state=p.r<=p.rt?'orbit':'in';
-    p.size=RND(.8,2.3)*DPR;
-    p.al=RND(.45,1);
-    p.col=Math.random()<.22?BONE:POLLEN;
-    p.life=RND(9,26);                                 // seconds in orbit before recycling
-    p.age=0;p.fade=0;
-    p.trail=[];
-  }
-  for(let i=0;i<N;i++){const p={};spawn(p,true);parts.push(p);}
-  // registered after parts/FR exist, since size() rescales them
-  if(window.ResizeObserver)new ResizeObserver(size).observe(cv);
-
-  const flashes=[];
-
-  /* ---- pointer parallax ---- */
-  let mx=0,my=0,tx=0,ty=0;
-  addEventListener('pointermove',e=>{
-    tx=(e.clientX/innerWidth-.5);ty=(e.clientY/innerHeight-.5);
-  },{passive:true});
-
-  let last=0;
-  function frame(t){
-    const dt=Math.min((t-last)/1000||0,.05);last=t;      // clamp after tab-switch
-    if(!W||!H){if(!NO_MOTION)requestAnimationFrame(frame);return;}
-    mx+=(tx-mx)*.05;my+=(ty-my)*.05;
-    c.clearRect(0,0,W,H);
-    c.save();
-    c.translate(CX+mx*26*DPR,CY+my*18*DPR);
-
-    /* core glow */
-    const g=c.createRadialGradient(0,0,0,0,0,R*1.15);
-    g.addColorStop(0,'rgba(216,243,78,.09)');
-    g.addColorStop(.55,'rgba(216,243,78,.025)');
-    g.addColorStop(1,'rgba(216,243,78,0)');
-    c.fillStyle=g;c.beginPath();c.arc(0,0,R*1.15,0,TAU);c.fill();
-
-    /* rings */
-    rings.forEach((ring,i)=>{
-      const rot=t*.001*ring.spin, rad=ring.fr*R;
-      const boost=ring.pulse;
-      ring.pulse*=0.94;
-      c.lineWidth=1*DPR;
-      for(const tk of ring.ticks){
-        const a=tk.a+rot;
-        c.beginPath();
-        c.moveTo(Math.cos(a)*rad,Math.sin(a)*rad);
-        c.lineTo(Math.cos(a)*rad*(1+tk.len),Math.sin(a)*rad*(1+tk.len));
-        c.strokeStyle=`rgba(${BONE},${tk.al*(1+boost*1.6)})`;
-        c.stroke();
-      }
-      for(const arc of ring.arcs){
-        c.beginPath();
-        c.arc(0,0,rad,arc.a0+rot,arc.a0+rot+arc.len);
-        c.strokeStyle=`rgba(${arc.col},${Math.min(1,arc.al*(1+boost*2.2))})`;
-        c.lineWidth=arc.w*DPR*(1+boost*.5);
-        c.stroke();
-      }
-    });
-
-    /* particles */
-    for(const p of parts){
-      if(p.state==='in'){
-        p.r-=p.vin*R*dt*60;
-        // angular speed rises as radius falls — the spiral tightens on approach
-        p.a+=(0.35*Math.pow(R/Math.max(p.r,R*.2),1.15))*dt;
-        if(p.r<=p.rt){
-          p.r=p.rt;p.state='orbit';p.age=0;
-          rings[p.ri].pulse=1;
-          flashes.push({x:Math.cos(p.a)*p.r,y:Math.sin(p.a)*p.r,t:0});
+  // tick rings — dashed measurement marks with random gaps
+  [.40,.68,.84].forEach((fr,i)=>{
+    const ticks=[];const n=70+Math.floor(Math.random()*50);
+    for(let k=0;k<n;k++)if(Math.random()<.6)ticks.push({a:k/n*6.283,len:RND(.02,.055),alpha:RND(.12,.5)});
+    rings.push({fr,ticks,speed:RND(.02,.06)*(i%2?1:-1),type:'tick'});
+  });
+  // glowing dots, some tethered to the core by faint lines
+  const dots=[];for(let k=0;k<48;k++)dots.push({a:RND(0,6.283),fr:RND(.3,1),r:RND(1.2,3.2),alpha:RND(.3,.95),tw:RND(0,6.28),conn:Math.random()<.28});
+  // faint drifting digits
+  const digits=[];for(let k=0;k<24;k++)digits.push({a:RND(0,6.283),fr:RND(.32,.95),ch:String(Math.floor(Math.random()*100)).padStart(2,'0'),alpha:RND(.05,.14)});
+  let scrollRot=0;
+  addEventListener('scroll',()=>{scrollRot=scrollY*.0012;},{passive:true});
+  function drawRing(t){
+    const T=t*.001,dpr=devicePixelRatio;
+    rctx.clearRect(0,0,RW,RH);
+    rctx.save();rctx.translate(RR,RH/2);
+    const g=rctx.createRadialGradient(0,0,0,0,0,RR*.95);
+    g.addColorStop(0,'rgba(216,243,78,.08)');g.addColorStop(.6,'rgba(216,243,78,.02)');g.addColorStop(1,'rgba(216,243,78,0)');
+    rctx.fillStyle=g;rctx.beginPath();rctx.arc(0,0,RR*.98,0,7);rctx.fill();
+    for(const r of rings){
+      const rot=T*r.speed+scrollRot,rad=r.fr*RR*.96;
+      if(r.type==='arc'){
+        for(const a of r.arcs){
+          rctx.beginPath();rctx.arc(0,0,rad,a.a0+rot,a.a0+rot+a.len);
+          rctx.strokeStyle=`rgba(${a.col},${a.alpha})`;rctx.lineWidth=a.w*dpr;rctx.stroke();
         }
       }else{
-        p.a+=orbitW(p.ri)*dt;
-        p.age+=dt;
-        if(p.age>p.life){p.fade+=dt*1.4;if(p.fade>=1){spawn(p);continue;}}
+        rctx.lineWidth=1*dpr;
+        for(const tk of r.ticks){
+          const a=tk.a+rot;
+          rctx.beginPath();
+          rctx.moveTo(Math.cos(a)*rad,Math.sin(a)*rad);
+          rctx.lineTo(Math.cos(a)*rad*(1+tk.len),Math.sin(a)*rad*(1+tk.len));
+          rctx.strokeStyle=`rgba(${BONE},${tk.alpha})`;rctx.stroke();
+        }
       }
-      const x=Math.cos(p.a)*p.r, y=Math.sin(p.a)*p.r;
-      p.trail.push(x,y);
-      const cap=p.state==='in'?18:8;
-      while(p.trail.length>cap*2)p.trail.splice(0,2);
-
-      const vis=p.al*(1-p.fade)*(p.state==='in'?Math.min(1,(R*3.6-p.r)/(R*1.4)):1);
-      if(vis<=0)continue;
-
-      /* trail */
-      if(p.trail.length>=4){
-        c.beginPath();c.moveTo(p.trail[0],p.trail[1]);
-        for(let i=2;i<p.trail.length;i+=2)c.lineTo(p.trail[i],p.trail[i+1]);
-        c.strokeStyle=`rgba(${p.col},${vis*.16})`;
-        c.lineWidth=p.size*.55;c.lineCap='round';c.stroke();
+    }
+    for(const d of dots){
+      const a=d.a+T*.05+scrollRot,rad=d.fr*RR*.96;
+      const x=Math.cos(a)*rad,y=Math.sin(a)*rad;
+      const tw=.55+.45*Math.sin(T*2+d.tw);
+      if(d.conn){
+        rctx.beginPath();rctx.moveTo(x*.55,y*.55);rctx.lineTo(x,y);
+        rctx.strokeStyle=`rgba(${POLLEN},${.14*tw})`;rctx.lineWidth=1*dpr;rctx.stroke();
       }
-      /* head */
-      c.beginPath();c.arc(x,y,p.size,0,TAU);
-      c.shadowColor=`rgba(${p.col},.85)`;c.shadowBlur=8*DPR;
-      c.fillStyle=`rgba(${p.col},${vis})`;c.fill();c.shadowBlur=0;
+      rctx.beginPath();rctx.arc(x,y,d.r*dpr,0,7);
+      rctx.shadowColor=`rgba(${POLLEN},.9)`;rctx.shadowBlur=9*dpr*tw;
+      rctx.fillStyle=`rgba(${POLLEN},${d.alpha*tw})`;
+      rctx.fill();rctx.shadowBlur=0;
     }
-
-    /* capture flashes */
-    for(let i=flashes.length-1;i>=0;i--){
-      const f=flashes[i];f.t+=dt*2.6;
-      if(f.t>=1){flashes.splice(i,1);continue;}
-      const e=1-Math.pow(1-f.t,3);
-      c.beginPath();c.arc(f.x,f.y,e*18*DPR,0,TAU);
-      c.strokeStyle=`rgba(${POLLEN},${(1-f.t)*.55})`;
-      c.lineWidth=1.5*DPR;c.stroke();
+    rctx.font=`${10*dpr}px ui-monospace, monospace`;
+    for(const dg of digits){
+      const a=dg.a+T*.02+scrollRot,rad=dg.fr*RR*.9;
+      rctx.fillStyle=`rgba(${BONE},${dg.alpha})`;
+      rctx.fillText(dg.ch,Math.cos(a)*rad,Math.sin(a)*rad);
     }
-
-    c.restore();
-    if(!NO_MOTION)requestAnimationFrame(frame);
+    rctx.restore();
+    if(!NO_MOTION)requestAnimationFrame(drawRing);
   }
-  if(NO_MOTION){ // static composition for reduced-motion users
-    requestAnimationFrame(t=>{parts.forEach(p=>{p.state='orbit';p.r=p.rt;});frame(t);});
-  }else requestAnimationFrame(frame);
+  drawRing(0);
 })();
+
+/* ================= word-split headings (Trionn-style masked word rise) ================= */
+document.querySelectorAll('[data-words]').forEach(h=>{
+  let wi=0;
+  (function split(node){
+    [...node.childNodes].forEach(child=>{
+      if(child.nodeType===3){ // text node → wrap each word
+        const frag=document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach(part=>{
+          if(!part)return;
+          if(/^\s+$/.test(part)){frag.appendChild(document.createTextNode(' '));return;}
+          const w=document.createElement('span');w.className='w';
+          const inner=document.createElement('span');inner.textContent=part;
+          inner.style.setProperty('--wi',wi);w.appendChild(inner);
+          frag.appendChild(w);wi++;
+        });
+        node.replaceChild(frag,child);
+      } else if(child.nodeType===1&&child.tagName!=='BR'){split(child);}
+    });
+  })(h);
+});
+
+/* ================= scroll reveals ================= */
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* ================= letter-flip rollovers (doubled text, per-letter stagger) ================= */
+document.querySelectorAll('[data-flip]').forEach(el=>{
+  const txt=el.textContent.trim();
+  if(!txt||el.children.length>0&&!el.matches('.btn'))
+    ; // still fine — we rebuild from textContent
+  const mk=cls=>{
+    const wrap=document.createElement('span');wrap.className='lf-w '+cls;
+    [...txt].forEach((ch,i)=>{
+      const s=document.createElement('span');
+      s.textContent=ch===' '?' ':ch;
+      s.style.setProperty('--i',i);
+      wrap.appendChild(s);
+    });
+    return wrap;
+  };
+  el.textContent='';
+  el.classList.add('lf');
+  el.appendChild(mk('lf-top'));
+  el.appendChild(mk('lf-bot'));
+});
+
+/* ================= custom cursor (dot + lagging ring with labels) ================= */
+if(FINE){
+  const dot=document.getElementById('cur-dot'),ring=document.getElementById('cur-ring'),label=document.getElementById('cur-label');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;
+    dot.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;});
+  (function follow(){
+    rx+=(mx-rx)*.16;ry+=(my-ry)*.16;
+    ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+    requestAnimationFrame(follow);
+  })();
+  document.addEventListener('mouseover',e=>{
+    const lab=e.target.closest('[data-cursor]');
+    const act=e.target.closest('a,button,.card');
+    if(lab){label.textContent=lab.dataset.cursor;ring.classList.add('hov','labeled');}
+    else if(act){ring.classList.add('hov');ring.classList.remove('labeled');}
+    else{ring.classList.remove('hov','labeled');}
+  });
+}
+
+/* ================= magnetic buttons ================= */
+if(FINE&&!NO_MOTION){
+  document.querySelectorAll('[data-magnetic]').forEach(el=>{
+    const strength=.32;
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const dx=e.clientX-(r.left+r.width/2),dy=e.clientY-(r.top+r.height/2);
+      el.style.transform=`translate(${dx*strength}px,${dy*strength}px)`;
+      el.style.transition='transform .1s';
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transition='transform .5s cubic-bezier(.16,1,.3,1)';
+      el.style.transform='';
+    });
+  });
+}
+
+/* ================= inertia smooth scrolling + velocity skew ================= */
+if(FINE&&!NO_MOTION){
+  document.documentElement.style.scrollBehavior='auto';
+  const skews=document.querySelectorAll('.card');
+  let target=scrollY,cur=scrollY,animating=false;
+  const max=()=>document.documentElement.scrollHeight-innerHeight;
+  addEventListener('wheel',e=>{
+    if(e.ctrlKey)return;           // keep pinch-zoom native
+    e.preventDefault();
+    target=Math.max(0,Math.min(max(),target+e.deltaY));
+    kick();
+  },{passive:false});
+  addEventListener('scroll',()=>{if(!animating){target=cur=scrollY;}},{passive:true});
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length<2)return;
+      const el=document.querySelector(id);
+      if(!el)return;
+      e.preventDefault();
+      target=Math.max(0,Math.min(max(),el.getBoundingClientRect().top+cur-(id==='#top'?0:70)));
+      kick();
+    });
+  });
+  function kick(){if(!animating){animating=true;requestAnimationFrame(loop);}}
+  function loop(){
+    const d=target-cur;
+    cur+=d*.09;
+    const v=Math.max(-24,Math.min(24,d*.09));
+    skews.forEach(el=>{el.style.transform=`skewY(${(v*.01).toFixed(3)}deg)`;});
+    if(Math.abs(d)<.5){
+      cur=target;animating=false;
+      skews.forEach(el=>{el.style.transform='';});
+    }
+    window.scrollTo(0,cur);
+    if(animating)requestAnimationFrame(loop);
+  }
+}
 
 /* ================= stat count-up (activates once data-count holds a number) ================= */
 const statIO=new IntersectionObserver(es=>es.forEach(en=>{
@@ -856,6 +892,33 @@ const statIO=new IntersectionObserver(es=>es.forEach(en=>{
 }),{threshold:.5});
 document.querySelectorAll('.stat b').forEach(b=>statIO.observe(b));
 
+/* ================= floating pollen particles ================= */
+const cv=document.getElementById('pollen-canvas'),ctx=cv.getContext('2d');
+let W,H,parts=[];
+function resize(){W=cv.width=cv.offsetWidth*devicePixelRatio;H=cv.height=cv.offsetHeight*devicePixelRatio;}
+resize();addEventListener('resize',resize);
+const N=innerWidth<760?26:55;
+for(let i=0;i<N;i++)parts.push({
+  x:Math.random(),y:Math.random(),
+  r:(Math.random()*1.6+.5)*devicePixelRatio,
+  vx:(Math.random()-.5)*.00022,vy:(Math.random()-.5)*.00016,
+  a:Math.random()*.5+.12,ph:Math.random()*Math.PI*2
+});
+let pmx=.5,pmy=.5;
+addEventListener('pointermove',e=>{pmx=e.clientX/innerWidth;pmy=e.clientY/innerHeight;});
+(function tick(t){
+  ctx.clearRect(0,0,W,H);
+  for(const p of parts){
+    p.x+=p.vx+(pmx-.5)*.0004;p.y+=p.vy+(pmy-.5)*.0003;
+    if(p.x<0)p.x=1;if(p.x>1)p.x=0;if(p.y<0)p.y=1;if(p.y>1)p.y=0;
+    const tw=.6+.4*Math.sin(t*.001+p.ph);
+    ctx.beginPath();
+    ctx.arc(p.x*W,p.y*H,p.r,0,7);
+    ctx.fillStyle=`rgba(216,243,78,${p.a*tw})`;
+    ctx.fill();
+  }
+  requestAnimationFrame(tick);
+})(0);
 </script>
 </body>
 </html>
