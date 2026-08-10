@@ -5,14 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Keep this page out of Google — only people with the link (recruiters) find it -->
 <meta name="robots" content="noindex, nofollow">
-<title>Angus Harman (CA) — Data, Systems & AI</title>
-<meta name="description" content="Angus Harman (CA) — data, systems & AI leadership. Live tools, dashboards and the track record behind them.">
+<title>Angus Harman (CA) — Climate, Procurement &amp; AI Consultant</title>
+<meta name="description" content="Independent consultant across climate, procurement and AI. Chartered Accountant, 10+ years. Strategy through to the working system — Sydney and remote.">
 <meta name="theme-color" content="#0c110e">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c110e'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d8f34e' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23d8f34e'/%3E%3C/svg%3E">
 <!-- link preview when the URL is shared in email, Slack or Teams -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Angus Harman (CA) — Data, Systems &amp; AI">
-<meta property="og:description" content="Associate Director & Chartered Accountant. Live tools, dashboards and the track record behind them.">
+<meta property="og:title" content="Angus Harman (CA) — Climate, Procurement &amp; AI">
+<meta property="og:description" content="Independent consultant. Chartered Accountant, 10+ years. I take the problem off your desk and carry it the whole way.">
 <meta property="og:url" content="https://angus-harman-portfolio.vercel.app/">
 <meta property="og:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -222,6 +222,7 @@
     transition:border-color .4s,background .4s,transform .4s var(--ease);
   }
   .pillar:hover{border-color:rgba(216,243,78,.45);background:var(--ink-3);transform:translateX(6px)}
+  .pillar.solo{grid-template-columns:1fr}
   .pillar-num{font-family:var(--font-display);font-size:1.6rem;color:var(--pollen);line-height:1.3}
   .pillar h3{font-size:1.35rem;margin-bottom:.45em}
   .pillar p{color:var(--bone-dim);font-size:.98rem;max-width:64ch}
@@ -265,6 +266,9 @@
     transition:background .3s,padding-left .4s var(--ease);
   }
   .mini:hover{background:var(--ink-3);padding-left:1.2rem}
+  /* non-link rows must not pretend to be clickable */
+  .mini:not(a):hover{background:transparent;padding-left:.4rem}
+  .mini:not(a) .go{color:var(--bone-dim);font-weight:500}
   .mini h3{font-size:1.15rem}
   .mini p{color:var(--bone-dim);font-size:.9rem}
   .mini .go{color:var(--pollen);font-weight:600;font-size:.85rem;white-space:nowrap}
@@ -357,10 +361,11 @@
 <nav id="nav">
   <a class="logo" href="#top" data-magnetic>Angus<em>&nbsp;Harman</em></a>
   <div class="nav-links">
+    <a href="#services" data-flip>Services</a>
     <a href="#work" data-flip>Work</a>
-    <a href="#powerbi" data-flip>Power BI</a>
-    <a href="#cv" data-flip>CV</a>
-    <a href="#contact" class="btn" data-magnetic data-flip>Get in touch</a>
+    <a href="#engage" data-flip>How I work</a>
+    <a href="#cv" data-flip>Background</a>
+    <a href="#contact" class="btn" data-magnetic data-flip>Start a conversation</a>
   </div>
 </nav>
 
@@ -368,21 +373,20 @@
   <canvas id="pollen-canvas"></canvas>
   <div class="hero-glow"></div>
   <div class="wrap hero-inner">
-    <p class="eyebrow">Associate Director · Chartered Accountant (CA) · Sydney</p>
+    <p class="eyebrow">Independent consultant · Climate, Procurement &amp; AI · Sydney</p>
     <h1>
-      <span class="line"><span>Angus</span></span>
-      <span class="line"><span>Harman<i class="italic">.</i></span></span>
+      <span class="line"><span>I get things</span></span>
+      <span class="line"><span>done<i class="italic">.</i></span></span>
     </h1>
     <p class="hero-sub">
-      Associate Director and Chartered Accountant with 10+ years' experience across climate
-      advisory, finance, consulting and business transformation. My experience bridges the gap
-      between client delivery and the finance, data and systems infrastructure required to
-      support and scale it. I translate business needs into practical systems, reporting and
-      AI-enabled solutions that improve efficiency, commercial performance and decision-making.
+      Chartered Accountant with 10+ years across climate advisory, procurement and business
+      transformation — most recently at Pollination and Accenture. I take the problem off your
+      desk and carry it the whole way: the strategy, the numbers, and the working system that
+      keeps running after I leave.
     </p>
     <div class="hero-cta">
-      <a class="btn" href="#work" data-magnetic data-flip>See the work</a>
-      <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download CV (PDF)</a>
+      <a class="btn" href="#contact" data-magnetic data-flip>Start a conversation</a>
+      <a class="btn ghost" href="#services" data-magnetic data-flip>What I do</a>
     </div>
   </div>
   <canvas class="data-ring" id="ring-canvas" aria-hidden="true"></canvas>
@@ -395,13 +399,72 @@
   </div>
 </div>
 
+<!-- ============ SERVICES ============ -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2 data-words>What I <span class="italic">do.</span></h2>
+      <p class="dim">Three practices that keep overlapping in the same room — a climate target that
+         needs procurement to deliver it, and data that needs to be trustworthy before anyone acts
+         on it. I work across all three, which is usually where the problem actually sits.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar solo rv">
+        <div>
+          <h3>Climate &amp; Carbon</h3>
+          <p>Carbon accounting platform selection and implementation, end to end — requirements,
+             tender, vendor management, go-live and adoption. Scope 1–3 emissions models with the
+             boundaries, sources and ownership defined. Net-zero roadmaps and SBTi submissions.
+             Disclosure under AASB S2, IFRS S2, CSRD, TCFD and the GHG Protocol. Carbon market
+             and ACCU strategy.</p>
+          <span class="tag">Carbon accounting platforms</span><span class="tag">Scope 1–3 models</span><span class="tag">SBTi &amp; net zero</span><span class="tag">AASB S2 / IFRS S2</span>
+        </div>
+      </div>
+      <div class="pillar solo rv rv-d1">
+        <div>
+          <h3>Procurement &amp; Supply Chain</h3>
+          <p>Procurement functions built from nothing — process, systems, data, supplier evaluation
+             and reporting. Spend analysis that finds the money, then the category strategy and
+             negotiation to go and get it. Operating and governance models covering decision rights,
+             thresholds and reporting cadence. Supply-chain decarbonisation where emissions and cost
+             are the same conversation.</p>
+          <span class="tag">Spend analysis</span><span class="tag">Category strategy</span><span class="tag">Vendor selection</span><span class="tag">Operating models</span>
+        </div>
+      </div>
+      <div class="pillar solo rv rv-d2">
+        <div>
+          <h3>AI, Data &amp; Systems</h3>
+          <p>Internal AI tools and automations that replace manual research, market intelligence and
+             document production. Dashboards and reporting people actually use — Power BI through to
+             full-stack applications on Postgres and Supabase. Data models that give you one version
+             of the truth instead of six spreadsheets. And AI enablement, so your team can build
+             this themselves after I go.</p>
+          <span class="tag">AI tools &amp; automation</span><span class="tag">Power BI</span><span class="tag">Data models</span><span class="tag">Team enablement</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTCOMES ============ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats rv">
+      <div class="stat"><b data-count="500" data-prefix="£" data-suffix="m+">£500m+</b><span>supply-chain transformation programmes led</span></div>
+      <div class="stat"><b data-count="24" data-suffix="%">24%</b><span>reduction in Scope 3 exposure delivered</span></div>
+      <div class="stat"><b data-count="8" data-prefix="$" data-suffix="m">$8m</b><span>saved in year one building a procurement function</span></div>
+      <div class="stat"><b data-count="17" data-suffix="%">17%</b><span>average cost savings across client programmes</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ WORK ============ -->
 <section id="work" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="eyebrow">Portfolio</p>
-      <h2 data-words>Selected <span class="italic">work.</span></h2>
-      <p class="dim">Live tools, dashboards and systems — click through to try them.</p>
+      <h2 data-words>Things I've <span class="italic">shipped.</span></h2>
+      <p class="dim">Not case studies — working software you can open right now. Every one of these
+         was scoped, built and deployed by me.</p>
     </div>
     <div class="work-grid">
       <div class="card rv" data-cursor="View">
@@ -516,12 +579,49 @@
   </div>
 </section>
 
-<!-- ============ CV ============ -->
-<section id="cv" style="background:var(--ink-2)">
+<!-- ============ HOW I WORK ============ -->
+<section id="engage" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="eyebrow">Curriculum vitae</p>
-      <h2 data-words>My <span class="italic">CV.</span></h2>
+      <h2 data-words>How I <span class="italic">work.</span></h2>
+      <p class="dim">Three shapes, depending on what you need. All of them start with a conversation
+         and a clear scope before anyone commits to anything.</p>
+    </div>
+    <div class="mini-list rv">
+      <div class="mini">
+        <h3>Embedded</h3>
+        <p>A set number of days a week inside your team, owning a workstream end to end. Best when
+           the work is ongoing and needs someone accountable rather than advising from outside.</p>
+        <span class="go">2–3 days/week</span>
+      </div>
+      <div class="mini">
+        <h3>Project</h3>
+        <p>Fixed scope, fixed outcome — a platform selected and implemented, a procurement function
+           stood up, a reporting model built and handed over. Priced on the work, not the hours.</p>
+        <span class="go">4–16 weeks</span>
+      </div>
+      <div class="mini">
+        <h3>Diagnostic</h3>
+        <p>A short, sharp look at a problem you can't yet name — where the emissions or the spend
+           actually sit, why the data can't be trusted, what to do first. Ends with a decision, not
+           a deck.</p>
+        <span class="go">1–2 weeks</span>
+      </div>
+    </div>
+    <p class="dim rv" style="margin-top:2rem;max-width:70ch">
+      Available from [START DATE], remote or on-site in Sydney. Rates depend on shape and length —
+      happy to talk numbers on a first call.
+    </p>
+  </div>
+</section>
+
+<!-- ============ BACKGROUND ============ -->
+<section id="cv">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2 data-words>The <span class="italic">background.</span></h2>
+      <p class="dim">Chartered Accountant, ten years across Big 4 consulting, in-house leadership and
+         climate investment. The full history, if you want it.</p>
       <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download full CV (PDF)</a>
     </div>
     <div class="timeline">
@@ -611,10 +711,12 @@
 
 <!-- ============ CONTACT ============ -->
 <section class="contact" id="contact">
-  <p class="eyebrow rv" style="justify-content:center">Let's talk</p>
-  <h2 class="rv" data-words>Ready to build<br>your <span class="italic">data engine.</span></h2>
+  <h2 class="rv" data-words>Got something that needs <span class="italic">doing?</span></h2>
+  <p class="dim rv" style="max-width:52ch;margin:0 auto">Tell me the problem in a couple of lines.
+     If I'm the right person you'll get a straight answer on scope and timing — and if I'm not,
+     I'll say so.</p>
   <div class="contact-links rv">
-    <a class="btn" href="mailto:gusharman@gmail.com" data-magnetic data-flip>gusharman@gmail.com</a>
+    <a class="btn" href="mailto:gusharman@gmail.com?subject=Contract%20enquiry" data-magnetic data-flip>gusharman@gmail.com</a>
     <a class="btn ghost" href="https://www.linkedin.com/in/angus-harman-ca-68a418bb/" target="_blank" rel="noopener" data-magnetic data-flip>LinkedIn</a>
     <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>CV (PDF)</a>
   </div>
@@ -883,10 +985,10 @@ const statIO=new IntersectionObserver(es=>es.forEach(en=>{
   const b=en.target,n=parseInt(b.dataset.count,10);
   statIO.unobserve(b);
   if(isNaN(n))return;
-  const suf=b.dataset.suffix||'',t0=performance.now(),DUR=1300;
+  const suf=b.dataset.suffix||'',pre=b.dataset.prefix||'',t0=performance.now(),DUR=1300;
   (function step(t){
     const p=Math.min(1,(t-t0)/DUR),e=1-Math.pow(1-p,3);
-    b.textContent=Math.round(e*n)+suf;
+    b.textContent=pre+Math.round(e*n)+suf;
     if(p<1)requestAnimationFrame(step);
   })(t0);
 }),{threshold:.5});
