@@ -301,14 +301,30 @@
   .mini .go{color:var(--pollen);font-weight:600;font-size:.85rem;white-space:nowrap}
   @media(max-width:700px){.mini{grid-template-columns:1fr;gap:.3rem}}
 
+  /* articles band — photo behind, scrimmed so the card stays legible */
+  .articles-band{position:relative;overflow:hidden}
+  .articles-band::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background:url("img/articles-bg.jpg") center/cover no-repeat;
+    opacity:1;filter:brightness(1.35) saturate(1.1);
+  }
+  .articles-band::after{
+    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:
+      linear-gradient(180deg,var(--ink) 0%,rgba(12,17,14,.10) 20%,rgba(12,17,14,.10) 78%,var(--ink) 100%),
+      linear-gradient(90deg,rgba(12,17,14,.35) 0%,rgba(12,17,14,0) 50%,rgba(12,17,14,.2) 100%);
+  }
+  .articles-band>.wrap{position:relative;z-index:2}
+
   /* featured writing */
   .feature{
     display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;
     border:1px solid var(--line);border-radius:var(--radius);
-    background:var(--ink-2);padding:2.4rem 2.6rem;text-decoration:none;color:inherit;
+    background:rgba(19,26,22,.82);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    padding:2.4rem 2.6rem;text-decoration:none;color:inherit;
     transition:border-color .4s,background .4s,transform .5s var(--ease);
   }
-  .feature:hover{border-color:rgba(216,243,78,.45);background:var(--ink-3);transform:translateY(-4px)}
+  .feature:hover{border-color:rgba(216,243,78,.45);background:rgba(27,36,31,.9);transform:translateY(-4px)}
   .feature h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.35em 0 .5em}
   .feature p{color:var(--bone-dim);font-size:1rem;max-width:62ch;margin-bottom:1rem}
   .feature-side{text-align:right;border-left:1px solid var(--line);padding-left:2.5rem}
@@ -410,7 +426,7 @@
   <a class="logo" href="#top" data-magnetic>Angus<em>&nbsp;Harman</em></a>
   <div class="nav-links">
     <a href="#services" data-flip>Services</a>
-    <a href="#writing" data-flip>Writing</a>
+    <a href="#articles" data-flip>Articles</a>
     <a href="#work" data-flip>Work</a>
     <a href="#cv" data-flip>Background</a>
     <a href="#contact" class="btn" data-magnetic data-flip>Start a conversation</a>
@@ -515,11 +531,11 @@
   </div>
 </section>
 
-<!-- ============ WRITING ============ -->
-<section id="writing">
+<!-- ============ ARTICLES ============ -->
+<section id="articles" class="articles-band">
   <div class="wrap">
     <div class="section-head rv">
-      <h2 data-words>Writing.</h2>
+      <h2 data-words>Articles.</h2>
     </div>
     <a class="feature rv" href="sbti.html" data-cursor="Read">
       <div class="feature-body">
