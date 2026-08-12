@@ -1,0 +1,1016 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>SBTi Corporate Net-Zero Standard V2 — Angus Harman</title>
+<style>
+:root{
+  --blue-100:#E4F1FF;--blue-200:#CFE7FF;--blue-300:#BCDEFF;--blue-400:#A0CBF7;--blue-500:#77ABEC;
+  --blue-700:#00579B;--blue-800:#0D4474;
+  --teal-100:#F1F5DF;--teal-200:#E7EFC8;--teal-300:#D4E4A1;--teal-400:#A8C22C;--teal-500:#7C921F;
+  --teal-700:#5C6F2E;--teal-800:#3F4D1F;
+  --grey-100:#EBEBEB;--grey-200:#D5D5D5;--grey-300:#BFBFBF;--grey-500:#919191;--grey-700:#515151;
+  --gold-300:#FFE699;--gold-500:#FBC936;
+  --ink:#1A1A1A;--ink-soft:#4A4A4A;--paper:#FFFFFF;
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --sub:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --maxw:1100px;--gutter:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-weight:300;font-size:17px;line-height:1.65;letter-spacing:.005em;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;letter-spacing:-.01em;line-height:1.05;margin:0;}
+h1{font-size:clamp(2.6rem,7vw,5rem);}
+h2{font-size:clamp(1.8rem,4vw,2.8rem);}
+h3{font-size:clamp(1.2rem,2.2vw,1.6rem);}
+h4{font-size:1.05rem;}
+p{margin:0 0 1.1em;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);}
+section{padding:clamp(56px,9vw,108px) 0;}
+hr.rule{height:1px;background:var(--grey-200);border:0;margin:0;}
+.eyebrow{font-family:var(--sub);font-weight:400;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-500);display:flex;align-items:center;gap:.7em;margin-bottom:1.2em;}
+.eyebrow::before{content:"";width:7px;height:7px;border:1.5px solid var(--teal-500);border-radius:50%;display:inline-block;flex:none;}
+#pbar{position:fixed;top:0;left:0;height:2px;background:var(--teal-500);z-index:200;width:0%;transition:width .08s linear;pointer-events:none;}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--grey-100);}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:1.6em;height:52px;}
+.nav-brand{font-family:var(--sub);font-weight:400;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;white-space:nowrap;color:var(--ink);}
+.nav-links{display:flex;gap:1.4em;font-family:var(--sub);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;flex-wrap:nowrap;}
+.nav-links a{color:var(--grey-500);text-decoration:none;transition:color .2s;padding-bottom:1px;border-bottom:1.5px solid transparent;white-space:nowrap;}
+.nav-links a:hover{color:var(--teal-500);}
+.nav-links a.active{color:var(--teal-500);border-bottom-color:var(--teal-500);}
+.nav-pill{font-family:var(--sub);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-500);background:var(--grey-100);padding:.35em .85em;border-radius:100px;white-space:nowrap;}
+.hero{min-height:82vh;display:flex;flex-direction:column;justify-content:flex-end;padding-top:clamp(80px,12vw,140px);padding-bottom:clamp(56px,8vw,100px);background:var(--ink);color:#fff;position:relative;overflow:hidden;}
+.hero-rings{position:absolute;right:-140px;top:50%;transform:translateY(-50%);width:620px;height:620px;opacity:.1;pointer-events:none;}
+.hero-rings circle{fill:none;stroke:var(--teal-400);stroke-width:1.5;}
+.hero .eyebrow{color:var(--teal-300);}
+.hero .eyebrow::before{border-color:var(--teal-300);}
+.hero h1{color:#fff;max-width:18ch;margin-bottom:.6em;}
+.hero-lede{font-family:var(--sub);font-weight:300;font-size:clamp(.95rem,1.8vw,1.2rem);color:rgba(255,255,255,.55);max-width:54ch;margin-bottom:clamp(40px,5vw,64px);line-height:1.65;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:2.2em;font-family:var(--sub);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.1);padding-top:1.8em;}
+.hero-meta span b{display:block;color:rgba(255,255,255,.75);font-weight:400;margin-top:.4em;letter-spacing:.04em;}
+.sec-head{margin-bottom:clamp(32px,5vw,52px);}
+.sec-head h2{margin-bottom:.5em;}
+.sec-head .intro{font-family:var(--sub);font-weight:300;font-size:clamp(.95rem,1.7vw,1.1rem);color:var(--ink-soft);max-width:62ch;line-height:1.65;margin:0;}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--grey-200);border:1px solid var(--grey-200);border-radius:16px;overflow:hidden;margin-top:clamp(32px,4vw,48px);}
+.card{background:var(--paper);padding:28px 26px 30px;}
+.card-num{font-family:var(--sub);font-weight:400;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--teal-500);margin-bottom:1em;}
+.card h4{margin-bottom:.6em;font-size:1rem;}
+.card p{font-family:var(--sub);font-weight:300;font-size:.88rem;color:var(--ink-soft);margin:0;line-height:1.6;}
+.tl{position:relative;margin-top:clamp(32px,4vw,48px);}
+.tl-line{position:absolute;left:106px;top:8px;bottom:8px;width:1px;background:var(--grey-200);}
+.tl-row{display:grid;grid-template-columns:90px 32px 1fr;gap:0;padding-bottom:36px;}
+.tl-row:last-child{padding-bottom:0;}
+.tl-date{font-family:var(--sub);font-weight:400;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-500);text-align:right;padding-top:4px;padding-right:6px;}
+.tl-dot{width:13px;height:13px;background:var(--paper);border:2px solid var(--teal-400);border-radius:50%;margin-top:5px;justify-self:center;}
+.tl-row.key .tl-dot{background:var(--teal-500);border-color:var(--teal-500);}
+.tl-row.key .tl-date{color:var(--ink);font-weight:400;}
+.tl-body h4{font-family:var(--display);font-size:1.05rem;margin-bottom:.4em;}
+.tl-body p{font-family:var(--sub);font-weight:300;font-size:.88rem;color:var(--ink-soft);margin:0;line-height:1.6;}
+.method-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:clamp(28px,4vw,44px);}
+.mc{border:1px solid var(--grey-200);border-radius:14px;padding:26px 24px 28px;}
+.mc.new{border-color:var(--teal-300);background:var(--teal-100);}
+.mc-tag{font-family:var(--sub);font-weight:400;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;margin-bottom:1em;color:var(--grey-500);}
+.mc.new .mc-tag{color:var(--teal-700);}
+.mc h4{margin-bottom:.55em;}
+.mc p{font-family:var(--sub);font-weight:300;font-size:.88rem;color:var(--ink-soft);margin:0;line-height:1.6;}
+.mc.new p{color:var(--teal-800);}
+.lens{background:var(--ink);border-radius:14px;padding:30px 32px 32px;margin-top:clamp(28px,4vw,44px);position:relative;overflow:hidden;}
+.lens::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--teal-500);}
+.lens-eye{font-family:var(--sub);font-weight:400;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-400);display:flex;align-items:center;gap:.7em;margin-bottom:1.2em;}
+.lens-eye::before{content:"";width:7px;height:7px;border:1.5px solid var(--teal-400);border-radius:50%;flex:none;}
+.lens p{color:rgba(255,255,255,.7);font-family:var(--sub);font-weight:300;font-size:.93rem;line-height:1.72;margin:0 0 .9em;}
+.lens p:last-child{margin:0;}
+.lens em{color:rgba(255,255,255,.92);font-style:normal;}
+.tier-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(28px,4vw,44px);}
+.tier{border:1px solid var(--grey-200);border-radius:16px;overflow:hidden;}
+.tier-head{padding:22px 22px 18px;}
+.tier-name{font-family:var(--sub);font-weight:400;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal-500);margin-bottom:.6em;}
+.tier-price{font-family:var(--display);font-size:clamp(1.5rem,3vw,2rem);color:var(--ink);line-height:1;}
+.tier-price sup{font-family:var(--sub);font-size:.55em;font-weight:300;vertical-align:super;}
+.tier-body{padding:18px 22px 22px;border-top:1px solid var(--grey-200);}
+.tier-body p{font-family:var(--sub);font-weight:300;font-size:.86rem;color:var(--ink-soft);margin:0;line-height:1.6;}
+.tier.dark{background:var(--ink);border-color:transparent;}
+.tier.dark .tier-name{color:var(--teal-400);}
+.tier.dark .tier-price{color:#fff;}
+.tier.dark .tier-body{border-top-color:rgba(255,255,255,.1);}
+.tier.dark .tier-body p{color:rgba(255,255,255,.58);}
+.oer-viz{background:var(--grey-100);border-radius:14px;padding:clamp(20px,3vw,36px);margin-top:28px;}
+.oer-label{font-family:var(--sub);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--grey-500);margin:0 0 18px;}
+.oer-bars{display:flex;align-items:flex-end;gap:3px;height:110px;}
+.oer-bars .ob-wrap{flex:1;position:relative;height:110px;}
+.oer-bars .ob-all{position:absolute;bottom:0;left:0;right:0;background:var(--teal-400);border-radius:2px 2px 0 0;}
+.oer-bars .ob-dur{position:absolute;bottom:0;left:0;right:0;background:var(--teal-700);border-radius:2px 2px 0 0;}
+.oer-legend{display:flex;gap:18px;margin-top:14px;font-family:var(--sub);font-size:.76rem;color:var(--ink-soft);letter-spacing:.02em;}
+.oer-legend span{display:flex;align-items:center;gap:7px;}
+.oer-legend span::before{content:"";width:10px;height:10px;border-radius:2px;display:inline-block;}
+.leg-all::before{background:var(--teal-400);}
+.leg-dur::before{background:var(--teal-700);}
+.oer-note{font-family:var(--sub);font-weight:300;font-size:.84rem;color:var(--ink-soft);margin:14px 0 0;line-height:1.6;}
+.cat-table{width:100%;border-collapse:collapse;font-family:var(--sub);margin-top:28px;}
+.cat-table th{font-weight:400;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-align:left;padding:11px 14px;border-bottom:2px solid var(--grey-300);}
+.cat-table td{font-weight:300;font-size:.88rem;color:var(--ink-soft);padding:13px 14px;border-bottom:1px solid var(--grey-200);vertical-align:top;line-height:1.55;}
+.cat-table tr:last-child td{border-bottom:none;}
+.badge{display:inline-block;font-family:var(--sub);font-weight:400;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;padding:.3em .75em;border-radius:100px;}
+.badge-a{background:var(--teal-100);color:var(--teal-700);}
+.badge-b{background:var(--grey-100);color:var(--grey-700);}
+.excl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:24px;}
+.excl{border:1px solid var(--grey-200);border-radius:10px;padding:18px 18px 20px;}
+.excl-tag{font-family:var(--sub);font-weight:400;font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-500);margin-bottom:.8em;}
+.excl p{font-family:var(--sub);font-weight:300;font-size:.84rem;color:var(--ink-soft);margin:0;line-height:1.55;}
+.moves{margin-top:clamp(28px,4vw,44px);}
+.move{display:grid;grid-template-columns:52px 1fr;gap:24px;padding:28px 0;border-bottom:1px solid var(--grey-200);align-items:start;}
+.move:first-child{border-top:1px solid var(--grey-200);}
+.move-n{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--teal-500);font-weight:300;}
+.move h3{font-size:1.05rem;margin-bottom:.55em;}
+.move p{font-family:var(--sub);font-weight:300;font-size:.9rem;color:var(--ink-soft);margin:0;line-height:1.65;}
+.rev-table{width:100%;border-collapse:collapse;font-family:var(--sub);margin-top:28px;}
+.rev-table th{font-weight:400;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;text-align:left;padding:11px 14px;border-bottom:1px solid var(--grey-300);color:var(--ink);}
+.rev-table td{font-weight:300;font-size:.88rem;color:var(--ink-soft);padding:13px 14px;border-bottom:1px solid var(--grey-200);line-height:1.5;}
+.rev-table tr:last-child td{border-bottom:none;}
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--grey-200);border:1px solid var(--grey-200);border-radius:14px;overflow:hidden;margin-top:28px;}
+.stat{background:var(--paper);padding:24px 22px 26px;}
+.stat-label{font-family:var(--sub);font-weight:400;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-500);margin-bottom:.8em;}
+.stat-val{font-family:var(--display);font-size:2.2rem;margin-bottom:.3em;}
+.stat-desc{font-family:var(--sub);font-weight:300;font-size:.82rem;color:var(--ink-soft);line-height:1.5;}
+/* DEMAND MODEL */
+.dm{background:var(--grey-100);border-radius:14px;padding:clamp(18px,3vw,32px);margin-top:clamp(24px,4vw,40px);}
+.dm-panel-label{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--grey-500);margin:0 0 12px;font-family:var(--sub);font-weight:400;}
+.dm-grid{display:grid;grid-template-columns:minmax(260px,5fr) 7fr;gap:22px;align-items:start;}
+.dm-yr-toggle{display:inline-flex;border:1px solid var(--grey-200);border-radius:8px;overflow:hidden;margin-bottom:12px;}
+.dm-yr-toggle button{font-family:var(--sub);font-size:.72rem;font-weight:400;border:0;background:#fff;color:var(--grey-500);padding:6px 13px;cursor:pointer;transition:background .15s,color .15s;}
+.dm-yr-toggle button[aria-pressed="true"]{background:var(--ink);color:#fff;}
+.dm-presets{display:flex;gap:7px;margin-bottom:16px;}
+.dm-preset{flex:1;font-family:var(--sub);font-size:.72rem;font-weight:400;border:1px solid var(--grey-200);background:#fff;color:var(--ink);border-radius:8px;padding:8px 4px;cursor:pointer;transition:border-color .15s,box-shadow .15s;text-align:center;line-height:1.3;}
+.dm-preset small{display:block;font-weight:300;color:var(--grey-500);font-size:.62rem;margin-top:2px;}
+.dm-preset:hover{border-color:var(--teal-500);}
+.dm-preset[aria-pressed="true"]{border-color:var(--teal-500);box-shadow:inset 0 0 0 1px var(--teal-500);}
+.dm-base-wrap{margin-bottom:16px;}
+.dm-base-wrap label{font-size:.72rem;font-weight:400;display:block;margin-bottom:5px;font-family:var(--sub);}
+.dm-base-input{display:flex;align-items:center;border:1px solid var(--grey-200);border-radius:8px;overflow:hidden;background:#fff;}
+.dm-base-input input{font-family:var(--sub);font-size:.84rem;font-weight:400;border:0;outline:none;padding:7px 10px;width:100%;color:var(--ink);background:transparent;}
+.dm-base-input span{font-size:.68rem;color:var(--grey-500);padding:0 10px;border-left:1px solid var(--grey-200);white-space:nowrap;}
+.dm-slider-block{margin-bottom:14px;}
+.dm-slider-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px;}
+.dm-slider-name{font-size:.78rem;font-weight:400;font-family:var(--sub);display:flex;align-items:center;gap:6px;}
+.dm-dot{width:8px;height:8px;border-radius:2px;flex:none;}
+.dm-dot.l{background:var(--teal-800);}
+.dm-dot.a{background:var(--teal-700);}
+.dm-dot.e{background:var(--teal-400);}
+.dm-offset-chip{font-size:.6rem;color:var(--grey-500);border:1px solid var(--grey-200);border-radius:4px;padding:1px 5px;font-weight:300;}
+.dm-slider-val{font-size:.84rem;font-weight:400;font-family:var(--sub);}
+.dm input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:4px;background:var(--grey-200);outline:none;margin:0;cursor:pointer;}
+.dm input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;border-radius:50%;background:var(--gold-500);border:3px solid #fff;box-shadow:0 0 0 1px #c9a028;cursor:grab;}
+.dm input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--gold-500);border:3px solid #fff;box-shadow:0 0 0 1px #c9a028;cursor:grab;}
+.dm-contrib{font-size:.68rem;color:var(--grey-500);margin-top:4px;font-family:var(--sub);}
+.dm-contrib b{color:var(--ink);font-weight:400;}
+.dm-results{background:#fff;border:1px solid var(--grey-200);border-radius:12px;padding:20px 22px;}
+.dm-hero{display:flex;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:4px;}
+.dm-hero-main .dm-num{font-weight:300;font-size:clamp(2rem,4.5vw,2.8rem);line-height:.95;letter-spacing:-.02em;font-family:var(--display);}
+.dm-hero-main .dm-unit{font-size:.9rem;font-weight:300;color:var(--grey-500);margin-left:4px;font-family:var(--sub);}
+.dm-hero-main .dm-cap{font-size:.68rem;color:var(--grey-500);margin-top:5px;font-family:var(--sub);}
+.dm-hero-pct{padding-left:20px;border-left:1px solid var(--grey-200);}
+.dm-hero-pct .dm-num{font-weight:300;font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1;font-family:var(--display);}
+.dm-hero-pct .dm-cap{font-size:.68rem;color:var(--grey-500);margin-top:5px;font-family:var(--sub);}
+.dm-bar-section{margin-top:18px;}
+.dm-bar-track{display:flex;height:22px;border-radius:6px;overflow:hidden;background:var(--grey-100);box-shadow:inset 0 0 0 1px var(--grey-200);}
+.dm-seg{height:100%;transition:width .25s ease;}
+.dm-seg.l{background:var(--teal-800);}
+.dm-seg.a{background:var(--teal-700);}
+.dm-seg.e{background:var(--teal-400);}
+.dm-bar-foot{display:flex;justify-content:space-between;margin-top:5px;font-size:.66rem;color:var(--grey-500);font-family:var(--sub);}
+.dm-breakdown{margin-top:18px;border-top:1px solid var(--grey-200);padding-top:12px;}
+.dm-brow{display:grid;grid-template-columns:1fr auto auto auto;gap:10px;align-items:center;padding:5px 0;font-size:.76rem;font-family:var(--sub);}
+.dm-brow:not(:last-child){border-bottom:1px dashed var(--grey-200);}
+.dm-brow .dm-nm{display:flex;align-items:center;gap:6px;font-weight:400;}
+.dm-brow .dm-v{font-size:.72rem;text-align:right;color:var(--grey-500);}
+.dm-brow .dm-v b{color:var(--ink);font-weight:400;}
+.dm-brow.tot{font-weight:700;border-top:1px solid var(--grey-200);border-bottom:0;margin-top:3px;padding-top:9px;}
+.dm-delta{margin-top:16px;background:var(--grey-100);border:1px solid var(--grey-200);border-radius:8px;padding:11px 14px;display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+.dm-blk .dm-dnum{font-weight:300;font-size:1.15rem;font-family:var(--display);}
+.dm-blk .dm-dcap{font-size:.66rem;color:var(--grey-500);font-family:var(--sub);}
+.dm-arrow{font-size:.9rem;color:var(--grey-300);}
+.dm-foot{margin-top:16px;font-size:.7rem;color:var(--grey-500);line-height:1.6;font-family:var(--sub);}
+.dm-foot p{margin:0 0 6px;}
+.dm-foot b{color:var(--ink);font-weight:400;}
+@media(max-width:760px){.dm-grid{grid-template-columns:1fr;}}
+.ov-intro{display:grid;grid-template-columns:1fr 320px;gap:clamp(32px,5vw,64px);align-items:start;padding-bottom:clamp(40px,6vw,60px);border-bottom:1px solid var(--grey-200);margin-bottom:clamp(36px,5vw,52px);}
+@media(max-width:860px){.ov-intro{grid-template-columns:1fr;}}
+.author-block{display:flex;align-items:center;gap:14px;margin-bottom:clamp(18px,2.5vw,24px);}
+.author-photo{width:46px;height:46px;border-radius:50%;object-fit:cover;flex:none;border:2px solid var(--grey-200);}
+.author-label{font-family:var(--sub);font-weight:300;font-size:.68rem;color:var(--grey-500);display:block;margin-bottom:2px;letter-spacing:.04em;}
+.author-name{font-family:var(--sub);font-weight:400;font-size:.88rem;color:var(--ink);display:block;}
+.intro-body p{font-family:var(--sub);font-weight:300;font-size:.92rem;color:var(--ink-soft);line-height:1.72;margin:0 0 .85em;}
+.intro-body p:last-child{margin:0;}
+.ov-stats{background:var(--grey-100);border-radius:12px;padding:20px 20px 14px;}
+.ov-stats-head{font-family:var(--sub);font-weight:400;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--grey-500);margin:0 0 10px;}
+.ov-stat{padding:11px 0;border-bottom:1px solid var(--grey-200);}
+.ov-stat:last-child{border-bottom:0;padding-bottom:4px;}
+.ov-stat-label{font-family:var(--sub);font-weight:400;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--teal-500);margin-bottom:.25em;}
+.ov-stat-val{font-family:var(--display);font-size:1.55rem;font-weight:300;line-height:1;margin-bottom:.2em;}
+.ov-stat-desc{font-family:var(--sub);font-weight:300;font-size:.74rem;color:var(--ink-soft);line-height:1.4;}
+footer{padding:clamp(44px,6vw,76px) 0;border-top:1px solid var(--grey-200);}
+.foot{display:flex;justify-content:space-between;align-items:center;gap:2em;flex-wrap:wrap;}
+.foot-brand{font-family:var(--sub);font-weight:400;letter-spacing:.22em;text-transform:uppercase;font-size:.72rem;}
+.foot-meta{font-family:var(--sub);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--grey-300);text-align:right;line-height:1.9;}
+@media(max-width:860px){.tier-grid{grid-template-columns:1fr;}.nav-links{display:none;}}
+@media(max-width:600px){.tl-line{left:72px;}.tl-row{grid-template-columns:72px 1fr;gap:18px;}.tl-dot{left:66px;}.move{grid-template-columns:38px 1fr;gap:16px;}.move-n{font-size:1.7rem;}}
+:focus-visible{outline:2px solid var(--teal-500);outline-offset:3px;border-radius:3px;}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important;}}
+</style>
+</head>
+<body>
+
+<div id="pbar"></div>
+
+<nav>
+  <div class="nav-inner">
+    <span class="nav-brand" style="display:flex;align-items:center;gap:8px;">
+      Angus Harman
+    </span>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#moves">Key Actions</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#operational">Operational</a>
+      <a href="#scope1">Scope 1</a>
+      <a href="#scope2">Scope 2</a>
+      <a href="#scope3">Scope 3</a>
+      <a href="#oer">OER</a>
+      <a href="#neutralisation">Neutralisation</a>
+    </div>
+
+    <span class="nav-pill" id="npill">1 / 9</span>
+  </div>
+</nav>
+
+<div class="hero">
+  <svg class="hero-rings" viewBox="0 0 620 620" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="310" cy="310" r="270"/><circle cx="310" cy="310" r="210"/>
+    <circle cx="310" cy="310" r="155"/><circle cx="310" cy="310" r="100"/>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">SBTi · CNZS V2.0 · Final Standard · June 2026</div>
+    <h1>SBTi Corporate Net-Zero Standard V2</h1>
+    <p class="hero-lede">What changed in the V2 second draft, what it means scope by scope, and the decisions companies need to make now.</p>
+    <div class="hero-meta">
+      <span>Author<b>Angus Harman</b></span>
+      <span>Issued<b>June 2026</b></span>
+      <span>Standard<b>Final V2.0 — June 2026</b></span>
+    </div>
+  </div>
+</div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="ov-intro">
+      <div>
+        <div class="author-block">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAYABgAAD/4QEKRXhpZgAATU0AKgAAAAgABgEaAAUAAAABAAAAVgEbAAUAAAABAAAAXgEoAAMAAAABAAIAAAExAAIAAABpAAAAZgE7AAIAAAAHAAAA0IdpAAQAAAABAAAA2AAAAAAAAABgAAAAAQAAAGAAAAABQ2FudmEgZG9jPURBR3p3N0FYdkw0IHVzZXI9VUFHUW1NazNlYm8gYnJhbmQ9UG9sbGluYXRpb24gdGVtcGxhdGU9UG9sbGluYXRpb25fSGVhZHNob3RzICgxMDAwIHggMTAwMCBweCkAAERlc2lnbgAAAAOgAQADAAAAAQABAACgAgAEAAAAAQAAAUCgAwAEAAAAAQAAAUAAAAAA/+EK1Gh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8APD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNi4wLjAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1wOkNyZWF0b3JUb29sPSJDYW52YSBkb2M9REFHenc3QVh2TDQgdXNlcj1VQUdRbU1rM2VibyBicmFuZD1Qb2xsaW5hdGlvbiB0ZW1wbGF0ZT1Qb2xsaW5hdGlvbl9IZWFkc2hvdHMgKDEwMDAgeCAxMDAwIHB4KSI+IDxkYzpjcmVhdG9yPiA8cmRmOlNlcT4gPHJkZjpsaT5EZXNpZ248L3JkZjpsaT4gPC9yZGY6U2VxPiA8L2RjOmNyZWF0b3I+IDxkYzp0aXRsZT4gPHJkZjpBbHQ+IDxyZGY6bGkgeG1sOmxhbmc9IngtZGVmYXVsdCI+UG9sbGluYXRpb25fSGVhZHNob3RzICgxMDAwIHggMTAwMCBweCkgLSBBbmd1cyBIYXJtYW4gPC9yZGY6bGk+IDwvcmRmOkFsdD4gPC9kYzp0aXRsZT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPD94cGFja2V0IGVuZD0idyI/PgD/7QCOUGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAFUcAVoAAxslRxwCAAACAAIcAgUANlBvbGxpbmF0aW9uX0hlYWRzaG90cyAoMTAwMCB4IDEwMDAgcHgpIC0gQW5ndXMgSGFybWFuIBwCUAAGRGVzaWduADhCSU0EJQAAAAAAEAJSDV2qr3U7uzHg+oiWZdv/wAARCAFAAUADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaX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" class="author-photo" alt="Angus Harman">
+          <div>
+            <span class="author-label">Written by</span>
+            <span class="author-name">Angus Harman</span>
+          </div>
+        </div>
+        <div class="intro-body">
+          <p>The SBTi has published the final Corporate Net-Zero Standard V2.0 (CNZS V2.0), operationalising its 2026–2030 strategy. Since its establishment in 2015, SBTi has grown to over 10,000 companies with validated targets (and 13,000+ including commitments), cementing its position as the global benchmark for corporate climate target-setting.</p>
+          <p>As scale has increased, the SBTi has evolved its approach, moving from a generalised framework to more sector- and geography-specific guidance, with stronger alignment across adjacent frameworks and clearer implementation pathways. Notably, it positions itself — in its own words — as a "transformation partner" rather than an ambition-setter, placing greater emphasis on delivery, accountability and real-economy impact.</p>
+          <p>This article outlines the key changes and what companies need to act on now.</p>
+        </div>
+      </div>
+      <div>
+        <p class="ov-stats-head">SBTi at scale · June 2026</p>
+        <div class="ov-stats">
+          <div class="ov-stat">
+            <div class="ov-stat-label">Net-zero commitments</div>
+            <div class="ov-stat-val">13,000+</div>
+            <div class="ov-stat-desc">Companies with commitments or validated targets globally</div>
+          </div>
+          <div class="ov-stat">
+            <div class="ov-stat-label">Validated targets</div>
+            <div class="ov-stat-val">10,761+</div>
+            <div class="ov-stat-desc">Companies with validated SBTi targets</div>
+          </div>
+          <div class="ov-stat">
+            <div class="ov-stat-label">Market cap covered</div>
+            <div class="ov-stat-val">~40%</div>
+            <div class="ov-stat-desc">Estimated share of global market capitalisation represented</div>
+          </div>
+          <div class="ov-stat">
+            <div class="ov-stat-label">Covered emissions</div>
+            <div class="ov-stat-val">34 Bn t</div>
+            <div class="ov-stat-desc">Estimated CO₂e across Scopes 1–3 for SBTi-aligned companies</div>
+          </div>
+          <div class="ov-stat">
+            <div class="ov-stat-label">2025 retirements</div>
+            <div class="ov-stat-val">20 Mt</div>
+            <div class="ov-stat-desc">Carbon credits retired, 0.06% of covered emissions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="eyebrow">Executive Summary</div>
+    <div class="sec-head">
+      <h2>The Key SBTi Corporate Net Zero Updates</h2>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-num">01 · Operational</div>
+        <h4>A formal Category A / B split</h4>
+        <p>Category A: Scope 1–3 targets, third-party assurance, published transition plan, post-2035 removals. Category B is materially lighter on all counts. The old SME route is gone.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">02 · Governance</div>
+        <h4>Set-and-forget is gone</h4>
+        <p>All companies publish transition plans with board sign-off. Annual progress reporting is mandatory. Baselines reset every five years with public performance disclosure.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">03 · Scope 1</div>
+        <h4>Scope 1 gets its own target</h4>
+        <p>Three target methods: Absolute Reduction, Sector-Specific, and the new Asset Decarbonisation Plan. Separating Scope 1 from Scope 2 removes the ability to cover a Scope 1 shortfall with cheap REC purchases and report a clean blended figure.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">04 · Scope 2</div>
+        <h4>Renewable claims require a credible energy strategy</h4>
+        <p>Generator age limits, deliverability region matching, and hourly reporting requirements disqualify much of what companies have been counting.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">05 · Scope 3</div>
+        <h4>Focus on priority emissions, not all of them</h4>
+        <p>Targets cover only categories representing ≥5% of total Scope 3. Supplier alignment targets let counterparties formally assume responsibility for shared emissions via written agreement, making who you buy from a climate strategy decision.</p>
+      </div>
+      <div class="card">
+        <div class="card-num">06 · Carbon</div>
+        <h4>OER replaces BVCM with a three-tier framework</h4>
+        <p>BVCM is replaced by the Ongoing Emissions Responsibility (OER) framework, which introduces three recognition tiers: Engaged, Advanced and Leadership. The programme is optional to 2035, after which Category A companies are required to take responsibility for a defined share of ongoing emissions, including support for eligible removals. Companies must declare their participation (or non-participation) at validation, with disclosure captured on the SBTi Dashboard.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="moves" style="background:var(--blue-100);">
+  <div class="wrap">
+    <div class="eyebrow">What to do now</div>
+    <div class="sec-head">
+      <h2>5 key actions for companies to make now</h2>
+      <p class="intro">V2.0 is operative from February 2027, but most of these decisions have lead times longer than that. Acting after the standard takes effect means acting too late.</p>
+    </div>
+    <div class="moves">
+      <div class="move">
+        <div class="move-n">01</div>
+        <div>
+          <h3>Model your removals obligation now</h3>
+          <p>From 2035, Category A companies must cover ongoing Scope 1–3 emissions with removals: 1% rising to 100% by the net-zero year, with the durable share compounding from 10% to 100% over the same period. That's a year-by-year volume schedule. It belongs in procurement planning now, not when the 2035 trigger arrives.</p>
+        </div>
+      </div>
+      <div class="move">
+        <div class="move-n">02</div>
+        <div>
+          <h3>Set your OER position before your next validation</h3>
+          <p>Participation is voluntary, but abstention is a public filing. Three levels: Engaged (≥1%), Advanced (100% Scope 1–2 plus ≥10% total), Leadership (100% at $80/t with full credit retirement). The right answer depends on ambition, supply access, and cost modelling. The decision needs to be made before the Dashboard declaration, not after.</p>
+        </div>
+      </div>
+      <div class="move">
+        <div class="move-n">03</div>
+        <div>
+          <h3>Lock in durable removal supply before 2030</h3>
+          <p>Over 90% of available industrial biochar supply is already contracted. Long-lived removal capacity is the scarcest part of the market, and the durability ramp concentrates demand from 2035. Contract structure matters: delivery-matched payment preserves capital until the obligation lands. Waiting until 2033 to procure means bidding into a seller's market with no alternatives.</p>
+        </div>
+      </div>
+      <div class="move">
+        <div class="move-n">04</div>
+        <div>
+          <h3>Map which suppliers are SBTi-aligned and formalise it</h3>
+          <p>A supplier target changes who is responsible for shared emissions, not whether they appear in your inventory. Volume from an aligned supplier counts toward your Scope 3 target. A supplier with its own validated target can assume responsibility via written agreement. That makes counterparty alignment a climate accounting decision. The categories worth mapping first are those with stable, long-term relationships. Not all Scope 3 categories will support the written agreement structure V2.0 requires.</p>
+        </div>
+      </div>
+      <div class="move">
+        <div class="move-n">05</div>
+        <div>
+          <h3>Audit your Scope 2 certificate holdings against the new rules</h3>
+          <p>Generator age, regional matching, and hourly reporting requirements will disqualify much of what's currently on the books. In Australia, most LGC-backed claims won't pass. SBTi compliance is voluntary; ASRS disclosure is not. These are separate questions. The relevant one for clients disclosing under ASRS is whether the accounting basis of their renewable electricity position remains accurate, not whether it satisfies SBTi's matching rules. The audit needs to happen before the next disclosure cycle, not after it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="background:var(--ink);padding:clamp(3.5rem,8vw,6rem) var(--gutter);">
+  <div class="wrap">
+    <div class="eyebrow" style="color:rgba(255,255,255,.4);margin-bottom:.9rem;">Section by section</div>
+    <h2 style="font-family:var(--display);font-size:clamp(3rem,7vw,6.5rem);color:#fff;margin:0;line-height:1.0;letter-spacing:-.02em;">Deep Dive</h2>
+  </div>
+</div>
+
+<hr class="rule">
+
+<section id="timeline">
+  <div class="wrap">
+    <div class="eyebrow">V2.0 Roadmap</div>
+    <div class="sec-head">
+      <h2>The window is shorter than it looks</h2>
+      <p class="intro">The pressure point is 2035, not 2050. That's when Category A removals become mandatory, and when durable supply, already 90%+ contracted by a handful of large buyers, gets genuinely scarce. Companies treating 2035 as the planning horizon are already late to the procurement decisions that matter.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-line"></div>
+      <div class="tl-row key">
+        <div class="tl-date">Jun 2026</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>Final V2.0 Standard Published</h4><p>SBTi released the final Corporate Net-Zero Standard V2.0 on 11 June 2026, its first major revision since 2021.</p></div>
+      </div>
+      <div class="tl-row key">
+        <div class="tl-date">Feb 2027</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>V2.0 Becomes the Operative Standard</h4><p>All new submissions and revalidations must comply with V2.0. V1.3.1 submissions must be lodged before this date.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">2028</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>Next Target Cycle Begins</h4><p>Companies start setting next-cycle near-term targets for 2030–2035. End-of-cycle public reporting commences for current-cycle targets.</p></div>
+      </div>
+      <div class="tl-row">
+        <div class="tl-date">2030</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>Near-Term Target Deadline</h4><p>Performance against near-term targets becomes public for many companies that set targets under the old guidance.</p></div>
+      </div>
+      <div class="tl-row key">
+        <div class="tl-date">2035</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>OER Mandatory for Category A</h4><p>Ongoing Emissions Responsibility kicks in at 1% of Scope 1–3 emissions, rising to 100% at the net-zero year. The durable removal share runs from 10% to 100% over the same period. Durable supply is already constrained.</p></div>
+      </div>
+      <div class="tl-row key">
+        <div class="tl-date">2050</div>
+        <div class="tl-dot"></div>
+        <div class="tl-body"><h4>100% Removal Coverage Required</h4><p>All residual emissions must be neutralised by removals. 100% durable storage required. Companies that didn't lock in long-lived supply early are bidding into a market with almost no headroom.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="operational">
+  <div class="wrap">
+    <div class="eyebrow">Section 01 · Operational Changes</div>
+    <div class="sec-head">
+      <h2>Company requirements</h2>
+      <p class="intro">Annual progress reporting, 5-year target reviews, third-party assurance, and published transition plans are now standing requirements for Category A. Validation is the start, not the finish.</p>
+    </div>
+
+    <h3 style="margin-bottom:.9em;font-size:1.1rem;">Category A vs Category B</h3>
+    <table class="cat-table">
+      <thead>
+        <tr><th>Obligation</th><th><span class="badge badge-a">Category A</span></th><th><span class="badge badge-b">Category B</span></th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Thresholds</strong><br><span style="font-size:.82rem;color:var(--grey-500);">Meets at least one of: turnover ≥€450m, FTE ≥1,000; or Scope 1&amp;2 ≥10,000 tCO₂e in high-income countries</span></td>
+          <td>Meets at least one threshold</td>
+          <td>Does not meet Category A criteria</td>
+        </tr>
+        <tr>
+          <td><strong>Transition Plan</strong></td>
+          <td>Develop, board-approve, publish within 15 months. Limited assurance over base year, LCE, target metrics and progress data.</td>
+          <td>Develop and board-approve. Disclosure recommended. Assurance optional.</td>
+        </tr>
+        <tr>
+          <td><strong>Scope Coverage</strong></td>
+          <td>Scope 1, 2 &amp; 3. Emissions Intensive Activities identification required.</td>
+          <td>Scope 1 &amp; 2. Scope 3 recommended.</td>
+        </tr>
+        <tr>
+          <td><strong>OER / Removals</strong></td>
+          <td>Declare position at validation. Removals mandatory from 2035 (1% → 100% to net-zero year).</td>
+          <td>Declare position. No 2035 mandate.</td>
+        </tr>
+        <tr>
+          <td><strong>Progress Reporting</strong></td>
+          <td>Annual. Progress data must be assured.</td>
+          <td>Annual. Assurance optional.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:clamp(40px,6vw,60px);">
+      <h3 style="margin-bottom:.8em;font-size:1.1rem;">Three other changes worth flagging</h3>
+      <div class="method-grid">
+        <div class="mc">
+          <div class="mc-tag">Governance</div>
+          <h4>Transition plans: public, board-signed, assured</h4>
+          <p>Category A: public disclosure with board sign-off and third-party assurance within 15 months of validation. Category B: board-approve only, disclosure recommended. This isn't a template exercise. The plan has to show how the targets get delivered.</p>
+        </div>
+        <div class="mc">
+          <div class="mc-tag">Reporting</div>
+          <h4>Baselines move. Targets get reviewed every five years.</h4>
+          <p>Baselines are no longer frozen at validation. Annual progress data is publicly disclosed. At the end of each 5-year cycle, performance against targets becomes part of the public record. Minimum progress criteria will follow; they won't apply until 2035, but they're coming.</p>
+        </div>
+        <div class="mc new">
+          <div class="mc-tag">New · Framework</div>
+          <h4>OER replaces BVCM</h4>
+          <p>Beyond Value Chain Mitigation and neutralisation are folded into one framework. Three voluntary tiers pre-2035, a mandatory floor from 2035 for Category A, and full neutralisation required at net-zero year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="scope1">
+  <div class="wrap">
+    <div class="eyebrow">Section 02 · Scope 1</div>
+    <div class="sec-head">
+      <h2>Scope 1 gets its own target</h2>
+      <p class="intro">Fuel combustion, fleets, process emissions, fugitive gases: each separated out, with three methods to set the target. The blended Scope 1+2 number is gone. You can no longer cover a Scope 1 gap with cheap REC purchases and report a clean combined figure.</p>
+    </div>
+    <div class="method-grid">
+      <div class="mc">
+        <div class="mc-tag">Method 01</div>
+        <h4>Absolute Reduction</h4>
+        <p>Straight-line percentage reduction in absolute tonnes against a base year, in line with a 1.5°C trajectory. The default route for most sectors.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Method 02</div>
+        <h4>Sector-Specific</h4>
+        <p>Targets set against a sector-specific intensity benchmark. Cement, steel, aluminium, power, aviation, and shipping where well-defined sector pathways exist. Transition plan required at validation.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">Method 03 · New</div>
+        <h4>Asset Decarbonisation Plan</h4>
+        <p>An asset-level schedule to abate, retire, or replace GHG-emitting assets in line with net zero by 2050. Must be paired with a carbon budget that caps total tonnes over the period. This is the method designed for hard-to-abate operations where legacy assets run on long timelines.</p>
+      </div>
+    </div>
+    <div class="lens">
+      <div class="lens-eye">The Lens</div>
+      <p>The separation is a credibility call. Folding Scope 1 into a combined target let companies paper over hard-to-abate process emissions with cheap Scope 2 abatement. A company running a heavy industrial asset could buy LGCs, hit its blended target, and call it done. That's closed.</p>
+      <p>The ADP makes sense for anyone with long-lived, hard-to-abate assets: it lets you phase retirements across a realistic timeline instead of forcing a linear straight-line on assets that can't decarbonise that way. But the carbon budget pairing is non-negotiable: without it, the ADP is a flexibility mechanism without a ceiling. The budget is where the accountability sits.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="scope2">
+  <div class="wrap">
+    <div class="eyebrow">Section 03 · Scope 2</div>
+    <div class="sec-head">
+      <h2>Renewable claims become harder without a credible energy strategy</h2>
+      <p class="intro">Age limits, regional matching, and hourly reporting requirements will disqualify much of what companies have been counting. Several changes, each targeting a different way that companies have been using certificate markets to claim clean electricity without much additionality to show for it.</p>
+    </div>
+    <div class="method-grid">
+      <div class="mc">
+        <div class="mc-tag">Rule 01</div>
+        <h4>Rising low-carbon electricity targets</h4>
+        <p>LCE targets rise on a linear trajectory aligned to an eligible net-zero pathway. 100% low-carbon electricity required by 2040. Companies with &gt;20% electricity growth over the target cycle must set a Scope 2 emissions target.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Rule 02</div>
+        <h4>Generator age limit: 15 years</h4>
+        <p>The generating asset must have been built or re-powered within 15 years of the reporting period. Old generation doesn't count. This strips out the cheap, unbundled certificate stock that underpinned most "100% renewable" claims.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Rule 03</div>
+        <h4>Same deliverability region</h4>
+        <p>Certificates must come from generators in the same deliverability region as consumption. A company in one grid zone can't buy certificates from a generator in an unconnected zone and claim renewable electricity.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">New · Integrity</div>
+        <h4>Hourly matching: mandatory reporting for large loads</h4>
+        <p>Loads of ≥10 GWh must report their hourly-matched share. SBTi recognition tiers: ≥50% hourly by 2030, ≥75% by 2035, ≥90% from 2035. One matching interval per pool; no mixing hourly and annual within the same pool to cherry-pick clean hours.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">New · Definition</div>
+        <h4>Low-carbon is an emissions threshold, not a technology label</h4>
+        <p>0.048 kg CO₂/kWh now. Tightens to 0.024 kg CO₂/kWh in 2035. Whether a generator qualifies is a function of what it actually emits, not how it's classified.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Rule 04</div>
+        <h4>Consumption projections mandatory for Category A</h4>
+        <p>Category A companies must estimate and submit projected electricity consumption over the target timeframe. Data demand goes up significantly.</p>
+      </div>
+    </div>
+    <div class="lens">
+      <div class="lens-eye">The Lens</div>
+      <p>In Australia, a "100% renewable" claim typically rests on LGCs, often cheap unbundled certificates from old projects matched once a year. That's precisely what V2.0 disqualifies: too old, wrong matching interval, possible geographic mismatch. The certificate volume that underpins most corporate renewable claims in this market is at risk.</p>
+      <p>SBTi is voluntary. ASRS and AASB S2 are not, but they are separate obligations. A certificate stock that fails V2.0's Scope 2 matching rules doesn't automatically create an ASRS exposure. The ASRS question is whether disclosed climate positions are accurate on the basis on which they were made. For clients with renewable electricity claims built on LGCs that V2.0 would disqualify, the practical question is narrower: does the existing portfolio support the SBTi target being claimed, and if it doesn't, what does that mean for the transition plan they're required to disclose?</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="scope3">
+  <div class="wrap">
+    <div class="eyebrow">Section 04 · Scope 3</div>
+    <div class="sec-head">
+      <h2>Focus on priority emissions, not all of them</h2>
+      <p class="intro">The ≥5% threshold focuses targets on categories where companies have real influence. The counterparty alignment option adds a new mechanic: a supplier with its own validated SBTi target can formally assume responsibility for shared emissions via written agreement. That shifts supplier selection from a procurement question to a climate strategy one.</p>
+    </div>
+    <div class="method-grid">
+      <div class="mc new">
+        <div class="mc-tag">Key Change · Coverage</div>
+        <h4>5% priority threshold</h4>
+        <p>Near-term targets must cover every Scope 3 category representing ≥5% of total. Mandatory for Category A. Justified exclusions permitted for non-material or low-influence categories; eight specific exclusions are listed in the standard.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Target Type 01</div>
+        <h4>Absolute Emissions</h4>
+        <p>Linear trajectory to a defined residual level consistent with an eligible net-zero pathway.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">New · Target Type 02</div>
+        <h4>Supplier / customer alignment</h4>
+        <p>Share of tier-1 suppliers and/or customers (by emissions, spend, or revenue) that are in transition or net-zero aligned. Where a written agreement allocates coverage, an aligned partner can assume responsibility for those shared emissions.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">New · Target Type 03</div>
+        <h4>Category or activity-specific</h4>
+        <p>Targets applied to specific Scope 3 categories or activities (steel, cement, chemicals), individually or in combination. Particularly relevant for companies identifying Emissions Intensive Activities across their value chains.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(32px,4vw,48px);">
+      <h3 style="margin-bottom:.7em;font-size:1rem;">Permissible exclusions from near-term Scope 3 targets</h3>
+      <div class="excl-grid">
+        <div class="excl"><div class="excl-tag">Cat 1 &amp; 2</div><p>Cradle-to-gate emissions of second-hand goods.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 3</div><p>Where mitigated under Scope 1 and 2.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 7</div><p>Entire category excluded.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 8 · ULA</div><p>Leased asset emissions where company lacks operational control.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 9 · T&amp;D</div><p>Transport activities where company has no influence over mode.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 10</div><p>Sold products emissions where no contractual relationship with processor exists.</p></div>
+        <div class="excl"><div class="excl-tag">Cat 14 · Franchises</div><p>Independent franchises, or franchises leasing space without energy control.</p></div>
+      </div>
+    </div>
+
+    <div class="lens">
+      <div class="lens-eye">The Lens</div>
+      <p>The ≥5% threshold is the right call. Too many companies have been burning resource calculating emissions across low-materiality categories they have no real leverage over, partly because the old rules left no clean basis for exclusion. Focusing on priority sources should shift effort toward categories where action is actually possible.</p>
+      <p>The supplier alignment mechanic is the bigger change. A supplier target doesn't remove emissions from your inventory; it changes who is on the hook for them. Where a written agreement allocates coverage, the aligned counterparty formally assumes responsibility. That makes supplier relationships a climate accounting question, not just a procurement one. Companies need to map which of their Scope 3 categories have supplier relationships stable enough to underpin a written agreement. Not all of them will.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="oer">
+  <div class="wrap">
+    <div class="eyebrow">Section 05 · Ongoing Emissions Responsibility</div>
+    <div class="sec-head">
+      <h2>Three optional recognition tiers. OER mandatory for Category A from 2035.</h2>
+      <p class="intro">BVCM is replaced by a three-tier recognition framework: Engaged, Advanced, and Leadership. All three tiers are voluntary. From 2035, Category A companies must participate at a minimum — covering at least 1% of ongoing Scope 1–3 emissions. Companies declare their position at validation; declining requires a written rationale filed to the SBTi Dashboard.</p>
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier">
+        <div class="tier-head">
+          <div class="tier-name">Engaged</div>
+          <div class="tier-price"><sup>~$</sup>20<sup>/tCO₂e</sup></div>
+        </div>
+        <div class="tier-body"><p>≥1% of ongoing Scope 1, 2 and 3 emissions addressed via mitigation contributions. Recommended price; no mandated floor. Optional pre-2035; mandatory for Category A from 2035 at a minimum.</p></div>
+      </div>
+      <div class="tier">
+        <div class="tier-head">
+          <div class="tier-name">Advanced</div>
+          <div class="tier-price"><sup>$</sup>20<sup>+/tCO₂e</sup></div>
+        </div>
+        <div class="tier-body"><p>100% of Scope 1 and 2, plus additional Scope 3 such that total coverage reaches at least 10% of all ongoing emissions.</p></div>
+      </div>
+      <div class="tier dark">
+        <div class="tier-head">
+          <div class="tier-name">Leadership</div>
+          <div class="tier-price"><sup>$</sup>80<sup>+/tCO₂e</sup></div>
+        </div>
+        <div class="tier-body"><p>100% of total ongoing Scope 1, 2 and 3 emissions. Progressive disbursement recommended: commit funds progressively over the target period, not deferred to year-end. Verified mitigation outcomes required in volume equal to covered emissions.</p></div>
+      </div>
+    </div>
+    <p style="font-family:var(--sub);font-size:.78rem;color:var(--grey-400);margin-top:1.2rem;line-height:1.6;">* Category B: Leadership threshold is 10% of total ongoing emissions, not 100%. No 2035 mandatory floor.</p>
+
+    <div style="margin-top:clamp(36px,5vw,56px);">
+      <h3 style="margin-bottom:.7em;font-size:1.1rem;">The post-2035 removal ramp for Category A</h3>
+      <p style="font-family:var(--sub);font-weight:300;font-size:.9rem;color:var(--ink-soft);max-width:62ch;margin-bottom:0;line-height:1.65;">From 2035: coverage rises from 1% to 100% of ongoing Scope 1–3. Simultaneously, the durable share within that coverage rises from 10% to 100%. Both ramps run to the net-zero year; the obligation compounds.</p>
+
+      <div class="oer-viz">
+        <p class="oer-label">Illustrative removal obligation: Category A, 1M tCO₂e baseline</p>
+        <div class="oer-bars" id="oer-chart"></div>
+        <div class="oer-legend">
+          <span class="leg-all">Total removal volume</span>
+          <span class="leg-dur">Durable share</span>
+        </div>
+        <p class="oer-note">A Category A company at 1M tCO₂e in 2035 cutting to a 10% residual by 2050: buys 10,000 t in 2035, peaks around 280,000 t/yr in the early 2040s, and neutralises the remaining 100,000 t entirely with durable removals at net-zero.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:clamp(24px,4vw,40px);">
+      <div class="eyebrow" style="margin-bottom:.75em;">Implied credit demand model</div>
+      <p style="font-family:var(--sub);font-weight:300;font-size:.88rem;color:var(--ink-soft);max-width:58ch;line-height:1.65;margin:0 0 20px;">Adjust adoption rates across the three OER tiers to model implied annual credit demand. Offset rates are locked at V2.0 requirements; the judgement call is penetration within each tier.</p>
+      <div class="dm">
+        <div class="dm-grid">
+          <!-- CONTROLS -->
+          <div>
+            <p class="dm-panel-label">Assumptions</p>
+            <div class="dm-base-wrap">
+              <label for="dm-base">SBTi emissions base (Scope 1–3)</label>
+              <div class="dm-base-input">
+                <input id="dm-base" type="number" value="34500" min="1" step="500">
+                <span>Mt CO₂e</span>
+              </div>
+            </div>
+            <div class="dm-yr-toggle" role="group" aria-label="Target year">
+              <button id="dm-y2030" aria-pressed="true">2030</button>
+              <button id="dm-y2035" aria-pressed="false">2035</button>
+            </div>
+            <div class="dm-presets">
+              <button class="dm-preset" data-s="A" aria-pressed="false">Scenario A<small>Moderate</small></button>
+              <button class="dm-preset" data-s="B" aria-pressed="false">Scenario B<small>Mid</small></button>
+              <button class="dm-preset" data-s="C" aria-pressed="false">Scenario C<small>Bullish</small></button>
+            </div>
+            <div class="dm-slider-block">
+              <div class="dm-slider-head">
+                <span class="dm-slider-name"><span class="dm-dot l"></span>Leadership <span class="dm-offset-chip">100% offset</span></span>
+                <span class="dm-slider-val"><span id="dm-vL">0.10</span>%</span>
+              </div>
+              <input type="range" id="dm-sL" min="0" max="25" step="0.05" value="0.1">
+              <div class="dm-contrib">contributes <b id="dm-cL">0.100%</b> of base</div>
+            </div>
+            <div class="dm-slider-block">
+              <div class="dm-slider-head">
+                <span class="dm-slider-name"><span class="dm-dot a"></span>Advanced <span class="dm-offset-chip">10% offset</span></span>
+                <span class="dm-slider-val"><span id="dm-vA">0.50</span>%</span>
+              </div>
+              <input type="range" id="dm-sA" min="0" max="25" step="0.05" value="0.5">
+              <div class="dm-contrib">contributes <b id="dm-cA">0.050%</b> of base</div>
+            </div>
+            <div class="dm-slider-block">
+              <div class="dm-slider-head">
+                <span class="dm-slider-name"><span class="dm-dot e"></span>Engaged <span class="dm-offset-chip">1% offset</span></span>
+                <span class="dm-slider-val"><span id="dm-vE">1.00</span>%</span>
+              </div>
+              <input type="range" id="dm-sE" min="0" max="25" step="0.05" value="1">
+              <div class="dm-contrib">contributes <b id="dm-cE">0.010%</b> of base</div>
+            </div>
+          </div>
+          <!-- RESULTS -->
+          <div class="dm-results">
+            <p class="dm-panel-label">Implied annual demand</p>
+            <div class="dm-hero">
+              <div class="dm-hero-main">
+                <div><span class="dm-num" id="dm-outMt">55</span><span class="dm-unit" id="dm-outUnit"> Mt CO₂e</span></div>
+                <div class="dm-cap">credits demanded per year from SBTi-aligned companies</div>
+              </div>
+              <div class="dm-hero-pct">
+                <div><span class="dm-num" id="dm-outPct">0.16</span><span class="dm-unit" style="font-size:.85rem">%</span></div>
+                <div class="dm-cap">of the emissions base</div>
+              </div>
+            </div>
+            <div class="dm-bar-section">
+              <div class="dm-bar-track">
+                <div class="dm-seg l" id="dm-barL" style="width:64%"></div>
+                <div class="dm-seg a" id="dm-barA" style="width:31%"></div>
+                <div class="dm-seg e" id="dm-barE" style="width:5%"></div>
+              </div>
+              <div class="dm-bar-foot"><span>Tier share of total demand</span><span id="dm-barNote">Leadership dominates (64%)</span></div>
+            </div>
+            <div class="dm-breakdown">
+              <div class="dm-brow">
+                <span class="dm-nm"><span class="dm-dot l"></span>Leadership</span>
+                <span class="dm-v"><b id="dm-bL_a">0.10%</b> reach</span>
+                <span class="dm-v">×100%</span>
+                <span class="dm-v"><b id="dm-bL_mt">35 Mt</b></span>
+              </div>
+              <div class="dm-brow">
+                <span class="dm-nm"><span class="dm-dot a"></span>Advanced</span>
+                <span class="dm-v"><b id="dm-bA_a">0.50%</b> reach</span>
+                <span class="dm-v">×10%</span>
+                <span class="dm-v"><b id="dm-bA_mt">17 Mt</b></span>
+              </div>
+              <div class="dm-brow">
+                <span class="dm-nm"><span class="dm-dot e"></span>Engaged</span>
+                <span class="dm-v"><b id="dm-bE_a">1.00%</b> reach</span>
+                <span class="dm-v">×1%</span>
+                <span class="dm-v"><b id="dm-bE_mt">3 Mt</b></span>
+              </div>
+              <div class="dm-brow tot">
+                <span class="dm-nm">Total demand</span>
+                <span class="dm-v"></span>
+                <span class="dm-v"></span>
+                <span class="dm-v"><b id="dm-bT_mt">55 Mt</b></span>
+              </div>
+            </div>
+            <div class="dm-delta">
+              <div class="dm-blk"><div class="dm-dnum" id="dm-dX">2.8×</div><div class="dm-dcap">vs today's ~20 Mt baseline</div></div>
+              <span class="dm-arrow">→</span>
+              <div class="dm-blk"><div class="dm-dnum" id="dm-dPct">+175%</div><div class="dm-dcap">change in SBTi-driven demand</div></div>
+              <span class="dm-arrow">→</span>
+              <div class="dm-blk"><div class="dm-dnum">0.06% → <span id="dm-dBaseTo">0.16%</span></div><div class="dm-dcap">share of base offset now vs modelled</div></div>
+            </div>
+            <div class="dm-foot">
+              <p><b>How to read it.</b> Offset rates are locked at V2.0 tier requirements: Leadership 100%, Advanced 10%, Engaged 1% of emissions. The adoption sliders are the judgement in the model. The ~20 Mt baseline is what SBTi companies retire today, about 0.06% of the base.</p>
+              <p><b>Where 34,500 Mt comes from.</b> Bottom-up sum of company-level Scope 1–3 emissions from CDP disclosures across roughly 10,000 companies on the SBTi Target Dashboard. Scope 3 is gross and double-counts shared value-chain emissions, so it runs hot. Use as order-of-magnitude and overwrite for a specific company set.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="lens">
+      <div class="lens-eye">The Lens</div>
+      <p>Durable CDR retirements were under 200,000 tonnes in 2025, 0.11% of total retirements. Supply is already effectively allocated: over 90% of available industrial biochar supply was contracted by 2025, concentrated in a small number of large buyers including Microsoft and Google.</p>
+      <p>Category A companies with 2035 exposure that wait until 2033 to procure will be bidding against everyone else into a market with almost no discretionary headroom. Leadership is not a reputational play. It's a financial commitment. $80/t is the floor, 100% coverage is the requirement, and the durable share rises every year. Model the all-in multi-year cost before declaring a tier.</p>
+      <p>SBTi-aligned companies cover an estimated <em>34 billion tCO₂e</em> across Scopes 1–3. In 2025, 20 million tonnes of carbon credits were retired against that, 0.06% of covered emissions. V2.0 forces that number to move.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<section id="neutralisation">
+  <div class="wrap">
+    <div class="eyebrow">Section 06 · Neutralisation</div>
+    <div class="sec-head">
+      <h2>At net-zero year, the type of removal is the constraint</h2>
+      <p class="intro">CO₂ and N₂O, both long-lived GHGs, must be cancelled with durable, long-lived removals. Nature-based doesn't qualify. The qualifying set is DAC and geological storage: $300–1,000+/t and supply-constrained. A company with a 2040 net-zero year has five years from the 2035 mandatory ramp to reach full durable coverage. The procurement decision belongs in 2026, not 2034.</p>
+    </div>
+    <div class="method-grid">
+      <div class="mc new">
+        <div class="mc-tag">Rule · Scope 1 Residuals</div>
+        <h4>Direct responsibility</h4>
+        <p>Companies must directly neutralise all Scope 1 residual emissions. Durable, long-lived removals only, defined as carbon retention over centuries to millennia.</p>
+      </div>
+      <div class="mc new">
+        <div class="mc-tag">Rule · Scope 3 Residuals</div>
+        <h4>Joint or direct neutralisation</h4>
+        <p>All Scope 3 residuals must be neutralised: jointly with value-chain partners that report the same emissions, or directly where a partner hasn't demonstrated coverage. Written agreements are required where coverage is shared.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Rule · Permanence Matching</div>
+        <h4>Long-lived emissions need long-lived storage</h4>
+        <p>CO₂ and N₂O must be cancelled with durable, long-lived removals. Methane, being short-lived, can use either. Scope 2 emissions are projected to be negligible beyond 2040.</p>
+      </div>
+      <div class="mc">
+        <div class="mc-tag">Integrity · NDC</div>
+        <h4>Avoid NDC double-counting</h4>
+        <p>Recommended to use removals not simultaneously claimed against countries' NDCs where possible. Apply corresponding adjustments where available.</p>
+      </div>
+    </div>
+    <div class="lens">
+      <div class="lens-eye">The Lens</div>
+      <p>Nature-based removals at $10–50/t are not what neutralisation requires for long-lived GHG residuals. The qualifying set (DAC, enhanced weathering with long-term storage, geological storage) sits at $300–1,000+/t and is capital-intensive to bring to market. Supply at scale doesn't exist yet.</p>
+      <p>A company with a 2040 net-zero year is five years from needing 100% durable removal coverage of its residuals, on a ramp that starts at 10%. The forward liability should be modelled now: not as a 2035 procurement decision, but as a 2026 strategic one. Waiting until the ramp is active means buying into a market with no slack.</p>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <span class="foot-brand" style="display:flex;align-items:center;gap:10px;">
+        Angus Harman · Climate &amp; AI Advisory
+      </span>
+      <span class="foot-meta">SBTi CNZS V2 Update · June 2025</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var bar=document.getElementById('pbar');
+  function updateBar(){var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.width=(h>0?window.scrollY/h*100:0)+'%';}
+  var sections=Array.from(document.querySelectorAll('section[id]'));
+  var links=Array.from(document.querySelectorAll('.nav-links a'));
+  var pill=document.getElementById('npill');
+  function updateNav(){
+    var mid=window.scrollY+window.innerHeight*.38;
+    var cur=0;
+    sections.forEach(function(s,i){if(s.offsetTop<=mid)cur=i;});
+    links.forEach(function(a,i){a.classList.toggle('active',i===cur);});
+    pill.textContent=(cur+1)+' / '+sections.length;
+  }
+  function buildChart(){
+    var el=document.getElementById('oer-chart');
+    if(!el)return;
+    var n=16,maxH=110,bars=[];
+    for(var i=0;i<n;i++){
+      var t=i/(n-1);
+      var ongoing=1000000*(1-t*.9);
+      var removal=ongoing*(.01+t*.99);
+      var durable=removal*(.10+t*.90);
+      bars.push({removal:removal,durable:durable});
+    }
+    var maxR=Math.max.apply(null,bars.map(function(b){return b.removal;}));
+    bars.forEach(function(b){
+      var wrap=document.createElement('div');
+      wrap.className='ob-wrap';
+      var all=document.createElement('div');all.className='ob-all';
+      all.style.height=(b.removal/maxR*maxH)+'px';
+      var dur=document.createElement('div');dur.className='ob-dur';
+      dur.style.height=(b.durable/maxR*maxH)+'px';
+      wrap.appendChild(all);wrap.appendChild(dur);el.appendChild(wrap);
+    });
+  }
+  window.addEventListener('scroll',function(){updateBar();updateNav();},{passive:true});
+  updateBar();updateNav();buildChart();
+})();
+
+// Demand model
+(function(){
+  var presets={
+    "2030":{A:{L:.1,A:.5,E:1},B:{L:.2,A:1,E:2},C:{L:.4,A:2,E:5}},
+    "2035":{A:{L:.5,A:3,E:5},B:{L:1,A:5,E:10},C:{L:2,A:10,E:20}}
+  };
+  var offset={L:1.0,A:.10,E:.01};
+  var BASELINE=20;
+  var year="2030",activeS=null;
+  function el(id){return document.getElementById(id);}
+  function fmtMt(x){
+    if(x>=1000)return (x/1000).toFixed(2)+" Gt";
+    if(x>=100)return Math.round(x)+" Mt";
+    if(x>=10)return x.toFixed(0)+" Mt";
+    return x.toFixed(1)+" Mt";
+  }
+  function recompute(){
+    var base=parseFloat(el('dm-base').value)||0;
+    var aL=parseFloat(el('dm-sL').value),aA=parseFloat(el('dm-sA').value),aE=parseFloat(el('dm-sE').value);
+    el('dm-vL').textContent=aL.toFixed(2);
+    el('dm-vA').textContent=aA.toFixed(2);
+    el('dm-vE').textContent=aE.toFixed(2);
+    var pL=(aL/100)*offset.L,pA=(aA/100)*offset.A,pE=(aE/100)*offset.E;
+    var pTot=pL+pA+pE;
+    el('dm-cL').textContent=(pL*100).toFixed(3)+"%";
+    el('dm-cA').textContent=(pA*100).toFixed(3)+"%";
+    el('dm-cE').textContent=(pE*100).toFixed(3)+"%";
+    var mtL=pL*base,mtA=pA*base,mtE=pE*base,mtTot=pTot*base;
+    var totRound=mtTot>=1000?(mtTot/1000).toFixed(2):Math.round(mtTot);
+    el('dm-outMt').textContent=totRound;
+    el('dm-outUnit').textContent=mtTot>=1000?" Gt CO₂e":" Mt CO₂e";
+    el('dm-outPct').textContent=(pTot*100).toFixed(2);
+    if(pTot>0){
+      el('dm-barL').style.width=(pL/pTot*100)+"%";
+      el('dm-barA').style.width=(pA/pTot*100)+"%";
+      el('dm-barE').style.width=(pE/pTot*100)+"%";
+      var segs=[["Leadership",pL],["Advanced",pA],["Engaged",pE]].sort(function(a,b){return b[1]-a[1];});
+      el('dm-barNote').textContent=segs[0][0]+" dominates ("+Math.round(segs[0][1]/pTot*100)+"%)";
+    }else{
+      el('dm-barL').style.width=el('dm-barA').style.width=el('dm-barE').style.width="0%";
+      el('dm-barNote').textContent="—";
+    }
+    el('dm-bL_a').textContent=aL.toFixed(2)+"%";
+    el('dm-bA_a').textContent=aA.toFixed(2)+"%";
+    el('dm-bE_a').textContent=aE.toFixed(2)+"%";
+    el('dm-bL_mt').textContent=fmtMt(mtL);
+    el('dm-bA_mt').textContent=fmtMt(mtA);
+    el('dm-bE_mt').textContent=fmtMt(mtE);
+    el('dm-bT_mt').textContent=fmtMt(mtTot);
+    var x=BASELINE>0?mtTot/BASELINE:0;
+    var pctCh=BASELINE>0?(mtTot-BASELINE)/BASELINE*100:0;
+    el('dm-dX').textContent=x.toFixed(1)+"×";
+    el('dm-dPct').textContent=(pctCh>=0?"+":"")+Math.round(pctCh)+"%";
+    el('dm-dBaseTo').textContent=(pTot*100).toFixed(2)+"%";
+  }
+  function setSliders(p){
+    el('dm-sL').value=p.L;
+    el('dm-sA').value=p.A;
+    el('dm-sE').value=p.E;
+    recompute();
+  }
+  function markPreset(s){
+    activeS=s;
+    document.querySelectorAll('.dm-preset').forEach(function(b){
+      b.setAttribute('aria-pressed',b.dataset.s===s?"true":"false");
+    });
+  }
+  function clearPreset(){
+    activeS=null;
+    document.querySelectorAll('.dm-preset').forEach(function(b){b.setAttribute('aria-pressed',"false");});
+  }
+  ['dm-sL','dm-sA','dm-sE'].forEach(function(id){
+    el(id).addEventListener('input',function(){clearPreset();recompute();});
+  });
+  el('dm-base').addEventListener('input',recompute);
+  document.querySelectorAll('.dm-preset').forEach(function(b){
+    b.addEventListener('click',function(){markPreset(b.dataset.s);setSliders(presets[year][b.dataset.s]);});
+  });
+  el('dm-y2030').addEventListener('click',function(){
+    year="2030";
+    el('dm-y2030').setAttribute('aria-pressed',"true");
+    el('dm-y2035').setAttribute('aria-pressed',"false");
+    if(activeS)setSliders(presets[year][activeS]);
+  });
+  el('dm-y2035').addEventListener('click',function(){
+    year="2035";
+    el('dm-y2030').setAttribute('aria-pressed',"false");
+    el('dm-y2035').setAttribute('aria-pressed',"true");
+    if(activeS)setSliders(presets[year][activeS]);
+  });
+  markPreset("A");
+  setSliders(presets["2030"]["A"]);
+})();
+</script>
+</body>
+</html>

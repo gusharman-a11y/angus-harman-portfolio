@@ -301,6 +301,27 @@
   .mini .go{color:var(--pollen);font-weight:600;font-size:.85rem;white-space:nowrap}
   @media(max-width:700px){.mini{grid-template-columns:1fr;gap:.3rem}}
 
+  /* featured writing */
+  .feature{
+    display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;
+    border:1px solid var(--line);border-radius:var(--radius);
+    background:var(--ink-2);padding:2.4rem 2.6rem;text-decoration:none;color:inherit;
+    transition:border-color .4s,background .4s,transform .5s var(--ease);
+  }
+  .feature:hover{border-color:rgba(216,243,78,.45);background:var(--ink-3);transform:translateY(-4px)}
+  .feature h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.35em 0 .5em}
+  .feature p{color:var(--bone-dim);font-size:1rem;max-width:62ch;margin-bottom:1rem}
+  .feature-side{text-align:right;border-left:1px solid var(--line);padding-left:2.5rem}
+  .feature-num{
+    display:block;font-family:var(--font-display);font-size:3.4rem;
+    color:var(--pollen);line-height:1;
+  }
+  .feature-meta{display:block;margin-top:.6rem;font-size:.78rem;letter-spacing:.06em;color:var(--bone-dim)}
+  @media(max-width:760px){
+    .feature{grid-template-columns:1fr;gap:1.6rem;padding:1.8rem}
+    .feature-side{border-left:0;border-top:1px solid var(--line);padding:1.2rem 0 0;text-align:left}
+  }
+
   /* stats band */
   .stats{
     display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
@@ -389,6 +410,7 @@
   <a class="logo" href="#top" data-magnetic>Angus<em>&nbsp;Harman</em></a>
   <div class="nav-links">
     <a href="#services" data-flip>Services</a>
+    <a href="#writing" data-flip>Writing</a>
     <a href="#work" data-flip>Work</a>
     <a href="#cv" data-flip>Background</a>
     <a href="#contact" class="btn" data-magnetic data-flip>Start a conversation</a>
@@ -490,6 +512,29 @@
       <div class="stat"><b data-count="8" data-prefix="$" data-suffix="m">$8m</b><span>saved in year one building a procurement function</span></div>
       <div class="stat"><b data-count="17" data-suffix="%">17%</b><span>average cost savings across client programmes</span></div>
     </div>
+  </div>
+</section>
+
+<!-- ============ WRITING ============ -->
+<section id="writing">
+  <div class="wrap">
+    <div class="section-head rv">
+      <h2 data-words>Writing.</h2>
+    </div>
+    <a class="feature rv" href="sbti.html" data-cursor="Read">
+      <div class="feature-body">
+        <span class="card-kind">Analysis · June 2026</span>
+        <h3>SBTi Corporate Net-Zero Standard V2</h3>
+        <p>What changed in the V2 second draft, what it means scope by scope, and the decisions
+           companies need to make now — a full read of the final standard, with my own take on
+           each move and what it does to the market.</p>
+        <span class="card-link">Read the analysis</span>
+      </div>
+      <div class="feature-side" aria-hidden="true">
+        <span class="feature-num">V2</span>
+        <span class="feature-meta">Scope 1 · 2 · 3<br>OER · Neutralisation</span>
+      </div>
+    </a>
   </div>
 </section>
 
