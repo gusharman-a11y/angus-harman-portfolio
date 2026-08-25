@@ -428,6 +428,19 @@
   .contact .btn{font-size:1rem;padding:.95em 2.2em}
   .contact-links{display:flex;justify-content:center;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
 
+
+  /* book-a-call — scheduler embed */
+  .booking{max-width:920px;margin:2.8rem auto 0;text-align:left}
+  .booking-frame{
+    position:relative;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;background:var(--ink-2);
+  }
+  .booking-frame iframe{display:block;width:100%;height:660px;border:0;background:#fff}
+  .booking-note{
+    margin-top:.9rem;font-size:.84rem;color:var(--bone-dim);text-align:center;
+  }
+  @media(max-width:760px){.booking-frame iframe{height:560px}}
+
   /* employer wordmark marquee */
   .logos{border-top:1px solid var(--line);padding:2.6rem 0 2.8rem;background:var(--ink)}
   .logos .eyebrow{margin:0 0 1.6rem 6vw}
@@ -832,10 +845,28 @@
 <section class="contact" id="contact">
   <h2 class="rv" data-words>Got something that needs <span class="italic">doing?</span></h2>
   <div class="contact-links rv">
-    <a class="btn" href="mailto:gusharman@gmail.com?subject=Contract%20enquiry" data-magnetic data-flip>gusharman@gmail.com</a>
+    <a class="btn" id="book-cta" href="mailto:gusharman@gmail.com?subject=Intro%20call" data-magnetic data-flip>Book a call</a>
+    <a class="btn ghost" href="mailto:gusharman@gmail.com?subject=Contract%20enquiry" data-magnetic data-flip>Email me</a>
     <a class="btn ghost" href="https://www.linkedin.com/in/angus-harman-ca-68a418bb/" target="_blank" rel="noopener" data-magnetic data-flip>LinkedIn</a>
     <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>CV (PDF)</a>
   </div>
+
+  <!-- Booking embed. Paste the Google Calendar appointment-schedule URL into
+       BOOKING_URL below and the scheduler renders here automatically. -->
+  <div class="booking rv" id="booking"></div>
+  <script>
+    // Google Calendar → Appointment schedule → Share → Copy link, paste between the quotes:
+    const BOOKING_URL = "";
+    (function(){
+      if(!BOOKING_URL) return;
+      const embed = BOOKING_URL.includes('?') ? BOOKING_URL + '&gv=true' : BOOKING_URL + '?gv=true';
+      document.getElementById('booking').innerHTML =
+        '<div class="booking-frame"><iframe src="' + embed + '" title="Book a call with Angus Harman" loading="lazy"></iframe></div>' +
+        '<p class="booking-note">Pick a time that suits — it books straight into my calendar.</p>';
+      const cta = document.getElementById('book-cta');
+      if(cta){ cta.setAttribute('href', '#booking'); }
+    })();
+  </script>
 </section>
 
 <div class="logos" aria-label="Companies I've worked for">
