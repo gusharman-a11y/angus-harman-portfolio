@@ -435,11 +435,12 @@
     position:relative;border:1px solid var(--line);border-radius:var(--radius);
     overflow:hidden;background:var(--ink-2);
   }
-  .booking-frame iframe{display:block;width:100%;height:660px;border:0;background:#fff}
+  .booking-frame{padding:6px;background:var(--bone)}
+  .booking-frame .calendly-inline-widget{min-width:320px;height:700px}
   .booking-note{
     margin-top:.9rem;font-size:.84rem;color:var(--bone-dim);text-align:center;
   }
-  @media(max-width:760px){.booking-frame iframe{height:560px}}
+  @media(max-width:760px){.booking-frame .calendly-inline-widget{height:1000px}}
 
   /* employer wordmark marquee */
   .logos{border-top:1px solid var(--line);padding:2.6rem 0 2.8rem;background:var(--ink)}
@@ -855,16 +856,35 @@
        BOOKING_URL below and the scheduler renders here automatically. -->
   <div class="booking rv" id="booking"></div>
   <script>
-    // Google Calendar → Appointment schedule → Share → Copy link, paste between the quotes:
-    const BOOKING_URL = "";
+    // Calendly booking page — change this one line to move to a different event type.
+    const BOOKING_URL = "https://calendly.com/gusharman/30min";
     (function(){
       if(!BOOKING_URL) return;
-      const embed = BOOKING_URL.includes('?') ? BOOKING_URL + '&gv=true' : BOOKING_URL + '?gv=true';
-      document.getElementById('booking').innerHTML =
-        '<div class="booking-frame"><iframe src="' + embed + '" title="Book a call with Angus Harman" loading="lazy"></iframe></div>' +
-        '<p class="booking-note">Pick a time that suits — it books straight into my calendar.</p>';
       const cta = document.getElementById('book-cta');
-      if(cta){ cta.setAttribute('href', '#booking'); }
+      if(cta) cta.setAttribute('href', '#booking');
+
+      // Only pull in Calendly's script once the section is near the viewport,
+      // so the third-party JS never slows down the first paint.
+      const host = document.getElementById('booking');
+      const url = BOOKING_URL + (BOOKING_URL.includes('?') ? '&' : '?') +
+        'hide_gdpr_banner=1&background_color=ffffff&text_color=0a0a0a&primary_color=ff7a18';
+      let loaded = false;
+      const mount = function(){
+        if(loaded) return; loaded = true;
+        host.innerHTML =
+          '<div class="booking-frame"><div class="calendly-inline-widget" data-url="' + url + '"></div></div>' +
+          '<p class="booking-note">Pick a time that suits — it books straight into my calendar.</p>';
+        const s = document.createElement('script');
+        s.src = 'https://assets.calendly.com/assets/external/widget.js';
+        s.async = true;
+        document.body.appendChild(s);
+      };
+      if('IntersectionObserver' in window){
+        const io = new IntersectionObserver(function(es){
+          if(es.some(function(e){return e.isIntersecting})){ io.disconnect(); mount(); }
+        }, {rootMargin:'600px'});
+        io.observe(host);
+      } else { mount(); }
     })();
   </script>
 </section>
