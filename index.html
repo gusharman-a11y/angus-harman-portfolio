@@ -7,8 +7,8 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Climate &amp; AI Advisory — Angus Harman (CA)</title>
 <meta name="description" content="Independent consultant across climate, procurement and AI. Chartered Accountant, 10+ years. Strategy through to the working system — Sydney and remote.">
-<meta name="theme-color" content="#0c110e">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230c110e'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23d8f34e' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23d8f34e'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000000'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23ff7a18' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23ff7a18'/%3E%3C/svg%3E">
 <!-- link preview when the URL is shared in email, Slack or Teams -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Climate &amp; AI Advisory — Angus Harman (CA)">
@@ -21,21 +21,21 @@
 <meta name="twitter:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300..700,50;9..144,300..700,100&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0c110e;
-    --ink-2:#131a16;
-    --ink-3:#1b241f;
-    --bone:#f2efe7;
-    --bone-dim:#b8b5ab;
-    --pollen:#d8f34e;
-    --pollen-deep:#a8c22c;
-    --line:rgba(242,239,231,.12);
-    --radius:20px;
+    --ink:#000000;
+    --ink-2:#0a0a0a;
+    --ink-3:#151515;
+    --bone:#ffffff;
+    --bone-dim:rgba(255,255,255,.66);
+    --pollen:#ff7a18;
+    --pollen-deep:#e8823a;
+    --line:rgba(255,255,255,.14);
+    --radius:16px;
     --ease:cubic-bezier(.16,1,.3,1);
-    --font-display:"Fraunces", serif;
-    --font-body:"Schibsted Grotesk", system-ui, sans-serif;
+    --font-display:"DM Sans", system-ui, sans-serif;
+    --font-body:"DM Sans", system-ui, sans-serif;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -54,14 +54,14 @@
   .wrap{max-width:1200px;margin:0 auto;padding:0 6vw}
   .eyebrow{
     display:inline-flex;align-items:center;gap:.6em;
-    font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;
-    color:var(--pollen);font-weight:600;
+    font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--bone-dim);font-weight:500;
   }
   .eyebrow::before{content:"";width:2.2em;height:1px;background:var(--pollen)}
-  h1,h2,h3{font-family:var(--font-display);font-weight:400;line-height:1.05;letter-spacing:-.01em}
-  h2{font-size:clamp(2.2rem,5vw,3.8rem);margin:.5em 0 .4em}
+  h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.02;letter-spacing:-.035em}
+  h2{font-size:clamp(2.4rem,5.4vw,4.2rem);margin:.4em 0 .45em}
   .dim{color:var(--bone-dim)}
-  .italic{font-style:italic;color:var(--pollen)}
+  .italic{font-style:normal;color:var(--bone)}
 
   /* scroll reveal — only hides content when JS is running (html.js), so no-JS browsers still see everything */
   html.js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -99,7 +99,7 @@
     .cur-dot{width:7px;height:7px;border-radius:50%;background:var(--pollen)}
     .cur-ring{
       width:38px;height:38px;border-radius:50%;
-      border:1px solid rgba(216,243,78,.55);
+      border:1px solid rgba(255,122,24,.55);
       display:flex;align-items:center;justify-content:center;
       transition:width .35s var(--ease),height .35s var(--ease),background-color .35s,border-color .35s;
     }
@@ -107,9 +107,9 @@
       font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
       color:var(--ink);opacity:0;transition:opacity .2s;white-space:nowrap;
     }
-    .cur-ring.hov{width:58px;height:58px;background:rgba(216,243,78,.95);border-color:transparent}
+    .cur-ring.hov{width:58px;height:58px;background:rgba(255,122,24,.95);border-color:transparent}
     .cur-ring.hov .cur-label{opacity:1}
-    .cur-ring.hov:not(.labeled){width:52px;height:52px;background:rgba(216,243,78,.18);border-color:rgba(216,243,78,.7)}
+    .cur-ring.hov:not(.labeled){width:52px;height:52px;background:rgba(255,122,24,.18);border-color:rgba(255,122,24,.7)}
   }
   .cur-dot,.cur-ring{display:none}
   html.js.fine .cur-dot,html.js.fine .cur-ring{display:flex}
@@ -129,7 +129,7 @@
     display:flex;justify-content:space-between;align-items:center;
     padding:1.1rem 4vw;
     backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-    background:rgba(12,17,14,.55);
+    background:rgba(0,0,0,.55);
     border-bottom:1px solid transparent;
     transition:border-color .4s;
   }
@@ -141,15 +141,15 @@
   .nav-links a:hover{color:var(--bone)}
   .btn{
     display:inline-flex;align-items:center;gap:.55em;
-    background:var(--pollen);color:var(--ink)!important;
+    background:var(--bone);color:var(--ink)!important;
     padding:.7em 1.5em;border-radius:99px;
     font-weight:700;font-size:.86rem;text-decoration:none;
     transition:transform .3s var(--ease),box-shadow .3s;
     will-change:transform;
   }
-  .btn:hover{box-shadow:0 12px 32px rgba(216,243,78,.25)}
+  .btn:hover{box-shadow:0 12px 40px rgba(255,255,255,.18)}
   .btn.ghost{background:transparent;color:var(--bone)!important;border:1px solid var(--line)}
-  .btn.ghost:hover{border-color:var(--pollen);box-shadow:none}
+  .btn.ghost:hover{border-color:var(--bone);box-shadow:none}
   @media(max-width:760px){.nav-links a:not(.btn){display:none}}
 
   /* ---------- hero ---------- */
@@ -158,26 +158,8 @@
     position:relative;overflow:hidden;padding-top:5rem;
   }
   /* cinematic hero film — generated aerial of wetland channels, graded to the palette */
-  .hero-film{position:absolute;inset:0;overflow:hidden}
-  .hero-film video,.hero-film img{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:brightness(1.55) contrast(1.06) saturate(1.15);
-    animation:filmdrift 36s ease-in-out infinite alternate;
-  }
-  @keyframes filmdrift{from{transform:scale(1.02)}to{transform:scale(1.12)}}
   /* scrim: guarantees text contrast whatever the frame is doing */
-  .hero-film::after{
-    content:"";position:absolute;inset:0;
-    background:
-      linear-gradient(90deg,rgba(12,17,14,.72) 0%,rgba(12,17,14,.38) 42%,rgba(12,17,14,.05) 75%,rgba(12,17,14,.18) 100%),
-      linear-gradient(180deg,rgba(12,17,14,.35) 0%,rgba(12,17,14,0) 28%,rgba(12,17,14,0) 66%,rgba(12,17,14,.8) 100%);
-  }
   @media(max-width:900px){
-    .hero-film::after{
-      background:
-        linear-gradient(180deg,rgba(12,17,14,.62) 0%,rgba(12,17,14,.35) 45%,rgba(12,17,14,.85) 100%),
-        rgba(12,17,14,.12);
-    }
   }
   /* film grain over the whole page */
   body::after{
@@ -186,7 +168,7 @@
     background-size:180px;
   }
   .hero-inner{position:relative;z-index:2}
-  h1{font-size:clamp(2.9rem,8.2vw,7rem);margin:.35em 0 .3em;max-width:14ch}
+  h1{font-size:clamp(3rem,7.6vw,6.6rem);margin:.3em 0 .38em;max-width:11ch;font-weight:500}
   h1 .line{display:block;overflow:hidden}
   h1 .line span{display:inline-block}
   html.js h1 .line span{transform:translateY(110%)}
@@ -208,6 +190,63 @@
   }
   @keyframes bob{50%{transform:translate(-50%,8px)}}
 
+
+
+  /* ---------- hero: text left, work collage right, amber bloom ---------- */
+  header{
+    min-height:100svh;display:flex;flex-direction:column;justify-content:center;
+    position:relative;overflow:hidden;padding-top:6rem;background:var(--ink);
+  }
+  .hero-bloom{
+    position:absolute;top:50%;right:-14vw;transform:translateY(-50%);
+    width:78vw;height:130vh;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(ellipse 38% 40% at 88% 50%, rgba(255,138,40,.55) 0%, rgba(255,110,20,.26) 38%, transparent 72%),
+      radial-gradient(ellipse 62% 55% at 78% 50%, rgba(255,100,12,.16) 0%, rgba(255,90,10,.05) 50%, transparent 78%);
+    filter:blur(26px);
+  }
+  .hero-grid{
+    position:relative;z-index:2;width:100%;
+    max-width:1500px;margin:0 auto;padding:0 6vw;
+    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
+    gap:4vw;align-items:center;
+  }
+  .hero-inner{max-width:34rem}
+  .hero-sub{max-width:38ch;color:var(--bone-dim);font-size:clamp(1rem,1.25vw,1.13rem);line-height:1.65}
+
+  /* staggered collage — offset columns, like the reference */
+  .hero-collage{
+    position:relative;display:grid;grid-template-columns:1fr 1fr;
+    gap:1rem;align-content:center;transform:translateY(-2vh);
+  }
+  .hero-collage .hc{
+    border-radius:14px;overflow:hidden;background:var(--ink-2);
+    box-shadow:0 18px 50px rgba(0,0,0,.55);
+    opacity:0;transform:translateY(26px) scale(.985);
+  }
+  html:not(.js) .hero-collage .hc{opacity:1;transform:none}
+  html.loaded .hero-collage .hc{animation:hcIn 1s var(--ease) forwards}
+  html.loaded .hc-a{animation-delay:.30s} html.loaded .hc-b{animation-delay:.38s}
+  html.loaded .hc-c{animation-delay:.46s} html.loaded .hc-d{animation-delay:.54s}
+  html.loaded .hc-e{animation-delay:.62s} html.loaded .hc-f{animation-delay:.70s}
+  @keyframes hcIn{to{opacity:1;transform:none}}
+  .hero-collage img{display:block;width:100%;height:100%;object-fit:cover}
+  /* left column sits lower than the right — the offset that makes it feel composed */
+  .hc-a{aspect-ratio:4/3;margin-top:2.2rem}
+  .hc-b{aspect-ratio:16/10}
+  .hc-c{aspect-ratio:16/11;margin-top:.2rem}
+  .hc-d{aspect-ratio:4/5;margin-top:-1.6rem}
+  .hc-e{aspect-ratio:16/11;margin-bottom:2.6rem}
+  .hc-f{aspect-ratio:4/3;margin-top:-1.4rem}
+
+  @media(max-width:980px){
+    .hero-grid{grid-template-columns:1fr;gap:2.6rem}
+    .hero-inner{max-width:none}
+    .hero-collage{grid-template-columns:1fr 1fr;gap:.8rem}
+    .hc-a,.hc-c,.hc-d,.hc-f{margin-top:0}.hc-e{margin-bottom:0}
+    .hc-e,.hc-f{display:none}
+    .hero-bloom{right:-40vw;width:110vw;opacity:.8}
+  }
 
   /* ---------- marquee ---------- */
   .marquee{
@@ -235,7 +274,7 @@
     padding:1.8rem 2rem;background:var(--ink-2);
     transition:border-color .4s,background .4s,transform .4s var(--ease);
   }
-  .pillar:hover{border-color:rgba(216,243,78,.45);background:var(--ink-3);transform:translateX(6px)}
+  .pillar:hover{border-color:rgba(255,122,24,.45);background:var(--ink-3);transform:translateX(6px)}
   .pillar.solo{grid-template-columns:1fr}
   .svc-list{list-style:none;margin:.3rem 0 0}
   .svc-list li{
@@ -264,7 +303,7 @@
     transition:transform .5s var(--ease),border-color .4s;
     will-change:transform;
   }
-  .card:hover{transform:translateY(-8px);border-color:rgba(216,243,78,.4)}
+  .card:hover{transform:translateY(-8px);border-color:rgba(255,122,24,.4)}
   .card-media{
     aspect-ratio:16/10;background:linear-gradient(135deg,var(--ink-3),#22301f);
     display:flex;align-items:center;justify-content:center;
@@ -311,8 +350,8 @@
   .articles-band::after{
     content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
     background:
-      linear-gradient(180deg,var(--ink) 0%,rgba(12,17,14,.10) 20%,rgba(12,17,14,.10) 78%,var(--ink) 100%),
-      linear-gradient(90deg,rgba(12,17,14,.35) 0%,rgba(12,17,14,0) 50%,rgba(12,17,14,.2) 100%);
+      linear-gradient(180deg,var(--ink) 0%,rgba(0,0,0,.10) 20%,rgba(0,0,0,.10) 78%,var(--ink) 100%),
+      linear-gradient(90deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 50%,rgba(0,0,0,.2) 100%);
   }
   .articles-band>.wrap{position:relative;z-index:2}
 
@@ -324,7 +363,7 @@
     padding:2.4rem 2.6rem;text-decoration:none;color:inherit;
     transition:border-color .4s,background .4s,transform .5s var(--ease);
   }
-  .feature:hover{border-color:rgba(216,243,78,.45);background:rgba(27,36,31,.9);transform:translateY(-4px)}
+  .feature:hover{border-color:rgba(255,122,24,.45);background:rgba(27,36,31,.9);transform:translateY(-4px)}
   .feature h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:.35em 0 .5em}
   .feature p{color:var(--bone-dim);font-size:1rem;max-width:62ch;margin-bottom:1rem}
   .feature-side{text-align:right;border-left:1px solid var(--line);padding-left:2.5rem}
@@ -353,7 +392,7 @@
   .tl-item::before{
     content:"";position:absolute;left:calc(-2.4rem - 5px);top:.5em;
     width:9px;height:9px;border-radius:50%;background:var(--pollen);
-    box-shadow:0 0 0 5px rgba(216,243,78,.12);
+    box-shadow:0 0 0 5px rgba(255,122,24,.12);
   }
   .tl-item .when{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--pollen)}
   .tl-item h3{font-size:1.3rem;margin:.3em 0 .2em}
@@ -372,7 +411,7 @@
   /* contact */
   .contact{
     text-align:center;padding:clamp(6rem,14vw,11rem) 6vw;
-    background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(216,243,78,.12),transparent);
+    background:radial-gradient(ellipse 70% 60% at 50% 110%,rgba(255,122,24,.12),transparent);
   }
   .contact h2{font-size:clamp(2.6rem,6.5vw,5rem)}
   .contact .btn{font-size:1rem;padding:.95em 2.2em}
@@ -434,24 +473,31 @@
 </nav>
 
 <header id="top">
-  <div class="hero-film" aria-hidden="true">
-    <video autoplay muted loop playsinline poster="img/hero-poster.jpg" id="hero-video">
-      <source src="img/hero-film.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="wrap hero-inner">
-    <p class="eyebrow">Angus Harman CA · Climate, Procurement &amp; AI · Sydney</p>
-    <h1>
-      <span class="line"><span>Climate &amp; AI</span></span>
-      <span class="line"><span>Advisory<i class="italic">.</i></span></span>
-    </h1>
-    <p class="hero-sub">
-      Chartered Accountant with 10+ years across climate advisory, procurement and
-      business transformation.
-    </p>
-    <div class="hero-cta">
-      <a class="btn" href="#contact" data-magnetic data-flip>Start a conversation</a>
-      <a class="btn ghost" href="#services" data-magnetic data-flip>What I do</a>
+  <div class="hero-bloom" aria-hidden="true"></div>
+  <div class="hero-grid">
+    <div class="hero-inner">
+      <p class="eyebrow">Angus Harman CA · Sydney</p>
+      <h1>
+        <span class="line"><span>Climate &amp; AI</span></span>
+        <span class="line"><span>Advisory<i class="italic">.</i></span></span>
+      </h1>
+      <p class="hero-sub">
+        Chartered Accountant with 10+ years across climate advisory, procurement and
+        business transformation. I take the problem off your desk and carry it the whole way.
+      </p>
+      <div class="hero-cta">
+        <a class="btn" href="#contact" data-magnetic data-flip>Start a conversation</a>
+        <a class="btn ghost" href="#services" data-magnetic data-flip>What I do</a>
+      </div>
+    </div>
+
+    <div class="hero-collage" aria-hidden="true">
+      <figure class="hc hc-a"><img src="img/shot-carbonintel.jpg" alt="" loading="eager"></figure>
+      <figure class="hc hc-b"><img src="img/powerbi-emissions.svg" alt=""></figure>
+      <figure class="hc hc-c"><img src="img/shot-bdtracker.jpg" alt="" loading="eager"></figure>
+      <figure class="hc hc-d"><img src="img/articles-bg.jpg" alt=""></figure>
+      <figure class="hc hc-e"><img src="img/shot-esrs.jpg" alt=""></figure>
+      <figure class="hc hc-f"><img src="img/shot-sbti.jpg" alt=""></figure>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
