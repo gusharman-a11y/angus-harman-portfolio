@@ -227,43 +227,15 @@
   .hero-grid{
     position:relative;z-index:2;width:100%;
     max-width:1500px;margin:0 auto;padding:0 6vw;
-    display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);
-    gap:4vw;align-items:center;
+    display:grid;grid-template-columns:minmax(0,1fr);align-items:center;
   }
-  .hero-inner{max-width:34rem}
-  .hero-sub{max-width:38ch;color:var(--bone-dim);font-size:clamp(1rem,1.25vw,1.13rem);line-height:1.65}
+  .hero-inner{max-width:44rem}
+  .hero-sub{max-width:46ch;color:var(--bone-dim);font-size:clamp(1rem,1.25vw,1.13rem);line-height:1.65}
 
-  /* staggered collage — offset columns, like the reference */
-  .hero-collage{
-    position:relative;display:grid;grid-template-columns:1fr 1fr;
-    gap:1rem;align-content:center;transform:translateY(-2vh);
-  }
-  .hero-collage .hc{
-    border-radius:14px;overflow:hidden;background:var(--ink-2);
-    box-shadow:0 18px 50px rgba(0,0,0,.55);
-    opacity:0;transform:translateY(26px) scale(.985);
-  }
-  html:not(.js) .hero-collage .hc{opacity:1;transform:none}
-  html.loaded .hero-collage .hc{animation:hcIn 1s var(--ease) forwards}
-  html.loaded .hc-a{animation-delay:.30s} html.loaded .hc-b{animation-delay:.38s}
-  html.loaded .hc-c{animation-delay:.46s} html.loaded .hc-d{animation-delay:.54s}
-  html.loaded .hc-e{animation-delay:.62s} html.loaded .hc-f{animation-delay:.70s}
-  @keyframes hcIn{to{opacity:1;transform:none}}
-  .hero-collage img{display:block;width:100%;height:100%;object-fit:cover}
-  /* left column sits lower than the right — the offset that makes it feel composed */
-  .hc-a{aspect-ratio:4/3;margin-top:2.2rem}
-  .hc-b{aspect-ratio:16/10}
-  .hc-c{aspect-ratio:16/11;margin-top:.2rem}
-  .hc-d{aspect-ratio:4/5;margin-top:-1.6rem}
-  .hc-e{aspect-ratio:16/11;margin-bottom:2.6rem}
-  .hc-f{aspect-ratio:4/3;margin-top:-1.4rem}
 
   @media(max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:2.6rem}
+    .hero-grid{grid-template-columns:1fr}
     .hero-inner{max-width:none}
-    .hero-collage{grid-template-columns:1fr 1fr;gap:.8rem}
-    .hc-a,.hc-c,.hc-d,.hc-f{margin-top:0}.hc-e{margin-bottom:0}
-    .hc-e,.hc-f{display:none}
     .hero-bloom{right:-40vw;width:110vw;opacity:.8}
   }
 
@@ -513,15 +485,6 @@
         <a class="btn" href="#contact" data-magnetic data-flip>Start a conversation</a>
         <a class="btn ghost" href="#services" data-magnetic data-flip>What I do</a>
       </div>
-    </div>
-
-    <div class="hero-collage" aria-hidden="true">
-      <figure class="hc hc-a"><img src="img/shot-carbonintel.jpg" alt="" loading="eager"></figure>
-      <figure class="hc hc-b"><img src="img/powerbi-emissions.svg" alt=""></figure>
-      <figure class="hc hc-c"><img src="img/shot-bdtracker.jpg" alt="" loading="eager"></figure>
-      <figure class="hc hc-d"><img src="img/articles-bg.jpg" alt=""></figure>
-      <figure class="hc hc-e"><img src="img/shot-esrs.jpg" alt=""></figure>
-      <figure class="hc hc-f"><img src="img/shot-sbti.jpg" alt=""></figure>
     </div>
   </div>
   <div class="scroll-hint">Scroll</div>
