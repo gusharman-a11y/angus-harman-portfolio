@@ -377,6 +377,26 @@
   .stat b{display:block;font-family:var(--font-display);font-size:clamp(2.4rem,4vw,3.4rem);font-weight:300;color:var(--pollen)}
   .stat span{color:var(--bone-dim);font-size:.85rem;letter-spacing:.05em}
 
+
+  /* bio — portrait beside the background intro */
+  .bio{
+    display:grid;grid-template-columns:minmax(0,1fr) clamp(190px,22vw,290px);
+    gap:clamp(2rem,5vw,4.5rem);align-items:center;margin-bottom:3.5rem;
+  }
+  .bio-copy h2{margin-top:0}
+  .bio-copy p{max-width:52ch}
+  .bio-photo{position:relative;border-radius:18px;overflow:hidden;line-height:0}
+  .bio-photo img{width:100%;height:auto;display:block;filter:saturate(.92) contrast(1.02)}
+  .bio-photo::after{
+    content:"";position:absolute;inset:0;border-radius:18px;
+    box-shadow:inset 0 0 0 1px var(--line);
+    background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.35) 100%);
+  }
+  @media(max-width:760px){
+    .bio{grid-template-columns:1fr;gap:2rem}
+    .bio-photo{max-width:220px}
+  }
+
   /* CV / timeline */
   .timeline{border-left:1px solid var(--line);margin-left:.5rem;padding-left:2.4rem;display:grid;gap:2.6rem}
   .tl-item{position:relative}
@@ -711,11 +731,17 @@
 <!-- ============ BACKGROUND ============ -->
 <section id="cv">
   <div class="wrap">
-    <div class="section-head rv">
-      <h2 data-words>The <span class="italic">background.</span></h2>
-      <p class="dim">Chartered Accountant, ten years across Big 4 consulting, in-house leadership and
-         climate investment. The full history, if you want it.</p>
-      <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download full CV (PDF)</a>
+    <div class="bio rv">
+      <div class="bio-copy">
+        <h2 data-words>The <span class="italic">background.</span></h2>
+        <p class="dim">Chartered Accountant, ten years across Big 4 consulting, in-house leadership and
+           climate investment. Based in Sydney, working with clients across Australia and the UK.
+           The full history, if you want it.</p>
+        <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download full CV (PDF)</a>
+      </div>
+      <figure class="bio-photo">
+        <img src="img/angus.jpg" alt="Angus Harman" loading="lazy" width="900" height="900">
+      </figure>
     </div>
     <div class="timeline">
       <div class="tl-item rv">
