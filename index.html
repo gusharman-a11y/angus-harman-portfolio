@@ -574,13 +574,14 @@
           <h3>AI, Data &amp; Systems</h3>
           <ul class="svc-list">
             <li>Build AI tools that replace manual research and reporting</li>
+            <li>Automate the workflows that eat the week — enquiries, follow-ups, reporting</li>
             <li>Build Power BI dashboards and reporting models</li>
             <li>Turn scattered data into one source of truth</li>
             <li>Build and deploy internal web apps</li>
             <li>Train teams to use AI properly</li>
           </ul>
           <span class="tag-label">Typically</span>
-          <span class="tag">Power BI</span><span class="tag">Claude &amp; LLM tooling</span><span class="tag">Data governance</span><span class="tag">Team enablement</span>
+          <span class="tag">Power BI</span><span class="tag">Claude &amp; LLM tooling</span><span class="tag">n8n</span><span class="tag">Data governance</span><span class="tag">Team enablement</span>
         </div>
       </div>
     </div>
@@ -632,6 +633,35 @@
     </div>
     <div class="work-grid">
       <div class="card rv" data-cursor="View">
+        <div class="card-media"><img src="img/shot-bondi-dashboard.png" alt="Bondi Surf Rentals — owner dashboard with AI weekly summary" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">AI · Small Business Ops</span>
+          <h3>Surf Shop Intelligence Layer</h3>
+          <p>Owner dashboard for a real Bondi surfboard-hire business, built on the systems it
+             already runs: revenue from Stripe and cash records, bookings read back from the
+             Google Calendar the booking form writes into, and the 7-day Bondi surf forecast —
+             one view, nothing re-keyed, nothing stored twice. An AI layer reads the live
+             numbers on demand and writes the owner a plain-English weekly summary: how the
+             week went, which bookings still need confirming, and when the weather is about to
+             help or hurt trade. Guard-railed so it can only state numbers from the data.</p>
+          <a class="card-link" href="img/shot-bondi-dashboard-full.png" target="_blank" rel="noopener">See the full dashboard</a>
+        </div>
+      </div>
+      <div class="card rv rv-d1" data-cursor="View">
+        <div class="card-media"><img src="img/flow-booking-automation.svg" alt="Booking enquiry automation — webhook to AI to routed Gmail draft" loading="lazy"></div>
+        <div class="card-body">
+          <span class="card-kind">Automation · n8n</span>
+          <h3>Booking Enquiry Automation</h3>
+          <p>The same surf-hire business, on the other side of the counter. An enquiry hits a
+             webhook from the booking form, an AI model reads what the customer actually asked
+             for, and the workflow routes it — a straightforward booking gets a priced reply
+             drafted into Gmail against the live rate card, anything unusual gets flagged to a
+             human instead of guessed at. Built in n8n. Every reply is drafted and never sent:
+             a person still reads it and presses send, which is the only version of this a
+             small business should run.</p>
+        </div>
+      </div>
+      <div class="card rv rv-d1" data-cursor="View">
         <div class="card-media"><img src="img/shot-carbonintel.jpg" alt="Carbon Projects Intelligence — public showcase page" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kind">AI · Carbon Markets</span>

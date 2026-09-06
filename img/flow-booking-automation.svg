@@ -1,0 +1,79 @@
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg"
+     font-family="'DM Sans', -apple-system, Helvetica, Arial, sans-serif">
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".045" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ff7a18"/>
+    </marker>
+    <marker id="arrow-dim" viewBox="0 0 10 10" refX="9" refY="5"
+            markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#ffffff" fill-opacity=".3"/>
+    </marker>
+  </defs>
+
+  <rect width="1280" height="800" fill="#0a0a0a"/>
+  <rect width="1280" height="800" fill="url(#grid)"/>
+
+  <text x="80" y="112" fill="#ffffff" font-size="46" font-weight="500" letter-spacing="-1.4">Booking enquiry to drafted reply.</text>
+  <text x="80" y="156" fill="#ffffff" fill-opacity=".55" font-size="21">n8n · OpenAI · Gmail — running for Bondi Surf Rentals</text>
+  <rect x="80" y="186" width="72" height="2" fill="#ff7a18"/>
+
+  <!-- node 1 -->
+  <g>
+    <rect x="80" y="290" width="242" height="132" rx="14" fill="#151515" stroke="#ffffff" stroke-opacity=".16"/>
+    <circle cx="112" cy="326" r="5" fill="#ff7a18"/>
+    <text x="132" y="331" fill="#ffffff" fill-opacity=".5" font-size="14" letter-spacing="1.6">WEBHOOK</text>
+    <text x="112" y="372" fill="#ffffff" font-size="23" font-weight="500">Enquiry arrives</text>
+    <text x="112" y="398" fill="#ffffff" fill-opacity=".5" font-size="16">Booking form · WhatsApp</text>
+  </g>
+  <line x1="336" y1="356" x2="392" y2="356" stroke="#ff7a18" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- node 2 -->
+  <g>
+    <rect x="404" y="290" width="242" height="132" rx="14" fill="#151515" stroke="#ffffff" stroke-opacity=".16"/>
+    <circle cx="436" cy="326" r="5" fill="#ff7a18"/>
+    <text x="456" y="331" fill="#ffffff" fill-opacity=".5" font-size="14" letter-spacing="1.6">AI MODEL</text>
+    <text x="436" y="372" fill="#ffffff" font-size="23" font-weight="500">Reads what</text>
+    <text x="436" y="399" fill="#ffffff" font-size="23" font-weight="500">they asked for</text>
+  </g>
+  <line x1="660" y1="356" x2="716" y2="356" stroke="#ff7a18" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- node 3 -->
+  <g>
+    <rect x="728" y="290" width="200" height="132" rx="14" fill="#151515" stroke="#ffffff" stroke-opacity=".16"/>
+    <circle cx="760" cy="326" r="5" fill="#ff7a18"/>
+    <text x="780" y="331" fill="#ffffff" fill-opacity=".5" font-size="14" letter-spacing="1.6">ROUTE</text>
+    <text x="760" y="372" fill="#ffffff" font-size="23" font-weight="500">Booking, or</text>
+    <text x="760" y="399" fill="#ffffff" font-size="23" font-weight="500">a question?</text>
+  </g>
+
+  <!-- true branch -->
+  <path d="M942 330 H 986" fill="none" stroke="#ff7a18" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="948" y="316" fill="#ff7a18" font-size="13" letter-spacing="1.2">BOOKING</text>
+  <!-- false branch -->
+  <path d="M942 392 H 964 V 500 H 986" fill="none" stroke="#ffffff" stroke-opacity=".3" stroke-width="2" marker-end="url(#arrow-dim)"/>
+  <text x="948" y="470" fill="#ffffff" fill-opacity=".4" font-size="13" letter-spacing="1.2">EVERYTHING ELSE</text>
+
+  <!-- node 4 -->
+  <g>
+    <rect x="998" y="272" width="202" height="116" rx="14" fill="#151515" stroke="#ff7a18" stroke-opacity=".55"/>
+    <text x="1030" y="312" fill="#ff7a18" font-size="14" letter-spacing="1.6">GMAIL</text>
+    <text x="1030" y="348" fill="#ffffff" font-size="23" font-weight="500">Draft reply</text>
+    <text x="1030" y="371" fill="#ffffff" fill-opacity=".5" font-size="15">priced from the rate card</text>
+  </g>
+
+  <!-- node 5 -->
+  <g>
+    <rect x="998" y="444" width="202" height="112" rx="14" fill="#151515" stroke="#ffffff" stroke-opacity=".16"/>
+    <text x="1030" y="484" fill="#ffffff" fill-opacity=".45" font-size="14" letter-spacing="1.6">FLAGGED</text>
+    <text x="1030" y="518" fill="#ffffff" fill-opacity=".8" font-size="21" font-weight="500">Sent to me</text>
+  </g>
+
+  <!-- guard rail -->
+  <rect x="80" y="640" width="1120" height="1" fill="#ffffff" fill-opacity=".12"/>
+  <circle cx="88" cy="700" r="5" fill="#ff7a18"/>
+  <text x="108" y="706" fill="#ffffff" fill-opacity=".72" font-size="19">Every reply is drafted, never sent. A person reads it and presses send.</text>
+</svg>
