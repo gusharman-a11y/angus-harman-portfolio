@@ -3,22 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Keep this page out of Google — only people with the link (recruiters) find it -->
 <meta name="robots" content="noindex, nofollow">
-<title>Climate &amp; AI Advisory — Angus Harman (CA)</title>
-<meta name="description" content="Independent consultant across climate, procurement and AI. Chartered Accountant, 10+ years. Strategy through to the working system — Sydney and remote.">
+<title>Automation — Angus Harman</title>
+<meta name="description" content="Workflow and AI automation for finance and operations teams. Chartered Accountant, ten years running the processes before building the systems that run them.">
 <meta name="theme-color" content="#000000">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23000000'/%3E%3Ccircle cx='16' cy='16' r='10' fill='none' stroke='%23ff7a18' stroke-width='2' stroke-dasharray='40 12'/%3E%3Ccircle cx='16' cy='16' r='3.5' fill='%23ff7a18'/%3E%3C/svg%3E">
-<!-- link preview when the URL is shared in email, Slack or Teams -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Climate &amp; AI Advisory — Angus Harman (CA)">
-<meta property="og:description" content="Independent climate &amp; AI consulting — Chartered Accountant, 10+ years across climate advisory, procurement and business transformation. Sydney &amp; remote.">
-<meta property="og:url" content="https://angus-harman-portfolio.vercel.app/">
+<meta property="og:title" content="Automation — Angus Harman">
+<meta property="og:description" content="Workflow and AI automation for finance and operations teams, built by a Chartered Accountant who ran the processes first.">
+<meta property="og:url" content="https://angus-harman-portfolio.vercel.app/automation.html">
 <meta property="og:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -470,6 +465,30 @@
     html{scroll-behavior:auto}
   }
 </style>
+<style>
+  /* ---- automation page ---- */
+  .page-hero{padding:clamp(8rem,16vh,11rem) 0 clamp(3.5rem,7vh,5.5rem);border-bottom:1px solid var(--line)}
+  .ph-inner{max-width:47rem}
+  .ph-inner h1{font-size:clamp(2.7rem,7vw,5rem);margin:.55em 0 .4em}
+  .ph-inner .hero-sub{max-width:40rem}
+
+  .rules{margin-top:1rem;border-top:1px solid var(--line)}
+  .rule{
+    display:grid;grid-template-columns:15rem 1fr;gap:1.5rem;
+    padding:1.9rem 0;border-bottom:1px solid var(--line);
+  }
+  .rule h3{font-size:1.18rem;font-weight:500;letter-spacing:-.02em}
+  .rule p{color:var(--bone-dim);max-width:58ch}
+  @media(max-width:760px){.rule{grid-template-columns:1fr;gap:.5rem}}
+
+  .stack-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;max-width:52rem}
+  .start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
+  .start-card{border:1px solid var(--line);border-radius:var(--radius);padding:1.7rem 1.6rem;background:var(--ink-3)}
+  .start-card h3{font-size:1.1rem;font-weight:500;margin-bottom:.5rem}
+  .start-card p{color:var(--bone-dim);font-size:.95rem}
+  .start-card .when{display:block;margin-top:1rem;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--pollen)}
+  @media(max-width:860px){.start-grid{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
 
@@ -487,453 +506,208 @@
 <div class="cur-ring" id="cur-ring"><span class="cur-label" id="cur-label">View</span></div>
 
 <nav id="nav">
-  <a class="logo" href="#top" data-magnetic>Angus<em>&nbsp;Harman</em></a>
+  <a class="logo" href="index.html" data-magnetic>Angus<em>&nbsp;Harman</em></a>
   <div class="nav-links">
-    <a href="#services" data-flip>Services</a>
-    <a href="automation.html" data-flip>Automation</a>
-    <a href="#articles" data-flip>Articles</a>
-    <a href="#work" data-flip>Work</a>
-    <a href="#cv" data-flip>Background</a>
-    <a href="#contact" class="btn" data-magnetic data-flip>Start a conversation</a>
+    <a href="index.html#services" data-flip>Services</a>
+    <a href="index.html#work" data-flip>Work</a>
+    <a href="index.html#cv" data-flip>Background</a>
+    <a href="#start" class="btn" data-magnetic data-flip>Book a call</a>
   </div>
 </nav>
 
-<header id="top">
-  <div class="hero-film" aria-hidden="true">
-    <video autoplay muted loop playsinline poster="img/hero-poster.jpg" id="hero-video">
-      <source src="img/hero-film.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="hero-bloom" aria-hidden="true"></div>
-  <div class="hero-grid">
-    <div class="hero-inner">
-      <p class="eyebrow">Angus Harman CA · Sydney</p>
-      <h1>
-        <span class="line"><span>Climate &amp; AI</span></span>
-        <span class="line"><span>Advisory<i class="italic">.</i></span></span>
-      </h1>
-      <p class="hero-sub">
-        Chartered Accountant with 10+ years across climate advisory, procurement and
-        business transformation. I specialise in net zero strategy, sustainable procurement
-        and high-integrity climate solutions.
-      </p>
+<header class="page-hero" id="top">
+  <div class="wrap">
+    <div class="ph-inner rv">
+      <span class="eyebrow">Automation</span>
+      <h1>Automate the work that <span class="italic">eats the week.</span></h1>
+      <p class="hero-sub">I'm a Chartered Accountant. I spent ten years running finance, procurement
+         and operations before I started building the systems that run them. Most automations fail
+         for the same reason: nobody understood the process properly before wiring it up. That's
+         where I start.</p>
       <div class="hero-cta">
-        <a class="btn" href="#contact" data-magnetic data-flip>Start a conversation</a>
-        <a class="btn ghost" href="#services" data-magnetic data-flip>What I do</a>
+        <a class="btn" href="#start" data-magnetic data-flip>Book a call</a>
+        <a class="btn ghost" href="#running" data-magnetic data-flip>See what I've built</a>
       </div>
     </div>
   </div>
-  <div class="scroll-hint">Scroll</div>
 </header>
 
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" id="marquee-track">
-    <span>Power BI</span><span>Data Architecture</span><span>AI &amp; Automation</span><span>CRM Systems</span><span>Carbon Analytics</span><span>Dashboards</span><span>Supabase &amp; Postgres</span><span>Claude &amp; LLM Tooling</span><span>Data Governance</span><span>Emissions Modelling</span>
-  </div>
-</div>
-
-<!-- ============ SERVICES ============ -->
-<section id="services">
+<section id="what">
   <div class="wrap">
     <div class="section-head rv">
-      <h2 data-words>What I <span class="italic">do.</span></h2>
+      <h2 data-words>What I <span class="italic">automate.</span></h2>
+      <p class="dim">The jobs that are too small to hire for and too repetitive to keep doing by hand.</p>
     </div>
     <div class="pillars">
       <div class="pillar solo rv">
-        <div>
-          <h3>Climate &amp; Carbon</h3>
-          <ul class="svc-list">
-            <li>Set science-based targets aligned to SBTi</li>
-            <li>Analyse climate risk and run scenarios</li>
-            <li>Report Scope 1–3 emissions</li>
-            <li>Select and implement carbon accounting platforms</li>
-            <li>Build net-zero roadmaps and transition plans</li>
-            <li>Advise on carbon markets and ACCUs</li>
-          </ul>
-          <span class="tag-label">Reporting under</span>
-          <span class="tag">AASB S2</span><span class="tag">IFRS S2</span><span class="tag">CSRD</span><span class="tag">TCFD</span><span class="tag">TNFD</span><span class="tag">GHG Protocol</span><span class="tag">SBTi</span><span class="tag">NGER</span><span class="tag">Safeguard Mechanism</span>
-        </div>
+        <h3>Enquiries and follow-up</h3>
+        <ul class="svc-list">
+          <li>Read an incoming enquiry and work out what it actually asks for</li>
+          <li>Draft the reply, priced from your own rate card</li>
+          <li>Route anything unusual to a person instead of guessing</li>
+          <li>Chase the follow-ups nobody gets round to</li>
+          <li>Keep the CRM current without anyone re-typing it</li>
+        </ul>
+        <span class="tag-label">Typically</span>
+        <span class="tag">n8n</span><span class="tag">Webhooks</span><span class="tag">Email &amp; WhatsApp</span><span class="tag">CRM</span>
       </div>
       <div class="pillar solo rv rv-d1">
-        <div>
-          <h3>Procurement &amp; Supply Chain</h3>
-          <ul class="svc-list">
-            <li>Build procurement functions from scratch</li>
-            <li>Analyse spend and find savings</li>
-            <li>Run tenders and negotiate contracts</li>
-            <li>Evaluate and manage suppliers</li>
-            <li>Design procurement operating models</li>
-            <li>Cut supply chain emissions</li>
-            <li>Manage software licensing</li>
-          </ul>
-          <span class="tag-label">Typically</span>
-          <span class="tag">Spend cubes</span><span class="tag">Category strategy</span><span class="tag">Tender &amp; negotiation</span><span class="tag">Operating models</span>
-        </div>
+        <h3>Finance and back office</h3>
+        <ul class="svc-list">
+          <li>Invoice handling, coding and approval chains</li>
+          <li>Reconciliations that currently run on a spreadsheet</li>
+          <li>Supplier onboarding and the document chase behind it</li>
+          <li>Month-end tasks that happen the same way every month</li>
+          <li>Pull data out of documents instead of re-keying it</li>
+        </ul>
+        <span class="tag-label">Typically</span>
+        <span class="tag">Xero &amp; accounting APIs</span><span class="tag">Document extraction</span><span class="tag">Approvals</span>
       </div>
       <div class="pillar solo rv rv-d2">
-        <div>
-          <h3>AI, Data &amp; Systems</h3>
-          <ul class="svc-list">
-            <li>Build AI tools that replace manual research and reporting</li>
-            <li>Automate the workflows that eat the week — enquiries, follow-ups, reporting</li>
-            <li>Build Power BI dashboards and reporting models</li>
-            <li>Turn scattered data into one source of truth</li>
-            <li>Build and deploy internal web apps</li>
-            <li>Train teams to use AI properly</li>
-          </ul>
-          <span class="tag-label">Typically</span>
-          <span class="tag">Power BI</span><span class="tag">Claude &amp; LLM tooling</span><span class="tag">n8n</span><span class="tag">Data governance</span><span class="tag">Team enablement</span>
-        </div>
+        <h3>Reporting and data</h3>
+        <ul class="svc-list">
+          <li>Reports that rebuild themselves instead of being rebuilt</li>
+          <li>One trustworthy view from several systems that disagree</li>
+          <li>Dashboards with the data model underneath them</li>
+          <li>A written weekly summary of what the numbers did</li>
+          <li>Clear ownership and refresh rules, so it keeps working</li>
+        </ul>
+        <span class="tag-label">Typically</span>
+        <span class="tag">Power BI</span><span class="tag">Data pipelines</span><span class="tag">AI summaries</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ OUTCOMES ============ -->
-<section style="padding-top:0">
-  <div class="wrap">
-    <div class="stats rv">
-      <div class="stat"><b data-count="500" data-prefix="£" data-suffix="m+">£500m+</b><span>supply-chain transformation programmes led</span></div>
-      <div class="stat"><b data-count="24" data-suffix="%">24%</b><span>reduction in Scope 3 exposure delivered</span></div>
-      <div class="stat"><b data-count="8" data-prefix="$" data-suffix="m">$8m</b><span>saved in year one building a procurement function</span></div>
-      <div class="stat"><b data-count="17" data-suffix="%">17%</b><span>average cost savings across client programmes</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ ARTICLES ============ -->
-<section id="articles" class="articles-band">
+<section id="how" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head rv">
-      <h2 data-words>Articles.</h2>
+      <h2 data-words>How I build <span class="italic">them.</span></h2>
+      <p class="dim">Automation goes wrong in predictable ways. These are the rules I work to.</p>
     </div>
-    <a class="feature rv" href="sbti.html" data-cursor="Read">
-      <div class="feature-body">
-        <span class="card-kind">Analysis · June 2026</span>
-        <h3>SBTi Corporate Net-Zero Standard V2</h3>
-        <p>What changed in the V2 second draft, what it means scope by scope, and the decisions
-           companies need to make now — a full read of the final standard, with my own take on
-           each move and what it does to the market.</p>
-        <span class="card-link">Read the analysis</span>
+    <div class="rules">
+      <div class="rule rv">
+        <h3>Numbers come from the system that owns them</h3>
+        <p>An AI asked to remember your prices will eventually quote one that's wrong, confidently.
+           So it doesn't remember them. It calls the system that already holds the answer and uses
+           what comes back. On my own surf-hire business the agent quotes by calling the same
+           pricing module the website charges from, which means it physically cannot quote a price
+           the business wouldn't honour.</p>
       </div>
-      <div class="feature-side" aria-hidden="true">
-        <span class="feature-num">V2</span>
-        <span class="feature-meta">Scope 1 · 2 · 3<br>OER · Neutralisation</span>
+      <div class="rule rv">
+        <h3>A person stays in the loop where it counts</h3>
+        <p>Anything a customer sees is drafted for review before it goes out, unless you've decided
+           otherwise with your eyes open. Automation should remove the typing, not the judgement.</p>
       </div>
-    </a>
+      <div class="rule rv">
+        <h3>The unusual case goes to a human, not a guess</h3>
+        <p>Every workflow needs an answer for the input it wasn't designed for. If there's no path
+           for the awkward enquiry, it doesn't get handled badly — it disappears silently, which is
+           worse. Everything that doesn't fit gets flagged to a person.</p>
+      </div>
+      <div class="rule rv">
+        <h3>I work out the process before I automate it</h3>
+        <p>Half of what people ask me to automate shouldn't be automated — it should be stopped,
+           merged or fixed first. I've run these processes, so I'll tell you when the honest answer
+           is that a workflow isn't the fix.</p>
+      </div>
+      <div class="rule rv">
+        <h3>You own it when I'm done</h3>
+        <p>Built in your accounts, documented, with the logic visible rather than buried in a prompt.
+           No dependency on me to keep it running.</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ WORK ============ -->
-<section id="work" style="background:var(--ink-2)">
+<section id="running">
   <div class="wrap">
     <div class="section-head rv">
-      <h2 data-words>Things I've <span class="italic">shipped.</span></h2>
-      <p class="dim">Not case studies — working software you can open right now. Every one of these
-         was scoped, built and deployed by me.</p>
+      <h2 data-words>What I've <span class="italic">built.</span></h2>
+      <p class="dim">Working systems, not case studies.</p>
     </div>
     <div class="work-grid">
       <div class="card rv" data-cursor="View">
-        <div class="card-media"><img src="img/shot-bondi-dashboard.png" alt="Bondi Surf Rentals — owner dashboard with AI weekly summary" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">AI · Small Business Ops</span>
-          <h3>Surf Shop Intelligence Layer</h3>
-          <p>Owner dashboard for a real Bondi surfboard-hire business, built on the systems it
-             already runs: revenue from Stripe and cash records, bookings read back from the
-             Google Calendar the booking form writes into, and the 7-day Bondi surf forecast —
-             one view, nothing re-keyed, nothing stored twice. An AI layer reads the live
-             numbers on demand and writes the owner a plain-English weekly summary: how the
-             week went, which bookings still need confirming, and when the weather is about to
-             help or hurt trade. Guard-railed so it can only state numbers from the data.</p>
-          <a class="card-link" href="img/shot-bondi-dashboard-full.png" target="_blank" rel="noopener">See the full dashboard</a>
-        </div>
-      </div>
-      <div class="card rv rv-d1" data-cursor="View">
-        <div class="card-media"><img src="img/flow-booking-automation.svg" alt="Booking enquiry automation — webhook to AI to routed Gmail draft" loading="lazy"></div>
+        <div class="card-media"><img src="img/flow-booking-automation.svg" alt="Booking enquiry automation — webhook to AI to routed reply" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kind">Automation · n8n</span>
           <h3>Booking Enquiry Automation</h3>
-          <p>The same surf-hire business, on the other side of the counter. An enquiry hits a
-             webhook from the booking form, an AI model reads what the customer actually asked
-             for, and the workflow routes it — a straightforward booking gets a priced reply
-             drafted into Gmail against the live rate card, anything unusual gets flagged to a
-             human instead of guessed at. Built in n8n. Every reply is drafted and never sent:
-             a person still reads it and presses send, which is the only version of this a
-             small business should run.</p>
-          <a class="card-link" href="automation.html">How I build these</a>
+          <p>Built in n8n for my own surf-hire business. An enquiry hits a webhook from the booking
+             form, an AI model reads what the customer actually asked for, and the workflow routes
+             it — a straightforward booking gets a priced reply drafted against the live rate card,
+             anything unusual goes to a person rather than being guessed at.</p>
         </div>
       </div>
       <div class="card rv rv-d1" data-cursor="View">
-        <div class="card-media"><img src="img/shot-carbonintel.jpg" alt="Carbon Projects Intelligence — public showcase page" loading="lazy"></div>
+        <div class="card-media"><img src="img/shot-bondi-dashboard.png" alt="Owner dashboard with AI weekly summary" loading="lazy"></div>
         <div class="card-body">
-          <span class="card-kind">AI · Carbon Markets</span>
-          <h3>Carbon Projects Intelligence</h3>
-          <p>Market-intelligence platform over the voluntary carbon market: an internal prospect
-             CRM covering 1,000+ companies with segmentation, fit scoring and outreach logging,
-             a database of 11,659 carbon projects across five registries, demand analytics, and
-             a weekly AI-generated market digest — fed by automated pipelines from OffsetsDB and
-             the Australian Clean Energy Regulator. Built for and used on project work by
-             origination and investment teams.</p>
-          <a class="card-link" href="https://pollination-carbon-intel.vercel.app" target="_blank" rel="noopener">Open live tool</a>
+          <span class="card-kind">AI · Small Business Ops</span>
+          <h3>Surf Shop Intelligence Layer</h3>
+          <p>The same business from the owner's side. Revenue from Stripe and cash records, bookings
+             read back from the Google Calendar the booking form writes into, and the local surf
+             forecast — one view, nothing re-keyed. An AI layer reads the live numbers and writes a
+             plain-English weekly summary, guard-railed so it can only state numbers from the data.</p>
+          <a class="card-link" href="img/shot-bondi-dashboard-full.png" target="_blank" rel="noopener">See the full dashboard</a>
         </div>
       </div>
       <div class="card rv rv-d2" data-cursor="View">
-        <div class="card-media"><img src="img/shot-sbti.jpg" alt="SBTi Pathway Model — eligibility screening wizard" loading="lazy"></div>
+        <div class="card-media"><img src="img/shot-carbonintel.jpg" alt="Carbon projects intelligence platform" loading="lazy"></div>
         <div class="card-body">
-          <span class="card-kind">AI · Net Zero</span>
-          <h3>SBTi Pathway Model</h3>
-          <p>Guided wizard that screens which SBTi criteria apply to an organisation, then models
-             its science-based decarbonisation pathway from its emissions data.</p>
-          <a class="card-link" href="https://sb-ti-modelling.vercel.app" target="_blank" rel="noopener">Open live tool</a>
+          <span class="card-kind">AI · Market Intelligence</span>
+          <h3>Research and CRM Automation</h3>
+          <p>Built at work: a prospect database of 1,000+ companies with automated fit scoring and
+             outreach logging, automated pipelines pulling 11,659 project records from five external
+             registries into one live view, and a weekly AI market digest that replaced days of
+             manual research. Plus internal training so colleagues could build their own tools.</p>
         </div>
       </div>
-      <div class="card rv rv-d1" data-cursor="View">
-        <div class="card-media"><img src="img/shot-bdtracker.jpg" alt="BD Tracker — target clients, companies, pipeline and Australian market intelligence" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">Business Development</span>
-          <h3>Carbon Market BD Tracker</h3>
-          <p>Business-development platform: target-client identification, company profiles, deal
-             pipeline and Australian market intelligence — scoring companies on climate
-             commitments, emissions obligations and relationship history to prioritise where the
-             commercial effort goes.</p>
-          <a class="card-link" href="https://gusharman-a11y-climate-risk.vercel.app" target="_blank" rel="noopener">Open live tool</a>
-        </div>
-      </div>
-      <div class="card rv rv-d2" data-cursor="View">
-        <div class="card-media"><img src="img/cover-bluecarbon.svg" alt="Blue Carbon Dashboard — demo on request" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">Carbon · MRV</span>
-          <h3>Blue Carbon Dashboard</h3>
-          <p>Project tracker for blue-carbon (VM0033) projects built on Verra registry data —
-             monitoring project pipeline and issuance.</p>
-          <a class="card-link" href="#contact">Demo on request</a>
-        </div>
-      </div>
-      <div class="card rv rv-d2" data-cursor="View">
-        <div class="card-media"><img src="img/shot-esrs.jpg" alt="ESRS Cheat Sheet — 328 datapoints across all 12 standards" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">Reporting · ESRS</span>
-          <h3>ESRS Cheat Sheet</h3>
-          <p>Interactive reference covering all 12 EU sustainability reporting standards —
-             328 datapoints, filterable by standard, data type and TNFD alignment.</p>
-          <a class="card-link" href="https://esrs-cheatsheet.vercel.app" target="_blank" rel="noopener">Open live tool</a>
-        </div>
-      </div>
-      <div class="card rv" data-cursor="View">
-        <div class="card-media"><img src="img/shot-nearme.jpg" alt="nearme — gear that's local, peer-to-peer rental marketplace" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">Web · Marketplace</span>
-          <h3>nearme</h3>
-          <p>Peer-to-peer gear rental marketplace for Greater Sydney — search, listings and
-             bookings, built end to end. Includes the privacy and security layer a marketplace
-             handling strangers, money and personal data needs: hashed credentials and signed
-             session tokens, email and Stripe Identity verification gates, expiring
-             password-reset tokens, role-based access, and risk-event and webhook auditing —
-             with card details handled by Stripe and never stored in my own database.</p>
-          <a class="card-link" href="https://nearmoi-drab.vercel.app" target="_blank" rel="noopener">Open live site</a>
-        </div>
-      </div>
+    </div>
+    <div class="stack-row rv">
+      <span class="tag">n8n</span><span class="tag">OpenAI</span><span class="tag">Claude</span>
+      <span class="tag">Python</span><span class="tag">APIs &amp; webhooks</span><span class="tag">RAG</span>
+      <span class="tag">Document extraction</span><span class="tag">Supabase &amp; Postgres</span>
+      <span class="tag">Power BI</span><span class="tag">Stripe</span><span class="tag">Google Workspace</span>
     </div>
   </div>
 </section>
 
-<!-- ============ POWER BI ============ -->
-<section id="powerbi">
+<section id="start" style="background:var(--ink-2)">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="eyebrow">Business intelligence</p>
-      <h2 data-words>Power BI.</h2>
-      <p class="dim">Power BI is how I turn messy operational data into decisions: supplier, activity
-         and finance data consolidated from multiple client systems into single report models,
-         including bulk uploads of multinational procurement data cleansed, mapped and validated
-         on load. That analysis identified 80% of emissions hotspots across £500m+ supply-chain
-         programmes and drove a 24% reduction in Scope 3 exposure. The dashboards below are
-         representative rebuilds; client data stays confidential.</p>
+      <h2 data-words>How we <span class="italic">start.</span></h2>
+      <p class="dim">Usually the first one, because it tells us both whether the rest is worth doing.</p>
     </div>
-    <div class="work-grid">
-      <div class="card rv" data-cursor="View">
-        <div class="card-media"><img src="img/powerbi-emissions.svg" alt="Power BI style emissions dashboard: KPI tiles, emissions by category with energy and food procurement highlighted, monthly trend by brand, scope breakdown"></div>
-        <div class="card-body">
-          <span class="card-kind">Emissions analytics</span>
-          <h3>Group emissions — national leisure &amp; hospitality groups</h3>
-          <p>Emissions reporting across two national leisure and hotel groups, unifying site-level
-             energy data with procurement records — surfacing energy use and food procurement as
-             the two dominant emission areas and giving each business a clear reduction focus.</p>
-        </div>
+    <div class="start-grid">
+      <div class="start-card rv">
+        <h3>Automation audit</h3>
+        <p>A call and a written list: what in your back office can be automated, what it's worth in
+           hours, and what to do first. You keep the list whether or not I build any of it.</p>
+        <span class="when">Start here</span>
       </div>
-      <div class="card rv rv-d1" data-cursor="View">
-        <div class="card-media"><img src="img/powerbi-spend.svg" alt="Power BI style spend dashboard: KPI tiles, spend by area with care staffing and catering highlighted, monthly spend vs budget, quarterly breakdown"></div>
-        <div class="card-body">
-          <span class="card-kind">Spend analytics</span>
-          <h3>Business spend — retirement-home operator</h3>
-          <p>Spend analysis across the operating areas of a retirement-homes business — where the
-             money goes, by category and site, so leadership could see cost concentrations and
-             act on them.</p>
-        </div>
+      <div class="start-card rv rv-d1">
+        <h3>One workflow, built</h3>
+        <p>Pick the job that wastes the most time. I build it end to end, in your accounts,
+           documented, and hand it over working.</p>
+        <span class="when">Fixed scope</span>
+      </div>
+      <div class="start-card rv rv-d2">
+        <h3>Ongoing</h3>
+        <p>A few days a month building the next one, keeping what's running healthy, and training
+           your team to build the simple ones themselves.</p>
+        <span class="when">Retained</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ BACKGROUND ============ -->
-<section id="cv">
-  <div class="wrap">
-    <div class="bio rv">
-      <div class="bio-copy">
-        <h2 data-words>The <span class="italic">background.</span></h2>
-        <p class="dim">Chartered Accountant, ten years across Big 4 consulting, in-house leadership and
-           climate investment. Based in Sydney, working with clients across Australia and the UK.</p>
-        <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>Download full CV (PDF)</a>
-      </div>
-      <figure class="bio-photo">
-        <img src="img/angus.jpg" alt="Angus Harman" loading="lazy" width="900" height="900">
-      </figure>
-    </div>
-    <div class="timeline">
-      <div class="tl-item rv">
-        <span class="when">Sept 2025 — Present</span>
-        <h3>Associate Director, Climate Advisory &amp; Investment</h3>
-        <div class="where">Pollination · Sydney</div>
-        <p>Built carbon market insights dashboards, hosted on Vercel and used on project work,
-           integrating multiple registry and market data sources into a single view of project
-           pipeline and status, credit issuance volumes and pricing, and project economics —
-           significantly reducing manual research time. Built an internal prospect CRM covering
-           1,000+ companies with segmentation, fit scoring and outreach logging. Deployed
-           internal AI tools and automations replacing manual research, market intelligence and
-           document production with repeatable processes, and designed and delivered an internal
-           AI session teaching colleagues to build their own reusable Claude skills ahead of the
-           firm's move to Claude Enterprise. Advises ASX-listed corporates and government on
-           climate strategy and disclosure under AASB S2 and IFRS S2, including executive
-           scenario modelling using NGFS and Oxford Economics datasets.</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">Oct 2022 — Sept 2025</span>
-        <h3>Senior Sustainability Management Consultant</h3>
-        <div class="where">Accenture · London</div>
-        <p>Advised global real estate and food sector clients on carbon accounting platform
-           selection, project managing the tender and data integration process. Led £500m+
-           supply-chain transformation programmes — identifying 80% of emissions hotspots
-           through Power BI analysis and delivering a 24% reduction in Scope 3 exposure. Owned
-           the ecoinvent emissions-factor database licence end to end, from negotiation with
-           procurement through to allocation and utilisation across the team. Defined data
-           standards, boundaries, calculation methods and source ownership across client
-           reporting under the GHG Protocol, SBTi, CSRD and TCFD; managed sales pipeline in
-           Workday; and developed the strategy roadmap, operating model, KPI framework and
-           governance design for NEOM's US$500B+ smart-city programme.</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">Aug 2021 — Jul 2022</span>
-        <h3>Strategic Sourcing &amp; Sustainability Partner</h3>
-        <div class="where">Metlifecare · Auckland</div>
-        <p>Built a new procurement function from scratch as a team of two — process, systems,
-           data, supplier evaluation criteria and reporting across $220m of spend — delivering
-           $8m of savings in year one. Built the budget, forecasts and monthly management
-           reporting pack presented to the executive team.
-           Cleansed and classified supplier and spend data into a single reliable view, and built
-           the full Scope 1–3 emissions data model behind a 42% reduction target written into the
-           terms of a Sustainability-Linked Loan. Acted as Interim Head of Sustainability.</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">Mar 2020 — Aug 2021</span>
-        <h3>Sustainable Supply Chain Specialist</h3>
-        <div class="where">Pareto Toolbox · Auckland</div>
-        <p>Developed single-source-of-truth Power BI spend cubes for client procurement data,
-           consolidating and cleansing large volumes of inconsistent transactional data from
-           multiple source systems into common category taxonomies and supplier master data,
-           with clear ownership and refresh rules. Used Power BI analysis to identify savings
-           opportunities across categories, delivering 17% average cost savings. Led
-           transformation programmes for KiwiRail ($1.2B capex), Auckland Airport ($500M
-           infrastructure) and Metlifecare ($100M portfolio).</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">May 2018 — Aug 2020</span>
-        <h3>Co-founder</h3>
-        <div class="where">Benefaction · Christchurch</div>
-        <p>Co-founded and ran a sustainability consultancy — built the operating processes,
-           systems and reporting the business ran on, with monthly investor reporting. Built NGO
-           and corporate partnerships delivering measurable community outcomes; featured on TVNZ
-           One News and national radio.</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">Sept 2017 — Mar 2020</span>
-        <h3>Consultant, Private Client Advisory Services</h3>
-        <div class="where">EY · Christchurch</div>
-        <p>Qualified as a Chartered Accountant (CA ANZ), delivering financial advisory, tax
-           planning and reporting to SMEs, companies and investors. Built financial models,
-           cash-flow forecasts and scenario analysis underpinning client investment and
-           operating decisions.</p>
-      </div>
-      <div class="tl-item rv">
-        <span class="when">Education</span>
-        <h3>Double Major — Accounting &amp; Supply Chain Management</h3>
-        <div class="where">Lincoln University (2012–2015) · Cambridge University — Sustainable Supply Chain Management (2022) · Chartered Accountants ANZ</div>
-        <p>Chartered Accountants ANZ Excellence Award · Lincoln University Cricket and Academic
-           Sports Scholarships.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
+<section class="contact">
   <h2 class="rv" data-words>Got something that needs <span class="italic">doing?</span></h2>
   <div class="contact-links rv">
-    <a class="btn" id="book-cta" href="mailto:gusharman@gmail.com?subject=Intro%20call" data-magnetic data-flip>Book a call</a>
-    <a class="btn ghost" href="mailto:gusharman@gmail.com?subject=Contract%20enquiry" data-magnetic data-flip>Email me</a>
-    <a class="btn ghost" href="https://www.linkedin.com/in/angus-harman-ca-68a418bb/" target="_blank" rel="noopener" data-magnetic data-flip>LinkedIn</a>
-    <a class="btn ghost" href="Angus-Harman-CV.pdf" download="Angus-Harman-CV.pdf" data-magnetic data-flip>CV (PDF)</a>
+    <a class="btn" href="https://calendly.com/gusharman/30min" target="_blank" rel="noopener" data-magnetic data-flip>Book a call</a>
+    <a class="btn ghost" href="mailto:gusharman@gmail.com?subject=Automation%20enquiry" data-magnetic data-flip>Email me</a>
+    <a class="btn ghost" href="index.html" data-magnetic data-flip>Main site</a>
   </div>
-
-  <!-- Booking embed. Paste the Google Calendar appointment-schedule URL into
-       BOOKING_URL below and the scheduler renders here automatically. -->
-  <div class="booking rv" id="booking"></div>
-  <script>
-    // Calendly booking page — change this one line to move to a different event type.
-    const BOOKING_URL = "https://calendly.com/gusharman/30min";
-    (function(){
-      if(!BOOKING_URL) return;
-      const cta = document.getElementById('book-cta');
-      if(cta) cta.setAttribute('href', '#booking');
-
-      // Only pull in Calendly's script once the section is near the viewport,
-      // so the third-party JS never slows down the first paint.
-      const host = document.getElementById('booking');
-      const url = BOOKING_URL + (BOOKING_URL.includes('?') ? '&' : '?') +
-        'hide_gdpr_banner=1&background_color=ffffff&text_color=0a0a0a&primary_color=ff7a18';
-      let loaded = false;
-      const mount = function(){
-        if(loaded) return; loaded = true;
-        host.innerHTML =
-          '<div class="booking-frame"><div class="calendly-inline-widget" data-url="' + url + '"></div></div>' +
-          '<p class="booking-note">Pick a time that suits — it books straight into my calendar.</p>';
-        const s = document.createElement('script');
-        s.src = 'https://assets.calendly.com/assets/external/widget.js';
-        s.async = true;
-        document.body.appendChild(s);
-      };
-      if('IntersectionObserver' in window){
-        const io = new IntersectionObserver(function(es){
-          if(es.some(function(e){return e.isIntersecting})){ io.disconnect(); mount(); }
-        }, {rootMargin:'600px'});
-        io.observe(host);
-      } else { mount(); }
-    })();
-  </script>
 </section>
-
-<div class="logos" aria-label="Companies I've worked for">
-  <p class="eyebrow">Where I've worked</p>
-  <div class="logos-marquee">
-    <div class="logos-track" id="logos-track">
-      <span class="lg-pollination">Pollination</span>
-      <span class="lg-accenture">accenture <i>&gt;</i></span>
-      <span class="lg-ey">EY</span>
-      <span class="lg-metlifecare">Metlifecare</span>
-      <span class="lg-pareto">Pareto Toolbox</span>
-      <span class="lg-benefaction">Benefaction</span>
-    </div>
-  </div>
-</div>
 
 <footer>
   <span>© 2026 Angus Harman</span>
