@@ -13,12 +13,12 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Climate &amp; AI Advisory — Angus Harman (CA)">
 <meta property="og:description" content="Independent climate &amp; AI consulting — Chartered Accountant, 10+ years across climate advisory, procurement and business transformation. Sydney &amp; remote.">
-<meta property="og:url" content="https://angus-harman-portfolio.vercel.app/">
-<meta property="og:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
+<meta property="og:url" content="https://angusharmanclimateadvisory.vercel.app/">
+<meta property="og:image" content="https://angusharmanclimateadvisory.vercel.app/img/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://angus-harman-portfolio.vercel.app/img/og.jpg">
+<meta name="twitter:image" content="https://angusharmanclimateadvisory.vercel.app/img/og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
@@ -114,8 +114,18 @@
   .cur-dot,.cur-ring{display:none}
   html.js.fine .cur-dot,html.js.fine .cur-ring{display:flex}
 
+  /* page-to-page: the nav stays put while the page crossfades (progressive) */
+  @view-transition{navigation:auto}
+  nav{view-transition-name:site-nav}
+  ::view-transition-old(root),::view-transition-new(root){animation-duration:.55s}
+  ::view-transition-group(site-nav){animation-duration:.55s}
+  @media (prefers-reduced-motion:reduce){
+    ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+  }
+
   /* letter-flip rollover (Trionn-style doubled text) */
-  .lf{position:relative;overflow:hidden}
+  .lf{position:relative}
+  .lf .lf-clip{position:relative;display:inline-block;overflow:hidden;vertical-align:top;line-height:1.3}
   .lf .lf-w{display:inline-flex;white-space:pre}
   .lf .lf-w span{display:inline-block;transition:transform .55s var(--ease);transition-delay:calc(var(--i)*22ms)}
   .lf .lf-bot{position:absolute;left:0;top:0;width:100%;height:100%;justify-content:center}
@@ -197,18 +207,47 @@
   .hero-film{position:absolute;inset:0;overflow:hidden;z-index:0}
   .hero-film video{
     position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:brightness(1.45) contrast(1.06) saturate(1.12);
-    opacity:.92;
+    filter:brightness(1.75) contrast(1.05) saturate(1.15);
+    opacity:1;
     animation:filmdrift 40s ease-in-out infinite alternate;
   }
   .hero-film::after{
     content:"";position:absolute;inset:0;
     background:
-      linear-gradient(90deg, rgba(0,0,0,.90) 0%, rgba(0,0,0,.66) 30%, rgba(0,0,0,.22) 56%, rgba(0,0,0,.08) 100%),
-      linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,0) 24%, rgba(0,0,0,0) 68%, #000 100%);
+      linear-gradient(90deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.48) 30%, rgba(0,0,0,.12) 56%, rgba(0,0,0,.03) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.40) 0%, rgba(0,0,0,0) 24%, rgba(0,0,0,0) 72%, #000 100%);
   }
   @keyframes filmdrift{from{transform:scale(1.04) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.5%,-1%,0)}}
   @media (prefers-reduced-motion:reduce){.hero-film video{animation:none}}
+
+  /* hero entrance — the one authored moment: the film settles from a push-in
+     while the bloom breathes in behind the headline */
+  html.js .hero-film{transform:scale(1.14);transform-origin:52% 48%}
+  html.loaded .hero-film{animation:filmSettle 2.8s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes filmSettle{to{transform:scale(1)}}
+  html.js .hero-bloom{--bloom-o:1;opacity:0;transform:translateY(-50%) scale(.82)}
+  html.loaded .hero-bloom{animation:bloomIn 2.4s .25s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes bloomIn{to{opacity:var(--bloom-o);transform:translateY(-50%) scale(1)}}
+  @media (prefers-reduced-motion:reduce){
+    html.js .hero-film,html.js .hero-bloom{animation:none;transform:none;opacity:1}
+    html.js .hero-bloom{transform:translateY(-50%)}
+  }
+
+  /* scroll-driven recession: as you leave the hero the film dims and the
+     headline lifts away — CSS scroll timelines, so it costs no JS and simply
+     doesn't run where unsupported */
+  @supports (animation-timeline: scroll()){
+    @media (prefers-reduced-motion:no-preference){
+      html.loaded .hero-film{
+        animation:filmSettle 2.8s cubic-bezier(.16,1,.3,1) forwards, heroDim linear both;
+        animation-timeline:auto, scroll(root);
+        animation-range:normal, 0 100vh;
+      }
+      html.js .hero-grid{animation:heroLift linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+      @keyframes heroDim{to{filter:brightness(.3)}}
+      @keyframes heroLift{to{transform:translateY(-12vh);opacity:0}}
+    }
+  }
   @media(max-width:980px){.hero-film video{opacity:.5}}
 
   /* ---------- hero: text left, work collage right, amber bloom ---------- */
@@ -236,7 +275,7 @@
   @media(max-width:980px){
     .hero-grid{grid-template-columns:1fr}
     .hero-inner{max-width:none}
-    .hero-bloom{right:-40vw;width:110vw;opacity:.8}
+    .hero-bloom{right:-40vw;width:110vw;opacity:.8;--bloom-o:.8}
   }
 
   /* ---------- marquee ---------- */
@@ -634,36 +673,6 @@
     </div>
     <div class="work-grid">
       <div class="card rv" data-cursor="View">
-        <div class="card-media"><img src="img/shot-bondi-dashboard.png" alt="Bondi Surf Rentals — owner dashboard with AI weekly summary" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">AI · Small Business Ops</span>
-          <h3>Surf Shop Intelligence Layer</h3>
-          <p>Owner dashboard for a real Bondi surfboard-hire business, built on the systems it
-             already runs: revenue from Stripe and cash records, bookings read back from the
-             Google Calendar the booking form writes into, and the 7-day Bondi surf forecast —
-             one view, nothing re-keyed, nothing stored twice. An AI layer reads the live
-             numbers on demand and writes the owner a plain-English weekly summary: how the
-             week went, which bookings still need confirming, and when the weather is about to
-             help or hurt trade. Guard-railed so it can only state numbers from the data.</p>
-          <a class="card-link" href="img/shot-bondi-dashboard-full.png" target="_blank" rel="noopener">See the full dashboard</a>
-        </div>
-      </div>
-      <div class="card rv rv-d1" data-cursor="View">
-        <div class="card-media"><img src="img/flow-booking-automation.svg" alt="Booking enquiry automation — webhook to AI to routed Gmail draft" loading="lazy"></div>
-        <div class="card-body">
-          <span class="card-kind">Automation · n8n</span>
-          <h3>Booking Enquiry Automation</h3>
-          <p>The same surf-hire business, on the other side of the counter. An enquiry hits a
-             webhook from the booking form, an AI model reads what the customer actually asked
-             for, and the workflow routes it — a straightforward booking gets a priced reply
-             drafted into Gmail against the live rate card, anything unusual gets flagged to a
-             human instead of guessed at. Built in n8n. Every reply is drafted and never sent:
-             a person still reads it and presses send, which is the only version of this a
-             small business should run.</p>
-          <a class="card-link" href="automation.html">How I build these</a>
-        </div>
-      </div>
-      <div class="card rv rv-d1" data-cursor="View">
         <div class="card-media"><img src="img/shot-carbonintel.jpg" alt="Carbon Projects Intelligence — public showcase page" loading="lazy"></div>
         <div class="card-body">
           <span class="card-kind">AI · Carbon Markets</span>
@@ -956,6 +965,8 @@ if (FINE) document.documentElement.classList.add('fine');
     document.documentElement.classList.add('loaded');
     setTimeout(()=>loader.remove(),1100);
   }
+  const sameSite=document.referrer.startsWith(location.origin+'/');
+  if(sameSite){loader.remove();document.documentElement.classList.add('loaded');return;}
   if(NO_MOTION){finish();return;}
   const t0=performance.now(),DUR=1150;
   (function step(t){
@@ -1020,8 +1031,11 @@ document.querySelectorAll('[data-flip]').forEach(el=>{
   };
   el.textContent='';
   el.classList.add('lf');
-  el.appendChild(mk('lf-top'));
-  el.appendChild(mk('lf-bot'));
+  el.setAttribute('aria-label',txt);
+  const clip=document.createElement('span');clip.className='lf-clip';
+  clip.appendChild(mk('lf-top'));
+  const bot=mk('lf-bot');bot.setAttribute('aria-hidden','true');clip.appendChild(bot);
+  el.appendChild(clip);
 });
 
 /* ================= custom cursor (dot + lagging ring with labels) ================= */
