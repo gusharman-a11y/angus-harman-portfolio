@@ -482,14 +482,6 @@
   .ph-inner h1{font-size:clamp(2.7rem,7vw,5rem);margin:.55em 0 .4em}
   .ph-inner .hero-sub{max-width:40rem}
 
-  .rules{margin-top:1rem;border-top:1px solid var(--line)}
-  .rule{
-    display:grid;grid-template-columns:15rem 1fr;gap:1.5rem;
-    padding:1.9rem 0;border-bottom:1px solid var(--line);
-  }
-  .rule h3{font-size:1.18rem;font-weight:500;letter-spacing:-.02em}
-  .rule p{color:var(--bone-dim);max-width:58ch}
-  @media(max-width:760px){.rule{grid-template-columns:1fr;gap:.5rem}}
 
   .stack-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;max-width:52rem}
   .start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.6rem}
@@ -596,46 +588,6 @@
   </div>
 </section>
 
-<section id="how" style="background:var(--ink-2)">
-  <div class="wrap">
-    <div class="section-head rv">
-      <h2 data-words>How I build <span class="italic">them.</span></h2>
-      <p class="dim">Automation goes wrong in predictable ways. These are the rules I work to.</p>
-    </div>
-    <div class="rules">
-      <div class="rule rv">
-        <h3>Numbers come from the system that owns them</h3>
-        <p>An AI asked to remember your prices will eventually quote one that's wrong, confidently.
-           So it doesn't remember them. It calls the system that already holds the answer and uses
-           what comes back. On a surf-hire build, the agent quotes by calling the same pricing
-           module the website itself charges from, which means it physically cannot quote a price
-           the business wouldn't honour.</p>
-      </div>
-      <div class="rule rv">
-        <h3>A person stays in the loop where it counts</h3>
-        <p>Anything a customer sees is drafted for review before it goes out, unless you've decided
-           otherwise with your eyes open. Automation should remove the typing, not the judgement.</p>
-      </div>
-      <div class="rule rv">
-        <h3>The unusual case goes to a human, not a guess</h3>
-        <p>Every workflow needs an answer for the input it wasn't designed for. If there's no path
-           for the awkward enquiry, it doesn't get handled badly — it disappears silently, which is
-           worse. Everything that doesn't fit gets flagged to a person.</p>
-      </div>
-      <div class="rule rv">
-        <h3>I work out the process before I automate it</h3>
-        <p>Half of what people ask me to automate shouldn't be automated — it should be stopped,
-           merged or fixed first. I've run these processes, so I'll tell you when the honest answer
-           is that a workflow isn't the fix.</p>
-      </div>
-      <div class="rule rv">
-        <h3>You own it when I'm done</h3>
-        <p>Built in your accounts, documented, with the logic visible rather than buried in a prompt.
-           No dependency on me to keep it running.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="running">
   <div class="wrap">
