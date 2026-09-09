@@ -476,11 +476,104 @@
   }
 </style>
 <style>
-  /* ---- automation page ---- */
-  .page-hero{padding:clamp(8rem,16vh,11rem) 0 clamp(3.5rem,7vh,5.5rem);border-bottom:1px solid var(--line)}
-  .ph-inner{max-width:47rem}
-  .ph-inner h1{font-size:clamp(2.7rem,7vw,5rem);margin:.55em 0 .4em}
-  .ph-inner .hero-sub{max-width:40rem}
+  /* ---- AI Advisory hero: outlined type + live knot ---- */
+  .ai-hero{
+    position:relative;min-height:100svh;overflow:hidden;background:var(--ink);
+    display:grid;grid-template-rows:1fr auto;padding:7.5rem 6vw 2.4rem;
+  }
+  .ai-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;gap:2rem}
+  .ai-copy{align-self:center}
+  .eyebrow.plus::before{content:"+";width:auto;height:auto;background:none;color:var(--pollen);font-size:1.3em;line-height:1;margin-right:.1em}
+  .ai-hero h1{
+    margin:1.4rem 0 0;font-weight:500;letter-spacing:-.045em;line-height:.92;
+    font-size:clamp(3.4rem,10.6vw,10.4rem);
+  }
+  .ai-hero h1 .line span{white-space:nowrap}
+  .ai-hero h1 .outline{
+    color:transparent;-webkit-text-stroke:1.5px var(--bone);
+    position:relative;padding-right:.16em;
+  }
+  @supports not (-webkit-text-stroke:1px #fff){.ai-hero h1 .outline{color:var(--bone-dim)}}
+  .ai-hero h1 .dot{
+    position:absolute;right:0;bottom:.08em;width:.14em;height:.14em;background:var(--pollen);
+    -webkit-text-stroke:0;
+  }
+  .ai-note{
+    display:flex;gap:.7rem;align-items:flex-start;padding-top:8.5rem;
+    font-size:.92rem;line-height:1.5;color:var(--bone-dim);max-width:13rem;
+  }
+  .plus-mark{color:var(--pollen);font-size:1.2rem;line-height:1.15}
+  html.js .ai-note{opacity:0}
+  html.loaded .ai-note{animation:fade 1s .9s forwards}
+
+  .ai-foot{
+    position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:2rem;margin-top:2rem;
+  }
+  .ai-sub{max-width:26rem;color:rgba(255,255,255,.86);font-size:clamp(1rem,1.3vw,1.18rem);line-height:1.55}
+  html.js .ai-sub,html.js .ai-foot > *{opacity:0}
+  html.loaded .ai-foot > *{animation:fade 1s .7s forwards}
+  .ai-explore{
+    justify-self:center;display:inline-flex;align-items:center;gap:1rem;
+    color:var(--bone);text-decoration:none;font-size:1.02rem;font-weight:500;
+  }
+  .ai-explore-ring{
+    width:4.6rem;height:4.6rem;border-radius:50%;border:1px solid rgba(255,255,255,.35);
+    display:grid;place-items:center;font-size:1.3rem;transition:background .35s,border-color .35s,transform .5s var(--ease);
+  }
+  .ai-explore:hover .ai-explore-ring{background:var(--bone);color:var(--ink);border-color:var(--bone);transform:rotate(-45deg)}
+  .ai-controls{justify-self:end;display:flex;flex-direction:column;align-items:flex-end;gap:.7rem}
+  .ai-hint{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--bone-dim)}
+  .ai-pause{
+    display:inline-flex;align-items:center;gap:.6rem;background:none;border:0;color:var(--bone-dim);
+    font:inherit;font-size:.92rem;cursor:pointer;padding:.3rem 0;transition:color .3s;
+  }
+  .ai-pause:hover{color:var(--bone)}
+  .ai-pause:focus-visible{outline:2px solid var(--pollen);outline-offset:4px;border-radius:3px}
+  .ai-pause-icon{width:.8rem;height:.8rem;position:relative}
+  .ai-pause-icon::before,.ai-pause-icon::after{content:"";position:absolute;top:0;bottom:0;width:.2rem;background:currentColor}
+  .ai-pause-icon::before{left:0}.ai-pause-icon::after{right:0}
+  .ai-pause[aria-pressed="true"] .ai-pause-icon::before{left:.1rem;width:0;height:0;top:50%;transform:translateY(-50%);border-left:.7rem solid currentColor;border-top:.42rem solid transparent;border-bottom:.42rem solid transparent;background:none}
+  .ai-pause[aria-pressed="true"] .ai-pause-icon::after{display:none}
+
+  /* the knot: sits right of centre and overlaps the outlined line, like the reference */
+  .knot-wrap{
+    position:absolute;z-index:1;top:0;right:0;bottom:0;width:min(62vw,1100px);
+    pointer-events:none;
+  }
+  .knot-wrap canvas{width:100%;height:100%;display:block}
+  html.js .knot-wrap{opacity:0;transform:scale(.86) translateX(4%)}
+  html.loaded .knot-wrap{animation:knotIn 2.6s .15s cubic-bezier(.16,1,.3,1) forwards}
+  @keyframes knotIn{to{opacity:1;transform:none}}
+  .knot-fallback{
+    position:absolute;inset:0;display:none;
+    background:radial-gradient(ellipse 34% 42% at 62% 50%,rgba(255,122,24,.32),rgba(255,122,24,.06) 50%,transparent 72%);
+    filter:blur(30px);
+  }
+  .knot-wrap.no-webgl canvas{display:none}
+  .knot-wrap.no-webgl .knot-fallback{display:block}
+  @supports (animation-timeline: scroll()){
+    @media (prefers-reduced-motion:no-preference){
+      html.loaded .knot-wrap{animation:knotIn 2.6s .15s cubic-bezier(.16,1,.3,1) forwards, knotRecede linear both;animation-timeline:auto,scroll(root);animation-range:normal,0 100vh}
+      html.js .ai-grid,html.js .ai-foot{animation:heroLift linear both;animation-timeline:scroll(root);animation-range:0 90vh}
+      @keyframes knotRecede{to{opacity:0;translate:0 -10vh}}
+      @keyframes heroLift{to{transform:translateY(-12vh);opacity:0}}
+    }
+  }
+  @media (prefers-reduced-motion:reduce){
+    html.js .knot-wrap,html.js .ai-note,html.js .ai-foot > *{animation:none;opacity:1;transform:none}
+  }
+  @media(max-width:900px){
+    .ai-hero{padding-top:6.5rem}
+    .ai-grid{grid-template-columns:1fr}
+    .ai-note{padding-top:0;max-width:none}
+    .ai-hero h1{font-size:clamp(3rem,15vw,6rem)}
+    .knot-wrap{width:100vw;top:12vh;opacity:.4}
+    html.loaded .knot-wrap{animation-name:knotInDim}
+    @keyframes knotInDim{to{opacity:.4;transform:none}}
+    .ai-foot{grid-template-columns:1fr;gap:1.4rem}
+    .ai-explore{justify-self:start}
+    .ai-controls{align-items:flex-start}
+  }
 
 
   .stack-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;max-width:52rem}
@@ -517,19 +610,38 @@
   </div>
 </nav>
 
-<header class="page-hero" id="top">
-  <div class="wrap">
-    <div class="ph-inner rv">
-      <span class="eyebrow">Angus Harman CA · Sydney</span>
-      <h1>AI <span class="italic">Advisory.</span></h1>
-      <p class="hero-sub">I'm a Chartered Accountant. I spent ten years running finance, procurement
-         and operations before I started building the systems that run them. Most automations fail
-         for the same reason: nobody understood the process properly before wiring it up. That's
-         where I start.</p>
-      <div class="hero-cta">
-        <a class="btn" href="#start" data-magnetic data-flip>Book a call</a>
-        <a class="btn ghost" href="#running" data-magnetic data-flip>See what I've built</a>
-      </div>
+<header class="ai-hero" id="top">
+  <div class="knot-wrap" id="knot-wrap" data-cursor="Explore" aria-hidden="true">
+    <canvas id="knot"></canvas>
+    <div class="knot-fallback"></div>
+  </div>
+
+  <div class="ai-grid">
+    <div class="ai-copy">
+      <span class="eyebrow plus">AI &amp; Business Transformation</span>
+      <h1>
+        <span class="line"><span>Make AI</span></span>
+        <span class="line"><span>work for</span></span>
+        <span class="line"><span class="outline">your business<i class="dot"></i></span></span>
+      </h1>
+    </div>
+    <aside class="ai-note">
+      <span class="plus-mark">+</span>
+      <span>Human perspective.<br>Machine possibility.</span>
+    </aside>
+  </div>
+
+  <div class="ai-foot">
+    <p class="ai-sub">I turn complex business challenges into useful AI, smarter systems and better decisions.</p>
+    <a class="ai-explore" href="#what" data-magnetic>
+      <span class="ai-explore-ring" aria-hidden="true">&#8600;</span>
+      <span>Explore what&#8217;s possible</span>
+    </a>
+    <div class="ai-controls">
+      <span class="ai-hint">Move to explore</span>
+      <button class="ai-pause" id="knot-pause" type="button" aria-pressed="false">
+        <span class="ai-pause-icon" aria-hidden="true"></span><span class="ai-pause-label">Pause motion</span>
+      </button>
     </div>
   </div>
 </header>
@@ -863,6 +975,71 @@ const statIO=new IntersectionObserver(es=>es.forEach(en=>{
 }),{threshold:.5});
 document.querySelectorAll('.stat b').forEach(b=>statIO.observe(b));
 
+</script>
+<script type="importmap">{"imports":{"three":"https://cdnjs.cloudflare.com/ajax/libs/three.js/0.170.0/three.module.min.js"}}</script>
+<script type="module">
+/* ================= the knot — WebGL, hand-lit, follows the pointer ================= */
+const wrap=document.getElementById('knot-wrap'), canvas=document.getElementById('knot'), btn=document.getElementById('knot-pause');
+const REDUCED=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let running=!REDUCED, THREE;
+try{ THREE=await import('three'); }catch(e){ wrap.classList.add('no-webgl'); btn.hidden=true; }
+if(THREE){
+  let renderer;
+  try{ renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true,powerPreference:'high-performance'}); }
+  catch(e){ wrap.classList.add('no-webgl'); btn.hidden=true; }
+  if(renderer){
+    renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));
+    renderer.toneMapping=THREE.ACESFilmicToneMapping; renderer.toneMappingExposure=1.05;
+    const scene=new THREE.Scene();
+    const cam=new THREE.PerspectiveCamera(32,1,.1,50); cam.position.set(0,0,8.7);
+
+    // a (2,3) torus knot in dark gloss — the orange comes from light, not paint
+    const geo=new THREE.TorusKnotGeometry(1.18,.4,320,64,2,3);
+    const mat=new THREE.MeshPhysicalMaterial({color:0x2e302d,metalness:.6,roughness:.34,clearcoat:1,clearcoatRoughness:.12,sheen:.2,sheenColor:0xff7a18});
+    const knot=new THREE.Mesh(geo,mat); knot.rotation.set(.55,-.35,.2);
+    const group=new THREE.Group(); group.add(knot); scene.add(group);
+
+    scene.add(new THREE.AmbientLight(0xffffff,.18));
+    const key=new THREE.DirectionalLight(0xf2f4ff,1.7); key.position.set(-3,4,5); scene.add(key);
+    const ember=new THREE.PointLight(0xff6a14,17,12,1.6); ember.position.set(1.6,-.4,-1.2); scene.add(ember);   // inside the loops
+    const rim=new THREE.PointLight(0xff8a2e,7,10,1.5); rim.position.set(-2.6,-2.4,1.5); scene.add(rim);
+    const cool=new THREE.PointLight(0x9fb4ff,3,10,1.5); cool.position.set(3,3,2); scene.add(cool);
+
+    const target={x:0,y:0}, cur={x:0,y:0};
+    addEventListener('pointermove',e=>{ target.x=(e.clientX/innerWidth-.5)*2; target.y=(e.clientY/innerHeight-.5)*2; },{passive:true});
+
+    function size(){ const w=wrap.clientWidth||1, h=wrap.clientHeight||1; renderer.setSize(w,h,false); cam.aspect=w/h; cam.updateProjectionMatrix(); }
+    size(); addEventListener('resize',size);
+
+    let visible=true, raf=0, last=performance.now();
+    new IntersectionObserver(es=>{ visible=es[0].isIntersecting; if(visible&&running) loop(); },{threshold:0}).observe(wrap);
+
+    function frame(dt){
+      cur.x+=(target.x-cur.x)*.045; cur.y+=(target.y-cur.y)*.045;
+      knot.rotation.y+=dt*.14; knot.rotation.x+=dt*.05;
+      group.rotation.y=cur.x*.35; group.rotation.x=cur.y*.22;
+      group.position.x=.62+cur.x*.18; group.position.y=.12-cur.y*.12;
+      ember.position.x=1.6+cur.x*.8; ember.position.y=-.4-cur.y*.6;
+      renderer.render(scene,cam);
+    }
+    function loop(){
+      cancelAnimationFrame(raf);
+      const step=t=>{ const dt=Math.min(.05,(t-last)/1000); last=t; frame(dt); if(running&&visible&&!document.hidden) raf=requestAnimationFrame(step); };
+      last=performance.now(); raf=requestAnimationFrame(step);
+    }
+    frame(0);
+    if(running) loop();
+    document.addEventListener('visibilitychange',()=>{ if(!document.hidden&&running&&visible) loop(); });
+
+    function setRunning(on){
+      running=on; btn.setAttribute('aria-pressed',String(!on));
+      btn.querySelector('.ai-pause-label').textContent=on?'Pause motion':'Play motion';
+      if(on) loop(); else cancelAnimationFrame(raf);
+    }
+    btn.addEventListener('click',()=>setRunning(!running));
+    if(REDUCED) setRunning(false);
+  }
+}
 </script>
 </body>
 </html>
